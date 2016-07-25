@@ -207,7 +207,7 @@ if (TRUE || !cache_html_start($cache_key, $cache_default_interval)) {
 	$withinWeekly = FALSE;
 	do {
 		$line = next($lines);
-		if ($line == $today) {
+		if (startswith($line, $today)) {
 			$buffer = '';
 			while ($line !== FALSE) {
 				$line = next($lines);
