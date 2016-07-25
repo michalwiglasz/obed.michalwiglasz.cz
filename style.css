@@ -1,0 +1,142 @@
+/*
+@media only screen and (max-device-width: 600px) {
+    #body {
+        -ms-text-size-adjust: 300%;
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (orientation:landscape) {
+    #body {
+        -ms-text-size-adjust: 180%;
+        padding: 0 15px;
+    }
+}
+*/
+
+#body {
+    padding: 0 15px;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: blue;
+    color: #e4002b;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 166%;
+    font-weight: normal;
+    margin-bottom: 0.1em;
+    margin-top: 1em;
+}
+
+h1.emoji a {
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+h1.emoji a {
+    padding-right: 1.7em;
+}
+
+h1.emoji.ambulance a {background-image: url(em-ambulance.png)}
+h1.emoji.japanese a {background-image: url(em-japanese.png)}
+h1.emoji.camel a {background-image: url(em-camel.png)}
+h1.emoji.velorex a {background-image: url(em-velorex.png)}
+h1.emoji.nepal a {background-image: url(em-nepal.png)}
+h1.emoji.italy a {background-image: url(em-italy.png)}
+h1.emoji.monkey a {background-image: url(em-monkey.png); padding-right: 5.1em /*padding-right: 4.3em*/}
+
+.retrieved {
+    font-size: 60%;
+    margin-top: 0;
+    color: #999;
+}
+
+.help {
+    font-size: 60%;
+}
+
+.tmi-daily, .tmi-group-name {
+    padding: 0 4px;
+    margin: 0 -4px;
+    text-indent: -20px;
+    padding-left: 24px;
+}
+
+.tmi-daily.highlight1, .row.highlight1 {
+    background-color: khaki;
+}
+
+.tmi-daily.highlight2, .row.highlight2 {
+    background-color: pink  ;
+}
+
+.tmi-group-name {
+    font-weight: bold;
+}
+
+.tmi-text-group, .tmi-name, .tmi-price, .row {
+    display: inline;
+}
+
+.tmi-qty {
+    color: #999;
+    display: inline;
+}
+
+.tmi-price:before {
+    content: "…";
+}
+
+.tmi-price:empty:before {
+    display: none;
+    content: "";
+}
+
+.tmi-price {
+    font-weight: bold;
+}
+
+table#m5, table#m5 * {
+    display: block;
+}
+
+table#m5 td, table#m5 th, table#m5 small {
+    font-size: 100%;
+    display: inline;
+}
+
+table#m5 .slcen1 {
+    font-weight: bold;
+}
+
+table#m5 .slcen1:before {
+    content: "… ";
+}
+
+table#m5 .slcen2:before {
+    content: "/ ";
+}
+
+
+table#m5 small, table#m5 .slcen2 {
+    color: #999;
+    display: inline;
+}
+
+table#m5 .slcen3 {
+    display: none;
+}
