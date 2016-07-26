@@ -164,7 +164,7 @@ function print_price($price)
 	echo '</div></div>';
 }
 
-function print_item($what, $price, $quantity = NULL)
+function print_item($what, $price = NULL, $quantity = NULL)
 {
 	echo '<div class="tmi tmi-daily pb5 pt5">';
 	if ($what) print_what($what, $quantity);
