@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           }
         }
 
-        if (hashstr.length) {
+        if (!empty) {
             window.location.hash = hashstr.join(',');
         } else {
             history.pushState([], "", ".");
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
 
         for (var i = 0; i < hashstr.length; i++) {
-            var num = parseInt(hashstr[i]);
-            if (num) {
+            var num = parseInt(hashstr[i], 10);
+            if (!isNaN(num)) {
                 elements[num].classList.add('highlight1');
                 hash[num] = 1;
             }
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 return;
             }*/
             e.preventDefault();
-            num = parseInt(this.dataset.num);
+            num = parseInt(this.dataset.num, 10);
             if (this.classList.contains('highlight1')) {
                 this.classList.remove('highlight1');
                 hash[num] = 0;
