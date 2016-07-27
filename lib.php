@@ -5,7 +5,11 @@ require_once dirname(__FILE__) . '/simple_html_dom.php';
 
 function dump($obj) {
 	echo "<pre><code>";
+	ob_start();
 	var_dump($obj);
+	$dump = ob_get_contents();
+	ob_end_clean();
+	echo htmlspecialchars($dump);
 	echo "</code></pre>";
 	return $obj;
 }
@@ -117,11 +121,17 @@ function process_zomato($zomato, $cache_default_interval, $cache_html_interval, 
 		if ($menu) {
 			foreach ($menu->getElementsByTagName("div") as $element) {
 				$classy = $element->getAttribute("class");
-				echo $class;
-				if (strcasecmp($classy, "tmi-group") == 0)
-				{
-				echo filter_output($filters, $element);
-				break;
+				if ($element->getAttribute("class") == "tmi-group") {
+					foreach ($element->children as $child) {
+						if (strpos($child->getAttribute("class"), "tmi-group-name") !== FALSE) {
+							print_subheader($child->plaintext);
+						} else {
+							$what = $child->find('.tmi-name', 0)->plaintext;
+							$price = $child->find('.tmi-price', 0)->plaintext;
+							print_item($what, $price);
+						}
+					}
+					break;
 				}
 
 			}
@@ -151,22 +161,32 @@ function print_subheader($title)
 
 function print_what($what, $quantity = NULL)
 {
-	echo '<div class="tmi-text-group col-l-14"><div class="row"><div class="tmi-name">';
+	$what = preg_replace('(\\((A.)?[0-9,\\s]+\\))i', '', $what);
+	$what = htmlspecialchars(strip_tags($what));
+
+	if (is_null($quantity)) {
+		// auto-mark quantities
+		$what = preg_replace_callback('((([0-9][,.])?[0-9]+\\s*([gl]|ks)))', function ($m) {
+			return '<span class="tmi-qty">' . $m[0] . ' </span>';
+		}, $what);
+	}
+
+	echo '<span class="tmi-name">';
 	if ($quantity) echo '<span class="tmi-qty">' . htmlspecialchars(strip_tags($quantity)) . ' </span>';
-	echo htmlspecialchars(strip_tags($what));
-	echo "\n" . '</div></div></div>';
+	echo $what;  // sanitized above
+	echo "\n" . '</span>';
 }
 
 function print_price($price)
 {
-	echo '<div class="tmi-price ta-right col-l-2 bold"><div class="row">' . "\n";
+	echo '<span class="tmi-price">' . "\n";
 	echo htmlspecialchars(strip_tags($price));
-	echo '</div></div>';
+	echo '</span>';
 }
 
 function print_item($what, $price = NULL, $quantity = NULL)
 {
-	echo '<div class="tmi tmi-daily pb5 pt5">';
+	echo '<div class="tmi-daily">';
 	if ($what) print_what($what, $quantity);
 	if ($price) print_price($price);
 	echo '</div>';
