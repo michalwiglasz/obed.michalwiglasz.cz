@@ -1,6 +1,7 @@
 <?php
 
 ini_set('display_errors', 'on');
+date_default_timezone_set('Europe/Prague');
 header('content-type: text/html; charset=utf-8');
 
 $root = "https://obed.michalwiglasz.cz/embedit";

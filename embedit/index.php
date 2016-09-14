@@ -3,7 +3,7 @@ require_once dirname(__FILE__) . '/cfg.php';
 require_once dirname(__FILE__) . '/../lib.php';
 require_once dirname(__FILE__) . '/../pdf2text.php';
 
-$today = time();
+$today_timestamp = time();
 
 ?>
 <!DOCTYPE html>
@@ -50,20 +50,17 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	print_header('My Food', 'http://www.myfoodmarket.cz/brno-holandska/', 'myfood', $cached['stored']);
 
 	$today = date('N') - 1;  // 0 = monday, 6 = sunday
+	$menu = $cached['html']->find("div.dny div.jidla", 0)->children($today);
 
-	$soup = $cached['html']->find("div.dny div.jidla ul", $today * 2);
-	$dish = $cached['html']->find("div.dny div.jidla ul", $today * 2 + 1);
-
-	function myfood_process_items($parent) {
-		foreach ($parent->find('li') as $item) {
+	if ($menu) {
+		foreach ($menu->find('li') as $item) {
 			$what = implode('', $item->find('span')[0]->find('text'));
 			$price = implode('', $item->find('small')[0]->find('text'));
 			print_item($what, $price);
 		}
+	} else {
+		echo "Nepovedlo se načíst menu z webu.";
 	}
-
-	myfood_process_items($soup);
-	myfood_process_items($dish);
 
 	cache_html_end($cache_key);
 }
@@ -93,7 +90,7 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 			if ($item->tag == 'dt') {
 				$num =  implode('', $item->find('span text'));
 				$text = substr($text, strlen($num));
-				if (preg_match("((Polévka:\s*)?(.+[lG])\s+(.+)$)ui", $text, $m)) {
+				if (preg_match("((Polévka:\s*)?([0-9,.]+\\s*+[lG])\s+(.+)$)ui", $text, $m)) {
 					$text = $m[3];
 					$quantity = mb_strtolower($m[2]);
 				} else {
@@ -108,7 +105,11 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 		}
 	}
 
-	iq_process_items($todays);
+	if ($todays) {
+		iq_process_items($todays);
+	} else {
+		echo "Nepovedlo se načíst menu z webu.";
+	}
 	if ($weekly) {
 		print_subheader("Týdenní menu");
 		iq_process_items($weekly);
@@ -119,32 +120,71 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 
 /* ---------------------------------------------------------------------------*/
 
-$cache_key = 'tusto';
+$cache_key = 'snopek';
 if (!cache_html_start($cache_key, $cache_default_interval)) {
 	// cache miss
-	$cached = cache_get_html($cache_key, 'http://titanium.tusto.cz/tydenni-menu/', $cache_html_interval);
-	print_header('Tusto', 'http://titanium.tusto.cz/tydenni-menu/', 'tusto', $cached['stored']);
+	$cached = cache_get_html($cache_key . '-home', 'http://www.stravovanisnopek.cz/', $cache_html_interval);
+	print_header('Stravování Snopek', 'http://www.stravovanisnopek.cz/', 'snopek', $cached['stored']);
 
-	$today = date('N') - 1;  // 0 = monday, 6 = sunday
-	$todays = $cached['html']->find("#rccontent table.menu", $today);
-
-	/*
-	$soupDiv = $todaysDiv->find('div', 0);
-	$dishDiv = $todaysDiv->find('div', 1);
-	*/
-
-	foreach ($todays->find('tr') as $item) {
-		$h2 = $item->find('h2');
-		if ($h2) {
-			continue;
+	$ok = FALSE;
+	do {
+		$links = $cached['html']->find(".post-title a");
+		if (!count($links)) {
+			break;
 		}
 
-		$what = implode('', $item->find('td', 0)->find('text'));
-		$price = implode('', $item->find('td', 2)->find('text'));
-		$what = preg_replace('(^[0-9]+\\))', '', $what);
-		print_item($what, $price);
-	}
+		$current_week_link = NULL;
+		foreach($links as $link) {
+			if (startswith($link->href, 'http://www.stravovanisnopek.cz/jidelni-listek')) {
+				if (preg_match('/(\d+-\d+-\d+)-do-(\d+-\d+-\d+)/', $link->href, $m)) {
+					if (date('W', strtotime($m[1])) == date('W', $today_timestamp)) {
+						$current_week_link = $link->href;
+						break;
+					}
+				}
+			}
+		}
 
+		if (!$current_week_link) {
+			break;
+		}
+
+		$cached = cache_get_html($cache_key . '-menu', $current_week_link, $cache_html_interval);
+		$rows = $cached['html']->find(".post-entry p");
+		if (!count($rows)) {
+			break;
+		}
+
+		$withinToday = FALSE;
+		$days = ['PONDĚLÍ', 'ÚTERÝ', 'STŘEDA', 'ČTVRTEK', 'PÁTEK', 'SOBOTA', 'NEDĚLE'];
+		$today = $days[date('N') - 1];
+		$tomorrow = $days[date('N') % 7];
+		$terminator = 'ZMĚNA JÍDELNÍHO LÍSTKU';
+		foreach($rows as $row) {
+			$row = trim($row->plaintext);
+			$row_upper = mb_strtoupper($row);
+			if ($withinToday) {
+				if ((strpos($row_upper, $tomorrow) !== FALSE)
+					|| (strpos($row_upper, $terminator) !== FALSE))
+				{
+					$withinToday = FALSE;
+					$ok = TRUE;
+					break;
+				}
+
+				$what = preg_replace('#/[0-9,\\s]+/$#', '', $row);
+				print_item($what);
+
+			} elseif (strpos($row_upper, $today) !== FALSE) {
+				$withinToday = TRUE;
+				print_subheader($row);
+			}
+		}
+	} while(FALSE);
+
+	if (!$ok) {
+		echo "Nepovedlo se načíst menu z webu.";
+	}
 	cache_html_end($cache_key);
 }
 
@@ -197,7 +237,7 @@ if (TRUE || !cache_html_start($cache_key, $cache_default_interval)) {
 			$what = $buffer;
 			$price = NULL;
 		}
-		if (preg_match("(^([0-9]+[g])\s+(.+)$)ui", $what, $m)) {
+		if (preg_match("(^([0-9]+\s*(?:g|ks))\s+(.+)$)ui", $what, $m)) {
 			$what = $m[2];
 			$quantity = mb_strtolower($m[1]);
 		}
@@ -225,7 +265,10 @@ if (TRUE || !cache_html_start($cache_key, $cache_default_interval)) {
 					$buffer .= $line;
 				}
 			}
-			if ($buffer) process_buffer($buffer);
+			if ($buffer) {
+				process_buffer($buffer);
+				$buffer = '';
+			}
 			$menuPrinted = TRUE;
 		} elseif (trim($line) == 'Menu týdne:') {
 			print_subheader("Týdenní menu");
@@ -256,6 +299,40 @@ if (TRUE || !cache_html_start($cache_key, $cache_default_interval)) {
 		}
 	}
 */
+	cache_html_end($cache_key);
+}
+
+/* ---------------------------------------------------------------------------*/
+
+$cache_key = 'tusto';
+if (!cache_html_start($cache_key, $cache_default_interval)) {
+	// cache miss
+	$cached = cache_get_html($cache_key, 'http://titanium.tusto.cz/tydenni-menu/', $cache_html_interval);
+	print_header('Tusto', 'http://titanium.tusto.cz/tydenni-menu/', 'tusto', $cached['stored']);
+
+	$today = date('N') - 1;  // 0 = monday, 6 = sunday
+	$todays = $cached['html']->find("#rccontent table.menu", $today);
+
+	/*
+	$soupDiv = $todaysDiv->find('div', 0);
+	$dishDiv = $todaysDiv->find('div', 1);
+	*/
+	if ($todays) {
+		foreach ($todays->find('tr') as $item) {
+			$h2 = $item->find('h2');
+			if ($h2) {
+				continue;
+			}
+
+			$what = implode('', $item->find('td', 0)->find('text'));
+			$price = implode('', $item->find('td', 2)->find('text'));
+			$what = preg_replace('(^[0-9]+\\))', '', $what);
+			print_item($what, $price);
+		}
+	} else {
+		echo "Nepovedlo se načíst menu z webu.";
+	}
+
 	cache_html_end($cache_key);
 }
 
