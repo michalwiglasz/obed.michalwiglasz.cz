@@ -3,6 +3,13 @@
 require_once dirname(__FILE__) . '/string.php';
 require_once dirname(__FILE__) . '/simple_html_dom.php';
 
+require_once dirname(__FILE__) . '/vendor/autoload.php';
+use Zend\Text\Figlet\Figlet;
+$figlet = new Figlet();
+$figlet->setOutputWidth(500);
+$figlet->setFont(dirname(__FILE__) . '/figletfonts/big.flf');
+//$figlet->setSmushMode(Figlet::SM_KERN);
+
 function dump($obj) {
 	echo "<pre><code>";
 	var_dump($obj);
@@ -95,9 +102,11 @@ function cache_get_html($key, $url, $expires=540) {
 		)
 	);
 	$context = stream_context_create($opts);
-	$data = file_get_html($url, null, $context);
+	$source = file_get_contents($url, null, $context);
+	$data = str_get_html($source);
 
 	return cache_store($key, [
+		'source' => $source,
 		'html' => $data,
 	]);
 }
@@ -117,13 +126,10 @@ function process_zomato($zomato, $cache_default_interval, $cache_html_interval, 
 		if ($menu) {
 			foreach ($menu->getElementsByTagName("div") as $element) {
 				$classy = $element->getAttribute("class");
-				echo $class;
-				if (strcasecmp($classy, "tmi-group") == 0)
-				{
-				echo filter_output($filters, $element);
-				break;
+				if (strcasecmp($classy, "tmi-group") == 0) {
+					echo filter_output($filters, $element);
+					break;
 				}
-
 			}
 		} else {
 			echo "Nepovedlo se načíst menu ze Zomata.";
@@ -135,6 +141,15 @@ function process_zomato($zomato, $cache_default_interval, $cache_html_interval, 
 
 function print_header($title, $link, $emoji, $retrieved, $note=NULL)
 {
+	global $figlet;
+	$asciiart = str_unczech($title);
+	$figlet_text = $figlet->render($asciiart);
+	echo "\n<!--\n";
+	//echo "\n<pre>\n";
+	echo $figlet_text;
+	echo "-->\n";
+	//echo "</pre>\n";
+
 	if ($emoji) echo '<h1 class="emoji ' . $emoji . '">';
 	else echo '<h1>';
 	echo '<a href="'.htmlspecialchars($link) . '">' . htmlspecialchars($title) . '</a></h1>';
@@ -170,4 +185,22 @@ function print_item($what, $price = NULL, $quantity = NULL)
 	if ($what) print_what($what, $quantity);
 	if ($price) print_price($price);
 	echo '</div>';
+}
+
+function str_unczech($str) {
+	static $table = [
+		'ä'=>'a', 'Ä'=>'A', 'á'=>'a', 'Á'=>'A', 'à'=>'a', 'À'=>'A', 'ã'=>'a',
+		'Ã'=>'A', 'â'=>'a', 'Â'=>'A', 'č'=>'c', 'Č'=>'C', 'ć'=>'c', 'Ć'=>'C',
+		'ď'=>'d', 'Ď'=>'D', 'ě'=>'e', 'Ě'=>'E', 'é'=>'e', 'É'=>'E', 'ë'=>'e',
+		'Ë'=>'E', 'è'=>'e', 'È'=>'E', 'ê'=>'e', 'Ê'=>'E', 'í'=>'i', 'Í'=>'I',
+		'ï'=>'i', 'Ï'=>'I', 'ì'=>'i', 'Ì'=>'I', 'î'=>'i', 'Î'=>'I', 'ľ'=>'l',
+		'Ľ'=>'L', 'ĺ'=>'l', 'Ĺ'=>'L', 'ń'=>'n', 'Ń'=>'N', 'ň'=>'n', 'Ň'=>'N',
+		'ñ'=>'n', 'Ñ'=>'N', 'ó'=>'o', 'Ó'=>'O', 'ö'=>'o', 'Ö'=>'O', 'ô'=>'o',
+		'Ô'=>'O', 'ò'=>'o', 'Ò'=>'O', 'õ'=>'o', 'Õ'=>'O', 'ő'=>'o', 'Ő'=>'O',
+		'ř'=>'r', 'Ř'=>'R', 'ŕ'=>'r', 'Ŕ'=>'R', 'š'=>'s', 'Š'=>'S', 'ś'=>'s',
+		'Ś'=>'S', 'ť'=>'t', 'Ť'=>'T', 'ú'=>'u', 'Ú'=>'U', 'ů'=>'u', 'Ů'=>'U',
+		'ü'=>'u', 'Ü'=>'U', 'ù'=>'u', 'Ù'=>'U', 'ũ'=>'u', 'Ũ'=>'U', 'û'=>'u',
+		'Û'=>'U', 'ý'=>'y', 'Ý'=>'Y', 'ž'=>'z', 'Ž'=>'Z', 'ź'=>'z', 'Ź'=>'Z',
+	];
+	return strtr($str, $table);
 }
