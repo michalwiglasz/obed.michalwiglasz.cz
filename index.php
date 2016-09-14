@@ -10,8 +10,7 @@ header("link: $root/em-nepal.png; rel=preload", false);
 header("link: $root/em-monkey.png; rel=preload", false);
 header("link: $root/em-italy.png; rel=preload", false);
 
-$today = time();
-
+$today_timestamp = time();
 ?>
 <!DOCTYPE html>
 <title>Jíííídlooooo</title>
@@ -65,7 +64,7 @@ if (!cache_html_start($cache_key, 60)) {
 }
 */
 
-if ($today < $menza_close || $today > $menza_open) {
+if ($today_timestamp < $menza_close || $today_timestamp > $menza_open) {
 	print_header('Menza', 'http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5', 'ambulance', time());
 
 	$data = file_get_html('http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5');
@@ -90,8 +89,8 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	$cached = cache_get_html($cache_key, 'http://nepalbrno.cz/weekly-menu/', $cache_html_interval);
 	print_header('Nepal', 'http://nepalbrno.cz/weekly-menu/', 'nepal', $cached['stored']);
 
-	$table = $cached['html']->find(".the_content_wrapper table tr");
-	$today = strtolower(date('l'));
+	$table = $cached['html']->find(".the_content_wrapper table", 0);
+	$today = mb_strtolower(date('l'));
 	/*
 	if ($today == 'sunday' || $today == 'saturday') {
 		$today = 'monday';
@@ -99,11 +98,18 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	*/
 
 	$withinToday = FALSE;
-	foreach ($table as $tr) {
-		$span = $tr->find('span');
+	foreach ($table->find('tr') as $tr) {
+		$span = $tr->find('span', 0);
+		//dump("tr: " . trim($tr->plaintext) . " span: " . trim($span->plaintext) . " within: " . ($withinToday? "yes" : "no"));
 		if ($withinToday) {
 			if ($span) {
-				break; // nothing more to do...
+				// monday is seen twice, so we check it really is different day
+				$s = mb_strtolower($span->plaintext, 'utf-8');
+				if (strpos($s, $today) === FALSE) {
+					//echo "setting to no", $s, $today;
+					//$withinToday = FALSE;
+					break; // nothing more to do...
+				}
 			} else {
 				$tds = $tr->find('td');
 				// after friday, there are rows with colspan=3
@@ -126,11 +132,14 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 
 		} else {
 			if ($span) {
-				$s = mb_strtolower($span[0], 'utf-8');
+				$s = mb_strtolower($span->plaintext, 'utf-8');
 				//echo $s, $today;
 				if (strpos($s, $today) !== FALSE) {
+					//echo "setting to yes", $s, $today;
 					$withinToday = TRUE;
-					print_subheader((string)($span[0]->find('strong')[0]));
+					$day = $span->plaintext;
+					print_subheader(str_replace("/", " / ", $day));
+					continue;
 				}
 			}
 		}

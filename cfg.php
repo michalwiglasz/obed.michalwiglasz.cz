@@ -1,6 +1,7 @@
 <?php
 
 ini_set('display_errors', 'on');
+date_default_timezone_set('Europe/Prague');
 header('content-type: text/html; charset=utf-8');
 
 $root = "https://obed.michalwiglasz.cz";
@@ -43,7 +44,7 @@ $zomato = [
 
 $zomato_filters = [
 	'(<div class="tmi-price ta-right col-l-2 bold">\\s*<div class="row">\\s*<\/div>\\s*</div>)ui' => '',
-	'(\\((A.)?[0-9,\\s]+\\)\\s*</div>)' => '</div>',
+	'(\\((A.)?[0-9,\\s]+\\)\\s*</div>)i' => '</div>',
 ];
 
 $menza_filters = [
