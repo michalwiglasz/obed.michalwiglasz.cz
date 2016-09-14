@@ -77,10 +77,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         loadHash();
     });
 
-    window.onbeforeunload = function(e) {
-        window.location.hash = '';
-    };
-
     loadHash();
-    history.replaceState([], "", ".");
+    //history.replaceState([], "", ".");
 });
