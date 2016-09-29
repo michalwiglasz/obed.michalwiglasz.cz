@@ -40,7 +40,7 @@ $today_timestamp = time();
 <div id="body">
 <!--<img src="GxMLDqy.gif" width="417" height="260">-->
 
-<p class="help">Dvojklikem označ nejlepší jídla a URL pošli kamarádovi!</p>
+<!--<p class="help">Dvojklikem označ nejlepší jídla a URL pošli kamarádovi!</p>-->
 
 <?php
 /*
@@ -63,19 +63,6 @@ if (!cache_html_start($cache_key, 60)) {
 	cache_html_end($cache_key);
 }
 */
-
-if ($today_timestamp < $menza_close || $today_timestamp > $menza_open) {
-	print_header('Menza', 'http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5', 'ambulance', time());
-
-	$data = file_get_html('http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5');
-	$output = $data->getElementById("m5");
-	$output = trim(filter_output($menza_filters, $output));
-	if ($output) {
-		echo $output;
-	} else {
-		echo "Buď mají zavřeno, anebo to co dycky.";
-	}
-}
 
 /* ---------------------------------------------------------------------------*/
 
@@ -191,6 +178,21 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	}
 
 	cache_html_end($cache_key);
+}
+
+/* ---------------------------------------------------------------------------*/
+
+if ($today_timestamp < $menza_close || $today_timestamp > $menza_open) {
+	print_header('Menza', 'http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5', 'ambulance', time());
+
+	$data = file_get_html('http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5');
+	$output = $data->getElementById("m5");
+	$output = trim(filter_output($menza_filters, $output));
+	if ($output) {
+		echo $output;
+	} else {
+		echo "Buď mají zavřeno, anebo to co dycky.";
+	}
 }
 
 /* ---------------------------------------------------------------------------*/
