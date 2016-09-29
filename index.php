@@ -11,6 +11,24 @@ header("link: $root/em-monkey.png; rel=preload", false);
 header("link: $root/em-italy.png; rel=preload", false);
 
 $today_timestamp = time();
+/*
+echo gethostbyname("www.globus.cz");
+$context = stream_context_create(array(
+	'ssl' => array(
+		"verify_peer_name" => FALSE,
+	),
+	'http' => array(
+		'method'  => 'GET',
+		'protocol_version' => '1.0',
+		'header' => 'Host: www.globus.cz',
+	),
+));
+$x = file_get_contents("https://46.234.114.105/brno/restaurace.html", FALSE, $context);
+echo $x;
+var_dump($http_response_header);
+var_dump(stream_get_meta_data($context));
+die;
+*/
 ?>
 <!DOCTYPE html>
 <title>Jíííídlooooo</title>
@@ -180,6 +198,37 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	cache_html_end($cache_key);
 }
 
+/* ---------------------------------------------------------------------------*/
+/*
+$cache_key = 'globus';
+if (!cache_html_start($cache_key, 1)) {
+	// cache miss
+	$cached = cache_get_html($cache_key, 'https://www.globus.cz/brno/restaurace.html', 1);
+
+	if ($cached) {
+		print_header('Globus', 'https://www.globus.cz/brno/restaurace.html', 'globus', $cached['stored']);
+		$table = $cached['html']->find("
+			.restaurant__menu-table-row--active
+			.restaurant__menu-table-cell restaurant__menu-table-cell--food
+			.restaurant__menu-food-table
+		");
+
+		if ($table) {
+			foreach ($table[0]->find('tr') as $tr) {
+				$quantity = $tr->find('.restaurant__menu-food-weight')->plaintext;
+				$what = $tr->find('.restaurant__menu-food-name')->plaintext;
+				$price = $tr->find('.restaurant__menu-food-price')->plaintext;
+				print_item($what, $price, $quantity);
+			}
+
+		} else {
+			// Today not found
+			echo "Nepovedlo se načíst menu z webu.";
+		}
+	}
+	cache_html_end($cache_key);
+}
+*/
 /* ---------------------------------------------------------------------------*/
 
 if ($today_timestamp < $menza_close || $today_timestamp > $menza_open) {

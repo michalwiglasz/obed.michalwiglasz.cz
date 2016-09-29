@@ -21,27 +21,27 @@ $menza_open = strtotime('2016-09-19 00:00:01');
 
 $zomato = [
 	'Camel' => [
-		'https://www.zomato.com/cs/Camel1/menu#tabtop',
+		'https://www.zomato.com/cs/Camel1/denn%C3%AD-menu',
 		'http://www.restaurace-camel.com/',
 		'camel',
 	],
 	'U 3 opic' => [
-		'https://www.zomato.com/cs/brno/u-3-opic-kr%C3%A1lovo-pole-brno-sever/menu#tabtop',
+		'https://www.zomato.com/cs/brno/u-3-opic-kr%C3%A1lovo-pole-brno-sever/denn%C3%AD-menu',
 		'http://www.u3opic.cz/',
 		'monkey',
 	],
 	'Velorex' => [
-		'https://www.zomato.com/cs/brno/velorex-kr%C3%A1lovo-pole-brno-sever/menu#daily',
+		'https://www.zomato.com/cs/brno/velorex-kr%C3%A1lovo-pole-brno-sever/denn%C3%AD-menu',
 		'http://www.restauracevelorex.cz/',
 		'velorex',
 	],
 	'Pad Thai' => [
-		'https://www.zomato.com/cs/brno/pad-thai-kr%C3%A1lovo-pole-brno-sever/menu#daily',
+		'https://www.zomato.com/cs/brno/pad-thai-kr%C3%A1lovo-pole-brno-sever/denn%C3%AD-menu',
 		'http://padthairestaurace.cz/',
 		'japanese',
 	],
 	'Yvy Restaurant' => [
-		'https://www.zomato.com/cs/brno/yvy-restaurant-kr%C3%A1lovo-pole-brno-sever/menu#daily',
+		'https://www.zomato.com/cs/brno/yvy-restaurant-kr%C3%A1lovo-pole-brno-sever/denn%C3%AD-menu',
 		'http://www.yvy.cz/',
 		'yvy',
 	],
@@ -51,6 +51,7 @@ $zomato_filters = [
 	'(<div class="tmi-price ta-right col-l-2 bold">\\s*<div class="row">\\s*<\/div>\\s*</div>)ui' => '',
 	'(\\((A.)?[0-9,\\s]+\\)\\s*</div>)i' => '</div>',
 	'(<small class="tmi-desc">\\s*Alergeny:[^<]*</small>)i' => '',
+	'(<div class="tmi-desc">\\s*Alergeny:[^<]*</div>)i' => '',
 ];
 
 $menza_filters = [

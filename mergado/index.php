@@ -49,11 +49,15 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	$cached = cache_get_html($cache_key, 'http://www.zelenakocka.cz/', $cache_html_interval);
 	print_header('Zelená kočka', 'http://www.zelenakocka.cz/', 'kocka', $cached['stored']);
 
-	$div = $cached['html']->find("div#dnesni-menu");
-
-	foreach ($div->find('text') as $item) {
-		$what = implode('', $item->find('span')[0]->find('text'));
-		print_item($what);
+	$div = $cached['html']->find("div#dnesni-menu", 0);
+	if ($div) {
+		foreach ($div->find('text') as $item) {
+			if ($item->parent()->tag == 'strong') {
+				print_subheader($item);
+			} else {
+				print_item($item);
+			}
+		}
 	}
 
 	cache_html_end($cache_key);

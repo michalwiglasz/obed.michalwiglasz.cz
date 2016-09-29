@@ -113,18 +113,9 @@ function process_zomato($zomato, $cache_default_interval, $cache_html_interval, 
 		$cached = cache_get_html($title, $scrape, $cache_html_interval);
 		print_header($title, $link, $emoji, $cached['stored']);
 
-		$menu = $cached['html']->getElementById("menu-preview");
+		$menu = $cached['html']->find("#menu-preview div.tmi-group", 0);
 		if ($menu) {
-			foreach ($menu->getElementsByTagName("div") as $element) {
-				$classy = $element->getAttribute("class");
-				echo $class;
-				if (strcasecmp($classy, "tmi-group") == 0)
-				{
-				echo filter_output($filters, $element);
-				break;
-				}
-
-			}
+			echo filter_output($filters, $menu);
 		} else {
 			echo "Nepovedlo se načíst menu ze Zomata.";
 		}

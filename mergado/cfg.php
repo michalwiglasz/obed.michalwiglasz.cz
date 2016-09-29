@@ -1,6 +1,7 @@
 <?php
 
 ini_set('display_errors', 'on');
+date_default_timezone_set('Europe/Prague');
 header('content-type: text/html; charset=utf-8');
 
 $root = "https://obed.michalwiglasz.cz/mergado";
@@ -17,17 +18,17 @@ $cache_html_interval = $cache_default_interval - 10;
 
 $zomato = [
 	'Sono' => [
-		'https://www.zomato.com/cs/brno/sono-centrum-restaurant-%C5%BEabov%C5%99esky-brno-sever/menu#tabtop',
+		'https://www.zomato.com/cs/brno/sono-centrum-restaurant-%C5%BEabov%C5%99esky-brno-sever/denn%C3%AD-menu',
 		'http://www.sonocentrum.cz/the-restaurant/denni-menu/',
 		'sono',
 	],
 	'Šelepka' => [
-		'https://www.zomato.com/cs/brno/%C5%A1elepka-kr%C3%A1lovo-pole-brno-sever/menu#tabtop',
+		'https://www.zomato.com/cs/brno/%C5%A1elepka-kr%C3%A1lovo-pole-brno-sever/denn%C3%AD-menu',
 		'http://www.selepova.cz/denni-menu/',
 		'selepka',
 	],
 	'Viva' => [
-		'https://www.zomato.com/cs/brno/restaurant-viva-%C5%BEabov%C5%99esky-brno-sever/menu#tabtop',
+		'https://www.zomato.com/cs/brno/restaurant-viva-%C5%BEabov%C5%99esky-brno-sever/denn%C3%AD-menu',
 		'http://www.pizzerie-viva.cz/',
 		'viva',
 	],
