@@ -43,6 +43,20 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
+hr {
+    margin: 40px 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    background: #ddd;
+}
+
+.footer {
+    font-size: 80%;
+    margin: 40px 0;
+    max-width: 900px;
+}
+
 h1 {
     font-size: 166%;
     font-weight: normal;

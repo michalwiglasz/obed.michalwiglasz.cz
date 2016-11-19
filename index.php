@@ -42,13 +42,10 @@ if (get_today_timestamp() < $menza_close || get_today_timestamp() > $menza_open)
 }
 
 /* ---------------------------------------------------------------------------*/
+
+print_footer();
+
 ?>
-
-
-<h1>Disclaimer</h1>
-
-Tuto stránku vytvořil <a href="http://www.fit.vutbr.cz/~igrochol/">David Grochol</a> během jednoho nudného víkendu (a rozhodně ne během své pracovní doby). <a href="https://michalwiglasz.cz">Michal Wiglasz</a> ji upravil, aby vypadala trochu k světu a nenačítala se půl dne, a propůjčil hosting a doménu. Máme i <a href="?json">JSON</a> pro strojové zpracování.
-
 </div>
 </body>
 </html>

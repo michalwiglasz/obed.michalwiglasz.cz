@@ -346,13 +346,9 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 
 /* ---------------------------------------------------------------------------*/
 
+print_footer();
+
 ?>
-
-<!--
-<h1>Disclaimer</h1>
-
-Základy této stránky položil <a href="http://www.fit.vutbr.cz/~igrochol/">David Grochol</a>. <a href="https://michalwiglasz.cz">Michal Wiglasz</a> ji upravil, aby vypadala trochu k světu a nenačítala se půl dne, propůjčil hosting a doménu a nakonec ji ohnul pro Embedit.
--->
 </div>
 </body>
 </html>

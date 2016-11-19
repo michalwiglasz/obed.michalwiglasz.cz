@@ -24,29 +24,39 @@ function print_infobox() {
 }
 
 function print_html_head($root, $description='Denní menu restaurací v okolí') {
-	echo '<!DOCTYPE html>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width">
+	echo '<!DOCTYPE html><!--
+      ▄▄▄▄· ▄▄▄ .·▄▄▄▄     • ▌ ▄ ·. ▪   ▄▄·  ▄ .▄ ▄▄▄· ▄▄▌  ▄▄▌ ▐ ▄▌▪   ▄▄ • ▄▄▌   ▄▄▄· .▄▄ · ·▄▄▄▄•    ▄▄· ·▄▄▄▄•
+▪     ▐█ ▀█▪▀▄.▀·██▪ ██    ·██ ▐███▪██ ▐█ ▌▪██▪▐█▐█ ▀█ ██•  ██· █▌▐███ ▐█ ▀ ▪██•  ▐█ ▀█ ▐█ ▀. ▪▀·.█▌   ▐█ ▌▪▪▀·.█▌
+ ▄█▀▄ ▐█▀▀█▄▐▀▀▪▄▐█· ▐█▌   ▐█ ▌▐▌▐█·▐█·██ ▄▄██▀▐█▄█▀▀█ ██▪  ██▪▐█▐▐▌▐█·▄█ ▀█▄██▪  ▄█▀▀█ ▄▀▀▀█▄▄█▀▀▀•   ██ ▄▄▄█▀▀▀•
+▐█▌.▐▌██▄▪▐█▐█▄▄▌██. ██    ██ ██▌▐█▌▐█▌▐███▌██▌▐▀▐█ ▪▐▌▐█▌▐▌▐█▌██▐█▌▐█▌▐█▄▪▐█▐█▌▐▌▐█ ▪▐▌▐█▄▪▐██▌▪▄█▀   ▐███▌█▌▪▄█▀
+ ▀█▄▀▪·▀▀▀▀  ▀▀▀ ▀▀▀▀▀•  ▀ ▀▀  █▪▀▀▀▀▀▀·▀▀▀ ▀▀▀ · ▀  ▀ .▀▀▀  ▀▀▀▀ ▀▪▀▀▀·▀▀▀▀ .▀▀▀  ▀  ▀  ▀▀▀▀ ·▀▀▀ • ▀ ·▀▀▀ ·▀▀▀ •
+-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
 
-		<meta http-equiv="refresh" content="3600">
-		<meta property="og:title" content="Jíííídlooooo">
-		<meta property="og:description" content="' . htmlspecialchars($description) . '">
-		<meta property="og:url" content="' . $root . '">
-		<meta property="og:image" content="/GxMLDqy.gif">
+<meta http-equiv="refresh" content="3600">
+<meta property="og:title" content="Jíííídlooooo">
+<meta property="og:description" content="' . htmlspecialchars($description) . '">
+<meta property="og:url" content="' . $root . '">
+<meta property="og:image" content="/GxMLDqy.gif">
 
-		<meta name="twitter:card" value="summary_large_image">
-		<meta name="twitter:domain" value="obed.michalwiglasz.cz">
-		<meta name="twitter:title" value="Jíííídlooooo">
-		<meta name="twitter:description" value="' . htmlspecialchars($description) . '">
-		<meta name="twitter:url" value="' . $root . '">
-		<meta name="twitter:image" value="/GxMLDqy.gif">
+<meta name="twitter:card" value="summary_large_image">
+<meta name="twitter:domain" value="obed.michalwiglasz.cz">
+<meta name="twitter:title" value="Jíííídlooooo">
+<meta name="twitter:description" value="' . htmlspecialchars($description) . '">
+<meta name="twitter:url" value="' . $root . '">
+<meta name="twitter:image" value="/GxMLDqy.gif">
 
-		<title>Jíííídlooooo</title>
-		<link rel="shortcut icon" href="/favicon.ico">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-		<link href="/style.css" rel="stylesheet" type="text/css">
-		<script src="/script.js"></script>
+<title>Jíííídlooooo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<script src="/script.js"></script>
 	';
+}
+
+function print_footer() {
+	echo '<hr><p class="footer">Základy této stránky vytvořil <a href="http://www.fit.vutbr.cz/~igrochol/">David Grochol</a> během jednoho nudného víkendu (a rozhodně ne během své pracovní doby). <a href="https://michalwiglasz.cz">Michal Wiglasz</a> ji upravil, aby vypadala trochu k světu a nenačítala se půl dne, a propůjčil hosting a doménu. Máme i <a href="?json">výstup v JSONu</a> pro strojové zpracování a <a href="https://github.com/michalwiglasz/obed.michalwiglasz.cz">GitHub</a>, kam můžete psát připomínky a posílat patche.</p>';
 }
 
 function dump($obj) {
