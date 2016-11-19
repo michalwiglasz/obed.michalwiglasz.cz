@@ -1,20 +1,11 @@
 <?php
-require_once dirname(__FILE__) . '/cfg.php';
 require_once dirname(__FILE__) . '/../lib.php';
 require_once dirname(__FILE__) . '/../pdf2text.php';
+require_once dirname(__FILE__) . '/cfg.php';
 
-$today_timestamp = time();
-
+header('content-type: text/html; charset=utf-8');
+print_html_head($root);
 ?>
-<!DOCTYPE html>
-<title>Jíííídlooooo</title>
-<link rel="shortcut icon" href="/favicon.ico">
-<html>
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width">
-
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <style>
 <?php readfile(dirname(__FILE__) . '/../style.css') ?>
 a {
@@ -39,6 +30,10 @@ a {
 
 /* ---------------------------------------------------------------------------*/
 
+print_infobox();
+
+/* ---------------------------------------------------------------------------*/
+
 process_zomato($zomato, $cache_default_interval, $cache_html_interval, $zomato_filters);
 
 /* ---------------------------------------------------------------------------*/
@@ -50,13 +45,18 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	print_header('My Food', 'http://www.myfoodmarket.cz/brno-holandska/', 'myfood', $cached['stored']);
 
 	$today = date('N') - 1;  // 0 = monday, 6 = sunday
-	$menu = $cached['html']->find("div.dny div.jidla", 0)->children($today);
 
-	if ($menu) {
-		foreach ($menu->find('li') as $item) {
-			$what = implode('', $item->find('span')[0]->find('text'));
-			$price = implode('', $item->find('small')[0]->find('text'));
-			print_item($what, $price);
+	if ($cached['html']) {
+		$menu = $cached['html']->find("div.dny div.jidla", 0)->children($today);
+
+		if ($menu) {
+			foreach ($menu->find('li') as $item) {
+				$what = implode('', $item->find('span')[0]->find('text'));
+				$price = implode('', $item->find('small')[0]->find('text'));
+				print_item($what, $price);
+			}
+		} else {
+			echo "Nepovedlo se načíst menu z webu.";
 		}
 	} else {
 		echo "Nepovedlo se načíst menu z webu.";
@@ -128,6 +128,10 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 
 	$ok = FALSE;
 	do {
+		if (!$cached['html']) {
+			break;
+		}
+
 		$links = $cached['html']->find(".post-title a");
 		if (!count($links)) {
 			break;
@@ -311,23 +315,27 @@ if (!cache_html_start($cache_key, $cache_default_interval)) {
 	print_header('Tusto', 'http://titanium.tusto.cz/tydenni-menu/', 'tusto', $cached['stored']);
 
 	$today = date('N') - 1;  // 0 = monday, 6 = sunday
-	$todays = $cached['html']->find("#rccontent table.menu", $today);
+	if ($cached['html']) {
+		$todays = $cached['html']->find("#rccontent table.menu", $today);
 
-	/*
-	$soupDiv = $todaysDiv->find('div', 0);
-	$dishDiv = $todaysDiv->find('div', 1);
-	*/
-	if ($todays) {
-		foreach ($todays->find('tr') as $item) {
-			$h2 = $item->find('h2');
-			if ($h2) {
-				continue;
+		/*
+		$soupDiv = $todaysDiv->find('div', 0);
+		$dishDiv = $todaysDiv->find('div', 1);
+		*/
+		if ($todays) {
+			foreach ($todays->find('tr') as $item) {
+				$h2 = $item->find('h2');
+				if ($h2) {
+					continue;
+				}
+
+				$what = implode('', $item->find('td', 0)->find('text'));
+				$price = implode('', $item->find('td', 2)->find('text'));
+				$what = preg_replace('(^[0-9]+\\))', '', $what);
+				print_item($what, $price);
 			}
-
-			$what = implode('', $item->find('td', 0)->find('text'));
-			$price = implode('', $item->find('td', 2)->find('text'));
-			$what = preg_replace('(^[0-9]+\\))', '', $what);
-			print_item($what, $price);
+		} else {
+			echo "Nepovedlo se načíst menu z webu.";
 		}
 	} else {
 		echo "Nepovedlo se načíst menu z webu.";

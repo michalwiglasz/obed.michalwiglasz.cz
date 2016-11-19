@@ -1,0 +1,2305 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fileg",
+				"file_get_html"
+			],
+			[
+				"pregma",
+				"preg_match	(index.php)"
+			],
+			[
+				"preg_",
+				"preg_replace	(index.php)"
+			],
+			[
+				"hash",
+				"hashstr"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"print",
+				"print_subheader"
+			],
+			[
+				"file_ge",
+				"file_get_contents"
+			],
+			[
+				"toda",
+				"todaysDiv"
+			],
+			[
+				"cachh",
+				"cache_html_interval"
+			],
+			[
+				"check_",
+				"check_file_open"
+			],
+			[
+				"chec",
+				"check_pdf"
+			],
+			[
+				"libs",
+				"libsvm_file"
+			],
+			[
+				"pop",
+				"population"
+			],
+			[
+				"ensu",
+				"ensure_scalar_result"
+			],
+			[
+				"ensure",
+				"ensure_vector"
+			],
+			[
+				"_scalar_",
+				"_scalar_add"
+			],
+			[
+				"Po",
+				"Population	(main.py)"
+			],
+			[
+				"y_pre",
+				"y_pred_proba"
+			],
+			[
+				"begitemize",
+				"begin{itemize}\\item	latex-document"
+			],
+			[
+				"em",
+				"emph{text}	latex-document"
+			],
+			[
+				"psnr",
+				"psnrvec"
+			],
+			[
+				"target",
+				"targetdir"
+			],
+			[
+				"train",
+				"train_size"
+			],
+			[
+				"parse",
+				"parse_args	(main.py)"
+			],
+			[
+				"ea_eva",
+				"ea_evaluate_chr	(ea.h)"
+			],
+			[
+				"input",
+				"input_data"
+			],
+			[
+				"inputda",
+				"input_data_t"
+			],
+			[
+				"inpuda",
+				"input_data_t"
+			],
+			[
+				"finis",
+				"finished"
+			],
+			[
+				"real",
+				"real_fitness"
+			],
+			[
+				"fini",
+				"finish_reason"
+			],
+			[
+				"finishre",
+				"finish_reason_t"
+			],
+			[
+				"arch",
+				"archive_t"
+			],
+			[
+				"inputdat",
+				"input_data_t	(main.c)"
+			],
+			[
+				"ga_po",
+				"ga_pop_t	(algo.h)"
+			],
+			[
+				"predg",
+				"pred_get_length"
+			],
+			[
+				"FIT",
+				"FITNESS_FMT	(text.c)"
+			],
+			[
+				"MPITH",
+				"MPI_THREAD_FUNNELED"
+			],
+			[
+				"thre",
+				"thread_level_provided"
+			],
+			[
+				"ins",
+				"inserted"
+			],
+			[
+				"ga_eva",
+				"ga_evaluate_chr	(ga.c)"
+			],
+			[
+				"bestch",
+				"best_chr_index	(ga.c)"
+			],
+			[
+				"probl",
+				"problem_type"
+			],
+			[
+				"ga_ev",
+				"ga_evaluate_chr	(ga.c)"
+			],
+			[
+				"fit",
+				"fitness"
+			],
+			[
+				"lass",
+				"last_send_predictor"
+			],
+			[
+				"chr",
+				"chromosomes"
+			],
+			[
+				"arc_get",
+				"arc_get_original_fitness	(archive.h)"
+			],
+			[
+				"store",
+				"stored	(baldwin.c)"
+			],
+			[
+				"MPIS",
+				"MPI_STATUS_IGNORE"
+			],
+			[
+				"newpre",
+				"new_pred_length"
+			],
+			[
+				"pred_ini",
+				"pred_initial_size	(main.c)"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"MPI_UN",
+				"MPI_UNSIGNED_CHAR	(cgp_core.c)"
+			],
+			[
+				"MSG_",
+				"MSG_PREDICTOR	(main.c)"
+			],
+			[
+				"ID_",
+				"ID_PRED	(main.c)"
+			],
+			[
+				"pred_ge",
+				"pred_gene_t"
+			],
+			[
+				"simple",
+				"simple_cgp"
+			],
+			[
+				"simpl",
+				"simple_cgp"
+			],
+			[
+				"mpi",
+				"mpi_procs"
+			],
+			[
+				"appr",
+				"approaches"
+			],
+			[
+				"coe",
+				"coevolutionary"
+			],
+			[
+				"limt",
+				"limited"
+			],
+			[
+				"benc",
+				"benchmark"
+			],
+			[
+				"re",
+				"regression"
+			],
+			[
+				"com",
+				"computational"
+			],
+			[
+				"eval",
+				"evaluated"
+			],
+			[
+				"pro",
+				"program"
+			],
+			[
+				"env",
+				"environmental"
+			],
+			[
+				"Si",
+				"Sikulova2015"
+			],
+			[
+				"newcom",
+				"newcommand{cmd}{def}	latex-document"
+			],
+			[
+				"phen",
+				"phenotype"
+			],
+			[
+				"PREPO",
+				"PREDICTOR_POP_SIZE"
+			],
+			[
+				"bald",
+				"baldwinGetNewlength	(baldwin.h)"
+			],
+			[
+				"phe",
+				"phenotypeLength"
+			],
+			[
+				"used",
+				"usedChromosomeLength	(predictors.h)"
+			],
+			[
+				"bwLas",
+				"bwLastRealFitness"
+			],
+			[
+				"chan",
+				"changeLength"
+			],
+			[
+				"BWSL",
+				"BW_SLOW_THR"
+			],
+			[
+				"PREDI",
+				"PREDICTOR_CHROM_LEN"
+			],
+			[
+				"PHEN",
+				"PREDICTOR_CHROM_LEN"
+			],
+			[
+				"BWDE",
+				"BW_DECR_COEF	(baldwin.h)"
+			],
+			[
+				"BWZE",
+				"BW_ZERO_COEF	(baldwin.h)"
+			],
+			[
+				"BWIN",
+				"BW_INAC_COEF	(baldwin.h)"
+			],
+			[
+				"predini",
+				"pred_initial_size"
+			],
+			[
+				"predma",
+				"pred_max_size"
+			],
+			[
+				"gento",
+				"genes_to_change"
+			],
+			[
+				"OPTPRE",
+				"OPT_PRED_REFRESH_INTERVAL"
+			],
+			[
+				"arcre",
+				"arc_refresh_items"
+			],
+			[
+				"OPT_PRED",
+				"OPT_PRED_REFRESH_INTERVAL"
+			],
+			[
+				"eps",
+				"epsilon"
+			],
+			[
+				"succ",
+				"successes"
+			],
+			[
+				"random_ca",
+				"random_capacity"
+			],
+			[
+				"randomca",
+				"random_capacity"
+			],
+			[
+				"fitpre",
+				"fitness_pred_eval_counter"
+			],
+			[
+				"fitnepre",
+				"fitness_pred_eval_counter	(fitness.h)"
+			],
+			[
+				"fitnecgpe",
+				"fitness_cgp_eval_counter	(fitness.h)"
+			],
+			[
+				"work",
+				"work_data"
+			],
+			[
+				"predi",
+				"predicted_fitness"
+			],
+			[
+				"shou",
+				"should_refresh_archive"
+			],
+			[
+				"cgp_ran",
+				"cgp_randomize_genome	(cgp_core.c)"
+			],
+			[
+				"gachr",
+				"ga_chr_t"
+			],
+			[
+				"cgpa",
+				"cgp_archive_size"
+			],
+			[
+				"arcin",
+				"arc_refresh_interval"
+			],
+			[
+				"arc_re",
+				"arc_refresh_interval	(config.h)"
+			],
+			[
+				"OPTAR",
+				"OPT_ARC_REFRESH_INTERVAL"
+			],
+			[
+				"algo",
+				"algorithm	(algo.c)"
+			],
+			[
+				"HIS",
+				"HISTORY_EXPRESSION_BSIZE	(history.h)"
+			],
+			[
+				"exp",
+				"expression"
+			],
+			[
+				"best",
+				"best_genome"
+			],
+			[
+				"best_",
+				"best_genome"
+			],
+			[
+				"gene",
+				"generation"
+			],
+			[
+				"cgp_ge",
+				"cgp_genome_t	(cgp.c)"
+			],
+			[
+				"inpu",
+				"inputs	(cgp_core.c)"
+			],
+			[
+				"outpu",
+				"outputs	(cgp_core.c)"
+			],
+			[
+				"cgpgen",
+				"cgp_genome_t"
+			],
+			[
+				"gad",
+				"ga_default_selector_func	(ga.c)"
+			],
+			[
+				"f_0",
+				"f_c03	(cgp.h)"
+			],
+			[
+				"beginenume",
+				"begin{enumerate}[mini template]\\item	class-beamer"
+			],
+			[
+				"enla",
+				"enlargethispage{size}	latex-document"
+			],
+			[
+				"fir",
+				"first_file_arg"
+			],
+			[
+				"curre",
+				"current_file_index"
+			],
+			[
+				"log",
+				"log-pred-file"
+			],
+			[
+				"sor",
+				"sorted_keys"
+			],
+			[
+				"lne",
+				"line"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"include",
+				"include{file}	latex-document"
+			],
+			[
+				"incre",
+				"increase_fast"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				],
+				[
+					"Packages/User/diplomka-sep.sublime-build",
+					""
+				],
+				[
+					"Packages/User/vlna.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "tabs",
+		"selected_items":
+		[
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"com",
+				"Toggle Comment"
+			],
+			[
+				"comm",
+				"Toggle Comment"
+			],
+			[
+				"new ",
+				"File: New View into File"
+			],
+			[
+				"matla",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"comme",
+				"Toggle Comment"
+			],
+			[
+				"come",
+				"Tasks: Complete"
+			],
+			[
+				"cy",
+				"Set Syntax: Cython"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"imp",
+				"LaTeXing: Import Citation(s)"
+			],
+			[
+				"cita",
+				"LaTeXing: Import Citation(s)"
+			],
+			[
+				"impo",
+				"PHPCompanion:Import Namespace"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"from",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"citat",
+				"LaTeXing: Import Citation(s)"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"latexca",
+				"LaTeXing: Rebuild Cache (Hard)"
+			],
+			[
+				"latexing ",
+				"LaTeXing: Import Citation(s)"
+			],
+			[
+				"so",
+				"Sort Lines"
+			],
+			[
+				"gnu",
+				"Build With: Gnuplot 2"
+			],
+			[
+				"csv",
+				"CSV: Justify columns"
+			],
+			[
+				"new",
+				"File: New View into File"
+			],
+			[
+				"convta",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"jus",
+				"CSV: Justify columns"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"u",
+				"Line Ending: Unix"
+			],
+			[
+				"ind",
+				"Auto indent"
+			],
+			[
+				"togg",
+				"Toggle Comment"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown GFM"
+			],
+			[
+				"latex buil",
+				"Build With: LaTeX - Choose Quick Build"
+			],
+			[
+				"clea",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"cle",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"clean",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"vlna",
+				"Build With: vlna"
+			],
+			[
+				"vl",
+				"Build With: vlna"
+			],
+			[
+				"vln",
+				"Build With: vlna"
+			],
+			[
+				"pas",
+				"Text Pastry: Menu"
+			],
+			[
+				"reve",
+				"Permute Lines: Reverse"
+			],
+			[
+				"rever",
+				"Permute Lines: Reverse"
+			],
+			[
+				"new vi",
+				"File: New View into File"
+			],
+			[
+				"pastr",
+				"Text Pastry: Menu"
+			],
+			[
+				"sor",
+				"Sort Lines"
+			],
+			[
+				"Snippet: Bibtex bo",
+				"Snippet: BibTeX Book"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"cl",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"sa",
+				"Save as latin2 (ISO 8859-2)"
+			],
+			[
+				"reop",
+				"Reopen as latin2 (ISO 8859-2)"
+			],
+			[
+				"Snippet: Bibtex book",
+				"Snippet: BibTeX Book"
+			],
+			[
+				"Snippet: Bibtex mis",
+				"Snippet: BibTeX Misc"
+			],
+			[
+				"Snippet: Bibtex art",
+				"Snippet: BibTeX Article"
+			],
+			[
+				"Snippet: Bibtex ",
+				"Snippet: BibTeX Article"
+			],
+			[
+				"Snippet: Bibtex",
+				"Snippet: BibTeX Misc"
+			],
+			[
+				"title",
+				"Convert Case: Title Case"
+			],
+			[
+				"save",
+				"Save as latin2 (ISO 8859-2)"
+			],
+			[
+				"latin2",
+				"Save as latin2 (ISO 8859-2)"
+			],
+			[
+				"sav",
+				"Save as latin2 (ISO 8859-2)"
+			],
+			[
+				"to",
+				"Toggle Comment"
+			],
+			[
+				"is",
+				"Save as latin2 (ISO 8859-2)"
+			],
+			[
+				"iso",
+				"Save as latin2 (ISO 8859-2)"
+			],
+			[
+				"latecl",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"jum",
+				"LaTeXing: Jump To PDF"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"menu",
+				"Text Pastry: Menu"
+			],
+			[
+				"w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"tasks",
+				"Tasks: New document"
+			],
+			[
+				"todo",
+				"Set Syntax: ToDone"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"gfm",
+				"Set Syntax: Markdown GFM"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"mover",
+				"Origami: Move File to Pane on the Right"
+			],
+			[
+				"moveri",
+				"Origami: Move File to Pane on the Right"
+			],
+			[
+				"unfo",
+				"Code Folding: Unfold All"
+			],
+			[
+				"latexing",
+				"LaTeXing: Fill Anywhere"
+			],
+			[
+				"late",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"latexing sym",
+				"LaTeXing: Insert TeX Symbol"
+			],
+			[
+				"text sy",
+				"LaTeXing: Lookup TeX Symbol"
+			],
+			[
+				"inser",
+				"LaTeXing: Insert TeX Symbol"
+			],
+			[
+				"insert",
+				"LaTeXing: Insert TeX Symbol"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"cache",
+				"LaTeXing: Rebuild Cache (Hard)"
+			],
+			[
+				"Snippet: item",
+				"Snippet: Itemize"
+			],
+			[
+				"symb",
+				"LaTeXing: Insert TeX Symbol"
+			],
+			[
+				"phra",
+				"LaTeXing: Word to Phrases Dictionary"
+			],
+			[
+				"buy",
+				"LaTeXing: Buy License"
+			],
+			[
+				"Build: ",
+				"Build: Build"
+			],
+			[
+				"check",
+				"LaTeXing: Check System"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"symbo",
+				"LaTeXing: Lookup TeX Symbol"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"latexingre",
+				"LaTeXing: Rebuild Cache"
+			],
+			[
+				"texcou",
+				"LaTeXing: Texcount"
+			],
+			[
+				"lateju",
+				"LaTeXing: Jump To PDF"
+			],
+			[
+				"latexin",
+				"LaTeXing: Lookup TeX Symbol"
+			],
+			[
+				"open",
+				"LaTeXing: Open PDF"
+			],
+			[
+				"pdf",
+				"LaTeXing: Open PDF"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"removce",
+				"Package Control: Remove Package"
+			],
+			[
+				"enali",
+				"SublimeLinter: Enable Linting"
+			],
+			[
+				"enal",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"linter",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"uni",
+				"Line Ending: Unix"
+			],
+			[
+				"gnupl",
+				"Set Syntax: gnuplot"
+			],
+			[
+				"wr",
+				"Word Wrap: Toggle"
+			],
+			[
+				"1 ",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"1",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"past",
+				"Text Pastry: Menu"
+			],
+			[
+				"tog",
+				"Toggle Comment"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"high",
+				"SublimeHighlight: view as RTF"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"inde",
+				"Indent XML"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"diff",
+				"Set Syntax: Diff"
+			],
+			[
+				"packa",
+				"Package Control: Upgrade Package"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"ltx_insert_special_symbols",
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"run_command",
+			"move",
+			"sublime.cmd",
+			"sublime",
+			"cmd",
+			"command",
+			"import sublimerge",
+			"sublimerge",
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"sublime.print_commands",
+			"sublime.echo_commands",
+			"sublime.show_commands",
+			"sublime.",
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"sublime.log_commands",
+			"sublime",
+			"sublime.logCommands"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Work/obed.michalwiglasz.cz",
+		"/C/Work/obed.michalwiglasz.cz/embedit",
+		"/C/Work/obed.michalwiglasz.cz/mergado"
+	],
+	"file_history":
+	[
+		"/D/Dropbox/FIT/avr-libc-2.0.0/libc/stdlib/rand.c",
+		"/C/Work/obed.michalwiglasz.cz/embedit/index.php",
+		"/C/Work/obed.michalwiglasz.cz/string.php",
+		"/C/Work/obed.michalwiglasz.cz/style.css",
+		"/C/Work/obed.michalwiglasz.cz/mergado/index.php",
+		"/C/Work/obed.michalwiglasz.cz/lib.php",
+		"/C/Work/obed.michalwiglasz.cz/index.php",
+		"/C/Work/obed.michalwiglasz.cz/cfg.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/index.php",
+		"/D/Dropbox/FIT/BeeeOn/ideas.md",
+		"/C/Work/obed.michalwiglasz.cz/mergado/cfg.php",
+		"/C/Work/obed.michalwiglasz.cz/script.js",
+		"/C/Work/ssh/id_rsa.ppk",
+		"/C/Work/obed-old/mergado/index.php",
+		"/C/Work/obed.michalwiglasz.cz/README.md",
+		"/C/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt",
+		"/C/ProgramData/Git/config",
+		"/C/Work/obed.michalwiglasz.cz/.gitignore",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/style.css",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/script.js",
+		"/C/Work/obed.michalwiglasz.cz/embedit/cfg.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/index 2.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/lib.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/index 3.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/pdf2text.php",
+		"/C/Work/obed.michalwiglasz.cz/pdf2text.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/cfg 2.php",
+		"/C/Users/jsem/AppData/Local/Temp/fz3temp-1/cfg.php",
+		"/C/Work/obed.michalwiglasz.cz/embedit/cache-iq",
+		"/C/Work/obed.michalwiglasz.cz/embedit/cache-html-iq",
+		"/C/Work/ssh/id.ppk",
+		"/C/Work/mergado_old/xenie/log/info.log",
+		"/C/Work/mergado_old/xenie/app/XenieModule/models/Log/ApplyLogModel.php",
+		"/C/Work/mergado_old/xenie/libs/NotORM/NotORM.php",
+		"/C/Work/mergado_old/xenie/libs/NotORM/NotORM/Result.php",
+		"/C/Work/mergado_old/xenie/libs/NotORM/NotORM/MultiResult.php",
+		"/C/Work/mergado_old/xenie/libs/NotORM/NotORM/Row.php",
+		"/C/Work/mergado_old/xenie/app/XenieModule/models/Log/ProcessLogModel.php",
+		"/C/Work/AdobeHDS.php",
+		"/C/Work/mergado_old/xenie/app/XenieModule/models/Log/SyncLogModel.php",
+		"/C/Work/mergado_old/xenie/app/config.ini",
+		"/C/Work/mergado_old/xenie/app/bootstrap.php",
+		"/C/Work/mergado_old/xenie/app/models/UserModel.php",
+		"/D/Hudba/_auto/_list",
+		"/C/Work/mergado_old/py/interface/audit_views.py",
+		"/C/Work/mergado_old/xenie/libs/NotORM/NotORM/Cache.php",
+		"/C/Work/mergado - kopie/xenie/app/models/UserModel.php",
+		"/C/Work/mergado - kopie/css/xenie.css",
+		"/C/Work/mergado - kopie/css/audit.css",
+		"/C/Work/mergado - kopie/css/michaljanik.less",
+		"/C/Work/mergado - kopie/css/xenie.less",
+		"/C/Work/mergado - kopie/css/michaljanik.css",
+		"/C/Work/mergado - kopie/.htaccess",
+		"/C/Work/mergado - kopie/xenie/libs/NotORM/NotORM/Result.php",
+		"/C/Work/mergado - kopie/xenie/libs/Nette/Debug/Debug.php",
+		"/C/Work/mergado - kopie/xenie/libs/Javorek/Model/Xml/XmlFragment.php",
+		"/C/Work/mergado - kopie/xenie/libs/NotORM/NotORM.php",
+		"/C/Work/mergado - kopie/css/audit.less",
+		"/C/Work/mergado - kopie/xenie/libs/Javorek/Console/Command/Command.php",
+		"/C/Work/mergado - kopie/xenie/libs/Javorek/Console/Command/Wget.php",
+		"/C/Work/mergado - kopie/xenie/app/config.ini",
+		"/C/Work/mergado - kopie/xenie/app/schema.sql",
+		"/C/Work/mergado - kopie/xenie/app/bootstrap.php",
+		"/C/Work/mergado - kopie/py/audit/Downloader.py",
+		"/C/Work/mergado - kopie/xenie/log/info.log",
+		"/C/Work/mergado - kopie/task",
+		"/C/Work/mergado - kopie/xenie/app/fixtures.sql",
+		"/C/Work/mergado - kopie/xenie/temp/commands/wget-xml-download-5-1.download",
+		"/C/Work/mergado - kopie/xenie/.htaccess",
+		"/C/Work/ssh/id",
+		"/C/Work/ssh/id.openssh",
+		"/D/Dropbox/FIT/IVS/git/ivs2-skeleton/.git/config",
+		"/D/Dropbox/FIT/IVS/git/ivs2-scripts/ivs2.yaml",
+		"/D/Dropbox/FIT/IVS/git/ivs2-scripts/.gitignore",
+		"/D/Dropbox/FIT/IVS/git/ivs2-scripts/.git/config",
+		"/D/Dropbox/FIT/IVS/git/ivs2-scripts/check-structure.py",
+		"/D/Dropbox/FIT/IVS/git/ivs2-skeleton/dokumentace.pdf",
+		"/D/Dropbox/FIT/IVS/git/ivs2-skeleton/README.md",
+		"/D/Dropbox/FIT/IVS/git/ivs2-scripts/README.md",
+		"/D/Dropbox/FIT/IVS/git/ivs2-scripts/.editorconfig",
+		"/D/Dropbox/FIT/IVS/git/ivs-sample/README.md",
+		"/D/Dropbox/FIT/IVS/git/ivs-sample/.editorconfig",
+		"/D/Dropbox/Certifikáty/cacert.crt",
+		"/E/hg/libsvm-cuda/src/linux/Makefile",
+		"/E/hg/MICSVM/code/Makefile",
+		"/E/hg/MICSVM/code/testcpu.sh",
+		"/E/hg/libsvm-cuda/src/linux/kernel_matrix_calculation.c",
+		"/F/md5sum.txt",
+		"/E/hg/MICSVM/dataset/adult.t",
+		"/E/hg/MICSVM/dataset/adult",
+		"/E/hg/libsvm-cuda/src/linux/cross_validation_with_matrix_precomputation.c",
+		"/E/hg/libsvm-cuda/src/linux/svm.cpp",
+		"/E/hg/libsvm-cuda/src/linux/svm-train.c",
+		"/E/hg/kgtgasandbox/preprocess/RB-100-ppm-and-LABELS-t100-r100-md1-mg5_TEST_EURUSD_2016-01-03_to_2016-03-16_big_lookback4.csv",
+		"/E/hg/kgtgasandbox/preprocess/RB-100-ppm-and-LABELS-t100-r100-md1-mg5_TEST_EURUSD_2016-01-03_to_2016-03-16_big_labels.csv",
+		"/E/parsedData/RB-100-ppm-and-LABELS-t100-r100-md1-mg5_TRAINING_EURUSD_2014-03-11_to_2015-10-09_lookback4.libsvm",
+		"/E/hg/libsvm-cuda/src/windows/libsvm_train_dense_gpu/svm-train.c",
+		"/E/hg/kgtgasandbox/libsvm-3.17-GPU_x64-v1.2/README",
+		"/E/hg/kgtgasandbox/libsvm-3.17-GPU_x64-v1.2/tools/easy.py",
+		"/E/hg/kgtgasandbox/libsvm-3.17-GPU_x64-v1.2/README-GPU",
+		"/E/hg/libsvm-cuda/src/linux/README-GPU",
+		"/E/hg/libsvm-cuda/src/windows/libsvm_train_dense_gpu/kernel_matrix_calculation.c",
+		"/E/hg/libsvm-cuda/src/windows/libsvm_train_dense_gpu/cross_validation_with_matrix_precomputation.c",
+		"/E/hg/libsvm-cuda/src/windows/libsvm_train_dense_gpu/svm.cpp",
+		"/E/hg/libsvm-cuda/src/linux/findcudalib.mk",
+		"/E/hg/kgtgasandbox/kgtpredictor/cgpsvm/utils.py",
+		"/E/results/exps-2016-04-14-pure.out",
+		"/E/hg/kgtgasandbox/cf.py",
+		"/E/results/exps-lb10bp1pure-10-0.01-proba.out",
+		"/E/results/exps-lb10bp1pure-10-0.01.out",
+		"/E/results/exps-lb10bp1pureflag.out",
+		"/E/hg/kgtgasandbox/kgtpredictor/experiments.py",
+		"/E/hg/kgtgasandbox/kgtpredictor/exps.txt",
+		"/E/hg/kgtgasandbox/kgtpredictor/out.txt",
+		"/E/hg/kgtgasandbox/kgtpredictor/gksvm/cgp.py",
+		"/E/hg/kgtgasandbox/kgtpredictor/cgp/cgp.py",
+		"/E/hg/kgtgasandbox/kgtpredictor/cgp/__init__.py",
+		"/E/hg/kgtgasandbox/kgtpredictor/predictor/inputdata.py",
+		"/E/hg/kgtgasandbox/preprocess/makelb.py",
+		"/E/hg/kgtgasandbox/preprocess/RB-100-ppm-and-LABELS-t100-r100-md1-mg5_TEST_EURUSD_2016-01-03_to_2016-03-16_lb4.csv",
+		"/E/hg/kgtgasandbox/preprocess/RB-100-ppm-and-LABELS-t100-r100-md1-mg5_TEST_EURUSD_2016-01-03_to_2016-03-16_labels.csv",
+		"/E/parsedData/FXPairID_003_CounterpartyID_080--2014-Mar-to-2016-Jan.csv_lookback4BP5.0__StrictUpOrDownDirectionFactory_labels.csv",
+		"/D/Diplomka-CD/latex/texmf/tex/latex/biblatex-iso690/bbx/iso.bbx",
+		"/D/OneDrive/FIT/seminare/2duben2016/abstrakt.txt",
+		"/C/Users/iwiglasz/AppData/Local/Temp/bibliografie.bib.sdx",
+		"/C/Users/iwiglasz/AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/3DGM83DL/EuroGP2015.tex",
+		"/D/presentation/wiglasz-presentation.tex",
+		"/D/OneDrive/FIT/BP/Končal/src/funkce.h"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 115.0,
+		"where_history":
+		[
+			"<open folders>,*.php",
+			"<open folders>,*.h,*.c",
+			"<open folders>,*.h",
+			"<open folders>,*.c",
+			"<open folders>,*.*",
+			"<open folders>,*.c",
+			"<open folders>,*.sh",
+			"<open folders>,*.cpp,*.hpp",
+			"<open folders>,*.cpp",
+			"<open folders>,*.c,*.h",
+			"C:\\Users\\Michal\\diplomka\\anselm\\salt-pepper-all-psize32-O2,*.psnrtest.csv",
+			"C:\\Users\\Michal\\diplomka\\anselm\\salt-pepper-all-psize32-O2",
+			"<open folders>,*.c,*.h",
+			"<open folders>,*.*",
+			"<open folders>,*.c,*.h",
+			"<open folders>,*.c",
+			"<open folders>,*.h",
+			"<open folders>,*.c,*.h",
+			"<open folders>,*.c",
+			"<open folders>,*.gp",
+			"<open folders>,*.c,*.h",
+			"<open folders>,*.*",
+			"<open folders>,*.c,*.h",
+			"<open folders>,*.h",
+			"<open folders>,*.C",
+			"<open folders>,*.c,*.h",
+			"<open folders>,*.c",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.latte",
+			"<open folders>,*.py",
+			"<open folders>,*.php,*.latte,*.py",
+			"<open folders>,*.php,*.latte",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.latte",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*control*.py",
+			"<open folders>,*control*.php",
+			"<open folders>,*.po",
+			"<open folders>,*.latte",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.*",
+			"<open folders>,*.sass",
+			"<open folders>,*.js",
+			"<open folders>,*.*",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.js",
+			"<open folders>,*.latte",
+			"<open folders>,*.sass",
+			"<open folders>,*.js",
+			"<open folders>,*.sass",
+			"<open folders>,*.py",
+			"<open folders>,*.*",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.latte",
+			"<open folders>,*.sass",
+			"<open folders>,*.js",
+			"<open folders>,*.php",
+			"<open folders>,*.latte",
+			"<open folders>,*.py",
+			"<open folders>,*.php,*.latte",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.latte",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.latte",
+			"<open folders>,*.js",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"C:\\Users\\Michal\\Workspace\\Mergado\\mergado\\server\\mergado\\rules",
+			"<open folders>,*.php,*.py",
+			"<open folders>,*.latte",
+			"<open folders>,*.php,*.py",
+			"<open folders>,*.sass",
+			"<open folders>,*.py,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.js",
+			"<open folders>,*.sass",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.py",
+			"<open folders>,*.sass",
+			"<open folders>,*.latte",
+			"<open folders>,*.php",
+			"<open folders>,*.sass",
+			"<open folders>,*.php",
+			"<open folders>,*.py",
+			"<open folders>,*.php",
+			"<open folders>,*.py"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			");\n",
+			"$$html",
+			"$cached['stored']",
+			"cached['stored']",
+			"$cached = cache",
+			"cached['html']",
+			"cache_html_interval",
+			"cache_get_html",
+			"subject",
+			"toAscii",
+			"myfood",
+			"parseInt",
+			"vafle",
+			"jsem",
+			"withinWeekly",
+			"printAll",
+			"output",
+			"file_get_html",
+			"filename",
+			"$this->filename",
+			"myfood",
+			"dl",
+			"http://www.myfoodmarket.cz/brno-holandska/",
+			"myfood",
+			"color",
+			"nepal",
+			"Nepal",
+			"nepal",
+			"cache_zomato",
+			"devel",
+			"proxy",
+			"flac",
+			"wma",
+			"Thumbs.db",
+			"desktop.ini",
+			"\\.jpg$",
+			".mp3$",
+			"select",
+			"tidy",
+			"Route",
+			"=",
+			"prob",
+			"precomp",
+			"precompute",
+			"do_cross_validation",
+			"interop",
+			"reader",
+			"ckm",
+			"f",
+			"parser_eval_from_csv",
+			"32",
+			"y_train",
+			"X_train",
+			"OverflowError",
+			"len(self.functions)",
+			"individual",
+			"get_output",
+			"train_test_split",
+			"test",
+			"train",
+			"inputs",
+			"self",
+			"os",
+			"def",
+			"inputs",
+			"scalar_func",
+			"test",
+			"train",
+			"cgp_scalar_func",
+			"scalar",
+			"def",
+			"def _vect",
+			"def _scal",
+			"make_vector",
+			"func",
+			"a = inputs[0]",
+			"uts):",
+			"inputs",
+			"dir",
+			"deque",
+			"window",
+			"48",
+			"functions",
+			"prob",
+			"label_translator",
+			"test",
+			"ctor size converges to the similar value independently of an initial size.\n        \\item Final pre",
+			"Fig",
+			"fig",
+			"\\red",
+			"red",
+			"emph",
+			"hfill",
+			"textwidth",
+			"emph",
+			"item[",
+			"enumerate",
+			"$\\m",
+			"tabular",
+			"textwidth",
+			"medskip",
+			"emph",
+			"\\>",
+			"\\< ",
+			"tabbing",
+			"X",
+			"kernel",
+			"eval_from_csv",
+			"EST: ",
+			"5",
+			"EST: ",
+			"BEST: ",
+			"with",
+			"l",
+			"ps point",
+			"lp",
+			"0.7",
+			"labels",
+			"eval_from_csv",
+			": ",
+			"New",
+			"inputs",
+			"gamma",
+			"check_sse4_1",
+			"return",
+			"_may_i_use_cpu_feature",
+			"__Xfit",
+			"kernel"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"ea.h",
+			"ea_",
+			"ea_destroy_pop",
+			"ea_create_pop",
+			"ea_func_vect_t",
+			"ea_problem_type_t",
+			"ea_free_metadata_func_t",
+			"ea_alloc_metadata_func_t",
+			"ea_offspring_func_t",
+			"ea_fitness_func_t",
+			"ea_copy_genome_func_t",
+			"ea_init_genome_func_t",
+			"ea_free_genome_func_t",
+			"ea_alloc_genome_func_t",
+			"ea_pop",
+			"ea_fitness_t",
+			"ea_chr",
+			"ea_chr_t",
+			"ga_pop_t cgp_population, archive_t pred_archive, ga_chr_t best_solution",
+			"ga_pop_t cgp_population, archive_t pred_archive, input_data_t *input_data, ga_chr_t best_solution",
+			"ga_pop_t cgp_population, archive_t pred_archive, input_data_t *input_data",
+			"OMP_NUM_THREADS=8",
+			"TART\" \\+ 7`",
+			"expr \"$i\" \\* 8`",
+			"for i in 0 1; d",
+			"ncpus=16",
+			"gcc/4.9.0",
+			"fast",
+			"slow",
+			"Master's Thesis",
+			"'includeDeleted': bool(include_deleted),",
+			"'",
+			"<a style=\"color: #289aee; font-weight: normal; font-family: sans-serif;\"",
+			"<a style=\"color: #7FAD47; font-weight: bold; font-family: sans-serif;\"",
+			"<h1 style=\"font-size:2em;font-family:'Trebuchet MS','Geneva CE',lucida,sans-serif;font-weight:normal;line-height:1.5em;margin-bottom:0;margin-top:12px;clear:both;color:#289AEE;vertical-align:middle;\">",
+			"    ",
+			"\\n",
+			"",
+			"\\n",
+			"",
+			"</CATEGORY_FULLNAME>\\n",
+			"\\t",
+			"",
+			"&amp;ref_id",
+			"OP_ACCESS_SKLIK",
+			"flattenProductData",
+			"db_sessionmaker",
+			"FeedAuditClient",
+			"\\FeedAuditModule",
+			"	",
+			"",
+			"JOIN",
+			"this->heigh",
+			"->width",
+			"$this->tempFile",
+			"sessionmaker",
+			"Integer",
+			"Integer()",
+			"from mergado import sentry",
+			"REMOTE_PUSH_ENABLED",
+			"",
+			".cz |",
+			" 42, ",
+			", 42, 1, ",
+			"42, 1, ",
+			" 1, ",
+			"42, ",
+			",",
+			"$remoteAccessLog",
+			")",
+			"),",
+			"# ",
+			"",
+			"],",
+			"[",
+			"productElementNames",
+			"(?P<element>([\\\\w_:]+|\\\\[[^\\\\]]+\\\\]))",
+			"(?P<element>([\\\\w_:]+|\\\\[[^\\\\]]+\\\\])"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "proj.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"makef",
+				"src\\Makefile"
+			],
+			[
+				"algo",
+				"src\\algo.c"
+			],
+			[
+				"mak",
+				"src\\Makefile"
+			],
+			[
+				"mainc",
+				"src\\main.c"
+			],
+			[
+				"text",
+				"src\\logging\\text.c"
+			],
+			[
+				"make",
+				"src\\Makefile"
+			],
+			[
+				"main",
+				"src\\main.c"
+			],
+			[
+				"configh",
+				"src\\config.h"
+			],
+			[
+				"log",
+				"symreg\\log.sh"
+			],
+			[
+				"ga.h",
+				"ga.h"
+			],
+			[
+				"gah",
+				"src\\ga.h"
+			],
+			[
+				"fitnesc",
+				"src\\ifilter\\fitness.c"
+			],
+			[
+				"fitss",
+				"src\\ifilter\\fitness_sse.c"
+			],
+			[
+				"dipobsa",
+				"text\\dip\\obsah.tex"
+			],
+			[
+				"obsah",
+				"text\\dip\\obsah.tex"
+			],
+			[
+				"proje",
+				"text\\dip\\projekt.tex"
+			],
+			[
+				"mainpre",
+				"src\\ifilter\\main_predhist.c"
+			],
+			[
+				"prilo",
+				"text\\dip\\prilohy.tex"
+			],
+			[
+				"lite",
+				"text\\dip\\literatura.bib"
+			],
+			[
+				"obsa",
+				"text\\dip\\obsah.tex"
+			],
+			[
+				"dipob",
+				"text\\dip\\obsah.tex"
+			],
+			[
+				"mainprev",
+				"src\\ifilter\\main_predvis.c"
+			],
+			[
+				"mainapp",
+				"src\\ifilter\\main_apply.c"
+			],
+			[
+				"dipfith",
+				"text\\dip\\fitthesis.cls"
+			],
+			[
+				"sepobsa",
+				"text\\sep\\obsah.tex"
+			],
+			[
+				"exc",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution.tex"
+			],
+			[
+				"dipproj",
+				"text\\dip\\projekt.tex"
+			],
+			[
+				"exce",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution.tex"
+			],
+			[
+				"tbl",
+				"text\\dip\\tbl_impulse.tex"
+			],
+			[
+				"dippri",
+				"text\\dip\\prilohy.tex"
+			],
+			[
+				"baldwc",
+				"src\\baldwin.c"
+			],
+			[
+				"baldwh",
+				"src\\baldwin.h"
+			],
+			[
+				"baldw",
+				"src\\baldwin.c"
+			],
+			[
+				"cofnh",
+				"src\\config.h"
+			],
+			[
+				"confgh",
+				"src\\config.h"
+			],
+			[
+				"dippril",
+				"text\\dip\\prilohy.tex"
+			],
+			[
+				"ma",
+				"src\\Makefile"
+			],
+			[
+				"readm",
+				"src\\README"
+			],
+			[
+				"bestc",
+				"results\\gaussian-cgp-500kg-01\\best_circuit.txt"
+			],
+			[
+				"prilohy",
+				"text\\dip\\prilohy.tex"
+			],
+			[
+				"config",
+				"src\\config.c"
+			],
+			[
+				"projte",
+				"text\\dip\\projekt.tex"
+			],
+			[
+				"configc",
+				"src\\config.c"
+			],
+			[
+				"best",
+				"results\\gaussian-cgp-500kg-01\\best_circuit.chr"
+			],
+			[
+				"stb",
+				"src\\ifilter\\stb\\stb_image.h"
+			],
+			[
+				"confih",
+				"src\\config.h"
+			],
+			[
+				"predi",
+				"src\\predictors.c"
+			],
+			[
+				"random",
+				"src\\random.h"
+			],
+			[
+				"ga",
+				"src\\ga.c"
+			],
+			[
+				"excetext",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution.tex"
+			],
+			[
+				"algoh",
+				"src\\algo.h"
+			],
+			[
+				"gac",
+				"src\\ga.c"
+			],
+			[
+				"dipli",
+				"text\\dip\\literatura.bib"
+			],
+			[
+				"algoc",
+				"src\\algo.c"
+			],
+			[
+				"cgpdu",
+				"src\\cgp\\cgp_dump.c"
+			],
+			[
+				"loggpre",
+				"src\\logging\\predictor.c"
+			],
+			[
+				"fitthe",
+				"text\\dip\\fitthesis.cls"
+			],
+			[
+				"dipbib",
+				"text\\dip\\literatura.bib"
+			],
+			[
+				"excel",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution.tex"
+			],
+			[
+				"ificgp",
+				"src\\ifilter\\cgp.c"
+			],
+			[
+				"fitne",
+				"misa-fitness.c"
+			],
+			[
+				"revi",
+				"obhajoby a deníček\\2015-04-11-reviews-excel.txt"
+			],
+			[
+				"imagec",
+				"src\\ifilter\\image.c"
+			],
+			[
+				"imageh",
+				"src\\ifilter\\image.h"
+			],
+			[
+				"appl",
+				"src\\ifilter\\main_apply.c"
+			],
+			[
+				"predc",
+				"src\\predictors.c"
+			],
+			[
+				"prec",
+				"src\\predictors.c"
+			],
+			[
+				"excetex",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution.tex"
+			],
+			[
+				"stbim",
+				"src\\ifilter\\stb\\stb_image_write.h"
+			],
+			[
+				"cgpco",
+				"src\\cgp\\cgp_core.c"
+			],
+			[
+				"input",
+				"src\\ifilter\\inputdata.h"
+			],
+			[
+				"cgpsse",
+				"src\\ifilter\\cgp_sse.c"
+			],
+			[
+				"sse",
+				"src\\ifilter\\cgp_sse.c"
+			],
+			[
+				"excls",
+				"text\\excel\\ExcelAtFIT.cls"
+			],
+			[
+				"excco",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution.tex"
+			],
+			[
+				"predh",
+				"src\\ifilter\\main_predhist.c"
+			],
+			[
+				"mainap",
+				"src\\ifilter\\main_apply.c"
+			],
+			[
+				"sourcon",
+				"text\\excel\\attach\\sourcecode\\config.h"
+			],
+			[
+				"cpuc",
+				"src\\cpu.c"
+			],
+			[
+				"sourima",
+				"text\\excel\\attach\\source\\ifilter\\image.c"
+			],
+			[
+				"srcima",
+				"src\\ifilter\\image.c"
+			],
+			[
+				"sepprojte",
+				"text\\sep\\projekt.tex"
+			],
+			[
+				"sepob",
+				"text\\sep\\obsah.tex"
+			],
+			[
+				"coleibi",
+				"text\\excel\\2015-ExcelFIT-ColearningInCoevolution-bib.bib"
+			],
+			[
+				"howt",
+				"text\\excel\\2015-ExcelFIT-HowToWrite.tex"
+			],
+			[
+				"exccls",
+				"text\\excel\\ExcelAtFIT.cls"
+			],
+			[
+				"coebi",
+				"text\\excel\\2015-ExcelFIT-Colearning-bib.bib"
+			],
+			[
+				"inp",
+				"src\\ifilter\\inputdata.h"
+			],
+			[
+				"ifini",
+				"src\\ifilter\\inputdata.c"
+			],
+			[
+				"cgpavx",
+				"src\\ifilter\\cgp_avx.c"
+			],
+			[
+				"fintss",
+				"src\\ifilter\\fitness_sse.c"
+			],
+			[
+				"pred",
+				"src\\predictors.c"
+			],
+			[
+				"fitna",
+				"src\\ifilter\\fitness_avx.c"
+			],
+			[
+				"avx",
+				"src\\ifilter\\fitness_avx.c"
+			],
+			[
+				"iffitn",
+				"src\\ifilter\\fitness.c"
+			],
+			[
+				"ga.c",
+				"src\\ga.c"
+			],
+			[
+				"colebib",
+				"text\\excel\\2015-ExcelFIT-Colearning-bib.bib"
+			],
+			[
+				"preh",
+				"src\\ifilter\\main_predhist.c"
+			],
+			[
+				"cloe",
+				"text\\excel\\2015-ExcelFIT-Colearning.bbl"
+			],
+			[
+				"excbib",
+				"text\\excel\\2015-ExcelFIT-Colearning-bib.bib"
+			],
+			[
+				"diplite",
+				"text\\dip\\literatura.bib"
+			],
+			[
+				"dipobs",
+				"text\\dip\\obsah.tex"
+			],
+			[
+				"dipprojte",
+				"text\\dip\\projekt.tex"
+			],
+			[
+				"dipfi",
+				"text\\dip\\fitthesis.cls"
+			],
+			[
+				"utilsc",
+				"src\\utils.c"
+			],
+			[
+				"cgpav",
+				"src\\ifilter\\cgp_avx.c"
+			],
+			[
+				"exco",
+				"text\\excel\\2015-ExcelFIT-Colearning.tex"
+			],
+			[
+				"confh",
+				"src\\config.h"
+			],
+			[
+				"confi",
+				"src\\config.c"
+			],
+			[
+				"predvi",
+				"src\\ifilter\\main_predvis.c"
+			],
+			[
+				"imag",
+				"src\\ifilter\\image.h"
+			],
+			[
+				"stbi",
+				"src\\ifilter\\stb\\stb_image.h"
+			],
+			[
+				"lgopre",
+				"src\\logging\\predictor.c"
+			],
+			[
+				"confc",
+				"src\\config.c"
+			],
+			[
+				"util",
+				"src\\utils.h"
+			],
+			[
+				"hs",
+				"src\\logging\\history.h"
+			],
+			[
+				"tex",
+				"src\\logging\\text.c"
+			],
+			[
+				"logpredc",
+				"src\\logging\\predictor.c"
+			],
+			[
+				"utic",
+				"src\\utils.c"
+			],
+			[
+				"confgc",
+				"src\\config.c"
+			],
+			[
+				"conh",
+				"src\\config.h"
+			],
+			[
+				"te",
+				"src\\logging\\text.c"
+			],
+			[
+				"ififi",
+				"src\\ifilter\\fitness.c"
+			],
+			[
+				"logte",
+				"src\\logging\\text.c"
+			],
+			[
+				"colebi",
+				"text\\excel\\2015-ExcelFIT-Colearning-bib.bib"
+			],
+			[
+				"exccote",
+				"text\\excel\\2015-ExcelFIT-Colearning.tex"
+			],
+			[
+				"dipprojtex",
+				"text\\dip\\projekt.tex"
+			],
+			[
+				"fitth",
+				"text\\sep\\fitthesis.cls"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "m",
+		"selected_items":
+		[
+			[
+				"m",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"mer",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"merga",
+				"D:\\Mergado\\mergado.sublime-workspace"
+			],
+			[
+				"co",
+				"C:\\Users\\Michal\\diplomka\\coco.sublime-project"
+			],
+			[
+				"",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"me",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"po",
+				"D:\\Ponk\\Ponk.sublime-project"
+			],
+			[
+				"ac",
+				"D:\\Mergado\\accounts.sublime-project"
+			],
+			[
+				"e",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"acc",
+				"D:\\Mergado\\accounts.sublime-project"
+			],
+			[
+				"m3",
+				"D:\\Mergado\\mergado3.sublime-project"
+			],
+			[
+				"pr",
+				"D:\\FIT\\BIS\\projekt1\\proj.sublime-project"
+			],
+			[
+				"mr",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"merg",
+				"D:\\Mergado\\mergado.sublime-project"
+			],
+			[
+				"bin",
+				"D:\\FIT\\BIN\\projekt\\bin.sublime-project"
+			],
+			[
+				"i",
+				"D:\\FIT\\BIN\\projekt\\bin.sublime-project"
+			],
+			[
+				"skl",
+				"C:\\Users\\Michal\\Workspace\\Mergado\\sklik-python-client.sublime-project"
+			],
+			[
+				"3",
+				"C:\\Users\\Michal\\Workspace\\Mergado\\mergado3.sublime-project"
+			],
+			[
+				"evo",
+				"C:\\Users\\Michal\\Workspace\\FIT\\EVO\\Projekt\\proj.sublime-project"
+			],
+			[
+				"mer3",
+				"C:\\Users\\Michal\\Workspace\\Mergado\\mergado3.sublime-project"
+			],
+			[
+				"acco",
+				"C:\\Workspace\\Mergado\\accounts.sublime-project"
+			],
+			[
+				"accou",
+				"C:\\Workspace\\Mergado\\accounts.sublime-project"
+			]
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 490.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 615.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 287.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

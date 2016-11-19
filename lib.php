@@ -1,7 +1,53 @@
 <?php
 
-require_once dirname(__FILE__) . '/string.php';
-require_once dirname(__FILE__) . '/simple_html_dom.php';
+ini_set('display_errors', 'off');
+date_default_timezone_set('Europe/Prague');
+
+require_once __DIR__ . '/string.php';
+require_once __DIR__ . '/simple_html_dom.php';
+
+// load modules
+foreach(glob(__DIR__ . '/modules/*.php') as $module) {
+	require_once $module;
+}
+
+
+function get_today_timestamp() {
+	static $today_timestamp = NULL;
+	if (!$today_timestamp) $today_timestamp = time();
+	return $today_timestamp;
+}
+
+
+function print_infobox() {
+	//echo '<p class="infobox">Zdá se, že Zomato nás zablokovalo na firewallu... 😞</p>';
+}
+
+function print_html_head($root, $description='Denní menu restaurací v okolí') {
+	echo '<!DOCTYPE html>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width">
+
+		<meta http-equiv="refresh" content="3600">
+		<meta property="og:title" content="Jíííídlooooo">
+		<meta property="og:description" content="' . htmlspecialchars($description) . '">
+		<meta property="og:url" content="' . $root . '">
+		<meta property="og:image" content="/GxMLDqy.gif">
+
+		<meta name="twitter:card" value="summary_large_image">
+		<meta name="twitter:domain" value="obed.michalwiglasz.cz">
+		<meta name="twitter:title" value="Jíííídlooooo">
+		<meta name="twitter:description" value="' . htmlspecialchars($description) . '">
+		<meta name="twitter:url" value="' . $root . '">
+		<meta name="twitter:image" value="/GxMLDqy.gif">
+
+		<title>Jíííídlooooo</title>
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		<link href="/style.css" rel="stylesheet" type="text/css">
+		<script src="/script.js"></script>
+	';
+}
 
 function dump($obj) {
 	echo "<pre><code>";
@@ -17,13 +63,13 @@ function startswith($str, $prefix) {
 function filter_output($filters, $element) {
 	$str = (string)$element;
 	foreach($filters as $regex => $repl) {
-	$str = preg_replace($regex, $repl, $str);
+		$str = preg_replace($regex, $repl, $str);
 	}
 	return $str;
 }
 
 function cache_file($key) {
-	return 'cache-' . webalize($key) . '.cache';
+	return __DIR__ . '/cache/' . webalize($key) . '.cache';
 }
 
 function cache_retrieve($key, $expires=600) {
@@ -87,11 +133,18 @@ function cache_get_html($key, $url, $expires=540) {
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
 
+	$sniServer = parse_url($url, PHP_URL_HOST);
 	$opts = array(
-		'http'=>array(
-		'method'=>"GET",
-		'header'=>
-			"User-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\r\n"
+		'http' => array(
+			'method' => "GET",
+			'header' => "User-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\r\n",
+			'timeout' => 2,
+			//'proxy' => 'tcp://155.4.66.102:45554',
+			'request_fulluri' => true,
+		),
+		'ssl' => array(
+			'SNI_enabled' => true,
+			'SNI_server_name' => $sniServer,
 		)
 	);
 	$context = stream_context_create($opts);
@@ -105,20 +158,49 @@ function cache_get_html($key, $url, $expires=540) {
 function process_zomato($zomato, $cache_default_interval, $cache_html_interval, $filters=[])
 {
 	foreach ($zomato as $title => $vals) {
-		list($scrape, $link, $emoji) = $vals;
+		if (count($vals) == 3) {
+			list($scrape, $link, $emoji) = $vals;
+			$zomato_id = NULL;
+		} else {
+			list($scrape, $link, $emoji, $zomato_id) = $vals;
+		}
+
 		if (cache_html_start($title, $cache_default_interval)) {
 			continue; // cache hit
 		}
 
-		$cached = cache_get_html($title, $scrape, $cache_html_interval);
+		if ($zomato_id) {
+			$cached = zomato_api_download($title, "https://developers.zomato.com/api/v2.1/dailymenu?res_id=$zomato_id", $cache_html_interval);
+		} else {
+			$cached = cache_get_html($title, $scrape, $cache_html_interval);
+		}
 		print_header($title, $link, $emoji, $cached['stored']);
 
-		$menu = $cached['html']->find("#menu-preview div.tmi-group", 0);
-		if ($menu) {
-			echo filter_output($filters, $menu);
-		} else {
+		do {
+			if ($cached['html']) {
+				$menu = $cached['html']->find("#menu-preview div.tmi-group", 0);
+				if ($menu) {
+					echo filter_output($filters, $menu);
+					break;
+				}
+
+			} elseif ($cached['contents']) {
+				if (count($cached['contents']->daily_menus)) {
+					foreach ($cached['contents']->daily_menus[0]->daily_menu->dishes as $dish) {
+						$what = $dish->dish->name;
+						$price = $dish->dish->price;
+						$quantity = NULL;
+						print_item($what, $price, $quantity);
+					}
+				} else {
+					echo "Nemají menu na Zomatu.";
+				}
+				break;
+			}
+
 			echo "Nepovedlo se načíst menu ze Zomata.";
-		}
+
+		} while (FALSE);
 
 		cache_html_end($title);
 	}
@@ -161,4 +243,97 @@ function print_item($what, $price = NULL, $quantity = NULL)
 	if ($what) print_what($what, $quantity);
 	if ($price) print_price($price);
 	echo '</div>';
+}
+
+function group_dishes($menu)
+{
+	$grouped = [
+		'' => [],
+	];
+	foreach ($menu as $dish) {
+		if ($dish->group) {
+			if (isset($grouped[$dish->group])) {
+				$grouped[$dish->group][] = $dish;
+			} else {
+				$grouped[$dish->group] = [$dish];
+			}
+
+		} else {
+			$grouped[''][] = $dish;
+		}
+	}
+
+	return $grouped;
+}
+
+function collect_menus($sources, $cache_default_interval)
+{
+	$menus = [];
+	foreach ($sources as $source) {
+
+		$module = $source->module;
+		$expires = $source->cacheExpires? $source->cacheExpires : $cache_default_interval;
+
+		try {
+			$dishes = $module->getTodaysMenu(get_today_timestamp(), $expires);
+			$error = NULL;
+
+		} catch (ScrapingFailedException $ex) {
+			$dishes = new LunchMenuResult(time());
+			$error = $ex->getMessage();
+		}
+
+		$menus[webalize($module->title)] = (object)[
+			'title' => $module->title,
+			'link' => $module->link,
+			'icon' => $module->icon,
+			'error' => $error,
+			'timestamp' => $dishes->timestamp,
+			'dishes' => $dishes->dishes,
+		];
+	}
+
+	return $menus;
+}
+
+function print_json($root, $menus)
+{
+	$json = [
+		'source' => $root,
+		'authors' => 'David Grochol, Michal Wiglasz',
+		'restaurants' => [],
+	];
+
+	foreach ($menus as $key => $value) {
+		$json['restaurants'][$key] = $value;
+		$json['restaurants'][$key]->timestamp = date('c', $json['restaurants'][$key]->timestamp);
+	}
+
+	header('content-type: application/json; charset=utf-8');
+	echo json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+}
+
+
+function print_html($root, $menus)
+{
+	foreach ($menus as $restaurant) {
+		if ($restaurant->error) {
+			print_header($restaurant->title, $restaurant->link, $restaurant->icon, time());
+			print_item('Nepodařilo se načíst menu.');
+
+		} else {
+			print_header($restaurant->title, $restaurant->link, $restaurant->icon, $restaurant->timestamp);
+			if (count($restaurant->dishes)) {
+				$grouped = group_dishes($restaurant->dishes);
+				foreach ($grouped as $name => $items) {
+					if ($name) print_subheader($name);
+					foreach ($items as $dish) {
+						print_item($dish->name, $dish->price, $dish->quantity);
+					}
+				}
+			} else {
+				print_item('Dnes nemají nic.');
+			}
+		}
+	}
 }

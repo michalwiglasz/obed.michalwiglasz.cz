@@ -24,6 +24,15 @@ body {
     line-height: 1.5;
 }
 
+.infobox {
+    box-sizing: border-box;
+    border: 1px solid #ad081c;
+    background: #ffcccc url(/thumbdown.svg) no-repeat 5px 6px;
+    background-size: 35px 35px;
+    padding: 10px;
+    padding-left: 50px;
+}
+
 a {
     color: blue;
     color: #e4002b;
@@ -58,6 +67,10 @@ h1.emoji.velorex a {background-image: url(em-velorex.png)}
 h1.emoji.nepal a {background-image: url(em-nepal.png)}
 h1.emoji.italy a {background-image: url(em-italy.png)}
 h1.emoji.monkey a {background-image: url(em-monkey.png); padding-right: 5.1em /*padding-right: 4.3em*/}
+h1.emoji.sono a {background-image: url(em-speaker.png)}
+h1.emoji.pizza a {background-image: url(em-pizza.png)}
+h1.emoji.selepka a {background-image: url(em-selepka2.png)}
+h1.emoji.kocka a {background-image: url(em-cat.png)}
 
 .retrieved {
     font-size: 60%;
