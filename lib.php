@@ -138,7 +138,7 @@ function cache_download($key, $url, $expires=540) {
 	]);
 }
 
-function cache_get_html($key, $url, $expires=540) {
+function cache_get_html($key, $url, $expires=540, $fulluri = true) {
 	$key = 'get-html-' . $key;
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
@@ -150,7 +150,7 @@ function cache_get_html($key, $url, $expires=540) {
 			'header' => "User-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\r\n",
 			'timeout' => 2,
 			//'proxy' => 'tcp://155.4.66.102:45554',
-			'request_fulluri' => true,
+			'request_fulluri' => $fulluri,
 		),
 		'ssl' => array(
 			'SNI_enabled' => true,
