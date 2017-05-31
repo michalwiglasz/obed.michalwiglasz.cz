@@ -16,5 +16,6 @@ $sources = [
 	new Source(new Zomato(16507460, 'Viva', 'http://www.pizzerie-viva.cz/', 'pizza')),
 	new Source(new LaCorrida),
 	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
+	new Source(new NaberSi),
 	new Source(new ZelenaKocka),
 ];
