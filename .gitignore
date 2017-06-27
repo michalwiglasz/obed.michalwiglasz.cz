@@ -1,2 +1,4 @@
 *.cache
 fonts/*
+deployment.ini
+deployment.log
