@@ -1,6 +1,5 @@
 <?php
 
-ini_set('display_errors', 'off');
 date_default_timezone_set('Europe/Prague');
 
 require_once __DIR__ . '/string.php';
@@ -9,6 +8,14 @@ require_once __DIR__ . '/simple_html_dom.php';
 // load modules
 foreach(glob(__DIR__ . '/modules/*.php') as $module) {
 	require_once $module;
+}
+
+
+function get_http_headers() {
+	return implode("\r\n", array(
+		"User-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36",
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+	)) . "\r\n";
 }
 
 
@@ -122,35 +129,50 @@ function cache_download($key, $url, $expires=540) {
 	$key = 'download-' . $key;
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
-
+/*
 	$opts = array(
 		'http'=>array(
 		'method'=>"GET",
-		'header'=>
-			"User-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\r\n"
+		'header'=> get_http_headers(),
 		)
 	);
 	$context = stream_context_create($opts);
 	$data = file_get_contents($url, null, $context);
+*/
+	$ch=curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36');
+	$response = curl_exec($ch);
+	curl_close($ch);
 
 	return cache_store($key, [
-		'contents' => $data,
+		'contents' => $response,
 	]);
 }
 
-function cache_get_html($key, $url, $expires=540) {
+function cache_get_html($key, $url, $expires=540, $fulluri = true) {
 	$key = 'get-html-' . $key;
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
 
+	$ch=curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36');
+	$response = curl_exec($ch);
+	curl_close($ch);
+/*
 	$sniServer = parse_url($url, PHP_URL_HOST);
 	$opts = array(
 		'http' => array(
 			'method' => "GET",
-			'header' => "User-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\r\n",
+			'header'=> get_http_headers(),
 			'timeout' => 2,
 			//'proxy' => 'tcp://155.4.66.102:45554',
-			'request_fulluri' => true,
+			'request_fulluri' => $fulluri,
 		),
 		'ssl' => array(
 			'SNI_enabled' => true,
@@ -159,9 +181,10 @@ function cache_get_html($key, $url, $expires=540) {
 	);
 	$context = stream_context_create($opts);
 	$data = file_get_html($url, null, $context);
-
+*/
+	$html = str_get_html($response);
 	return cache_store($key, [
-		'html' => $data,
+		'html' => $html,
 	]);
 }
 

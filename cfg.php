@@ -1,6 +1,6 @@
 <?php
 
-$root = "https://obed.michalwiglasz.cz";
+$root = "https://obed.michalwiglasz.cz/fit";
 $cache_default_interval = 60 * 60; // 1 hour
 $cache_menza_interval = 60;  // 1 minute
 $cache_html_interval = $cache_default_interval - 10;
@@ -19,11 +19,12 @@ $menza_open = strtotime('2016-09-19 00:00:01');
 $sources = [
 	new Source(new Zomato(16506890, 'Camel', 'http://www.restaurace-camel.com/', 'camel')),
 	new Source(new Zomato(16505998, 'U 3 opic', 'http://www.u3opic.cz/', 'monkey')),
-	new Source(new Zomato(16506807, 'Velorex', 'http://www.restauracevelorex.cz/', 'velorex')),
+	new Source(new Velorex), //Zomato(16506807, 'Velorex', 'http://www.restauracevelorex.cz/', 'velorex')),
 	new Source(new Zomato(16506806, 'Pad Thai', 'http://padthairestaurace.cz/', 'japanese')),
 	new Source(new Zomato(16505880, 'Yvy Restaurant', 'http://www.yvy.cz/', 'yvy')),
 	new Source(new Nepal),
 	new Source(new Molino),
+	new Source(new Zomato(18318157, 'Music Café Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
 ];
 
 

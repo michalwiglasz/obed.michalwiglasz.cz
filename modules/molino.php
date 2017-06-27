@@ -3,9 +3,41 @@
 class Molino extends LunchMenuSource
 {
 	public $title = 'Molino';
-	public $link = 'http://www.molinorestaurant.cz/poledni-menu/';
+	public $link = 'http://www.molinorestaurant.cz/';
 	public $icon = 'italy';
 
+
+	public function getTodaysMenu($todayDate, $cacheSourceExpires)
+	{
+		$cached = cache_get_html($this->title, $this->link, $cacheSourceExpires);
+
+		if (!$cached['html']) {
+			throw new ScrapingFailedException("No html returned");
+		}
+
+		$result = new LunchMenuResult($cached['stored']);
+		$group = NULL;
+
+		$header = $cached['html']->find("#denni-menu h2");
+		$table = $cached['html']->find("#denni-menu table");
+
+		if (!$header) {
+			throw new ScrapingFailedException("H2 not found");
+		}
+
+		$group = $header[0]->plaintext;
+		foreach ($table[0]->find('tr') as $tr) {
+			$tds = $tr->find('td');
+			$what = implode('', $tds[0]->find('text'));
+			$quantity = implode('', $tds[1]->find('text'));
+			$price = implode('', $tds[2]->find('text'));
+			$result->dishes[] = new Dish($what, $price, $quantity, $group);
+		}
+
+		return $result;
+	}
+
+/*
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
 		$cached = cache_get_html($this->title, $this->link, $cacheSourceExpires);
@@ -35,4 +67,5 @@ class Molino extends LunchMenuSource
 
 		return $result;
 	}
+*/
 }
