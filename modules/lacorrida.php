@@ -3,36 +3,35 @@
 class LaCorrida extends LunchMenuSource {
 
 	public $title = 'LaCorrida';
-	public $link = 'http://www.lacorrida.cz/zabovresky/denni-menu';
+	public $link = 'http://www.lacorrida.cz/zabovresky/';
 	public $icon = 'lacorrida';
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires) {
 
 		$cached = cache_get_html($this->title, $this->link, $cacheSourceExpires, false);
+
 		if (!$cached['html']) {
 			throw new ScrapingFailedException("No html returned");
 		}
 
 		$result = new LunchMenuResult($cached['stored']);
-		$group = NULL;
+		$group = null;
 
-		$today = date('N', $todayDate) - 1;
+		$today = date('N', $todayDate);
 
-		$div = $cached['html']->find("div.field-collection-view", $today);
+		$div = $cached['html']->find("div.menu-table", 0);
 
 		if (!$div) {
-			throw new ScrapingFailedException("div.field-collection-view was not found");
+			throw new ScrapingFailedException("div.menu-table was not found");
 		}
 
-		foreach ($div->find('table.field-collection-view-final tr') as $i => $item) {
+		foreach ($div->find("div#tabs-{$today} div.col-sm-6") as $i => $item) {
 			if ($i == 0) {
-				continue;
-			} elseif ($i == 1) {
 				// Soup
-				$result->dishes[] = new Dish($item->find('.field_nazev', 0)->plaintext, NULL, NULL, $group);
+				$result->dishes[] = new Dish(html_entity_decode($item->find('.menu-con p', 0)->plaintext));
 			} else {
 				// Dish
-				$result->dishes[] = new Dish($item->find('.field_nazev', 0)->plaintext, $item->find('.field_cena', 0)->plaintext, NULL, $group);
+				$result->dishes[] = new Dish(html_entity_decode($item->find('.menu-con p', 0)->plaintext), html_entity_decode($item->find('.menu-con h4 span', 0)->plaintext));
 			}
 		}
 
