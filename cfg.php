@@ -12,8 +12,8 @@ if (isset($_GET['force'])) {
 }
 
 
-$menza_close = strtotime('2016-06-30 23:59:59');
-$menza_open = strtotime('2016-09-19 00:00:01');
+$menza_close = strtotime('2017-06-30 23:59:59');
+$menza_open = strtotime('2017-09-18 00:00:01');
 
 
 $sources = [
