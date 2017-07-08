@@ -25,6 +25,10 @@ class Molino extends LunchMenuSource
 			throw new ScrapingFailedException("H2 not found");
 		}
 
+		if (!$table) {
+			throw new ScrapingFailedException("Table not found");
+		}
+
 		$group = $header[0]->plaintext;
 		foreach ($table[0]->find('tr') as $tr) {
 			$tds = $tr->find('td');
