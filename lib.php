@@ -88,7 +88,7 @@ function filter_output($filters, $element) {
 }
 
 function make_cache_dir() {
-	@mkdir(CACHE_DIR, 700, TRUE);
+	@mkdir(CACHE_DIR, 770, TRUE);
 }
 
 function cache_file($key) {
