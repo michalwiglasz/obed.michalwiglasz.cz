@@ -5,6 +5,8 @@ date_default_timezone_set('Europe/Prague');
 require_once __DIR__ . '/string.php';
 require_once __DIR__ . '/simple_html_dom.php';
 
+define('CACHE_DIR', __DIR__ . '/cache');
+
 // load modules
 foreach(glob(__DIR__ . '/modules/*.php') as $module) {
 	require_once $module;
@@ -85,8 +87,12 @@ function filter_output($filters, $element) {
 	return $str;
 }
 
+function make_cache_dir() {
+	@mkdir(CACHE_DIR, 700, TRUE);
+}
+
 function cache_file($key) {
-	return __DIR__ . '/cache/' . webalize($key) . '.cache';
+	return CACHE_DIR . '/' . webalize($key) . '.cache';
 }
 
 function cache_retrieve($key, $expires=600) {
@@ -301,6 +307,7 @@ function group_dishes($menu)
 
 function collect_menus($sources, $cache_default_interval)
 {
+	make_cache_dir();
 	$menus = [];
 	foreach ($sources as $source) {
 
