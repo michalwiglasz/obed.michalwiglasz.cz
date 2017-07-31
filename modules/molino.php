@@ -33,8 +33,8 @@ class Molino extends LunchMenuSource
 		foreach ($table[0]->find('tr') as $tr) {
 			$tds = $tr->find('td');
 			$what = implode('', $tds[0]->find('text'));
-			$quantity = implode('', $tds[1]->find('text'));
-			$price = implode('', $tds[2]->find('text'));
+			$quantity = empty($tds[1])? '' : implode('', $tds[1]->find('text'));
+			$price = empty($tds[2])? '' : implode('', $tds[2]->find('text'));
 			$result->dishes[] = new Dish($what, $price, $quantity, $group);
 		}
 
