@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__) . '/../lib.php';
-require_once dirname(__FILE__) . '/../pdf2text.php';
+require_once dirname(__FILE__) . '/lib.php';
+require_once dirname(__FILE__) . '/pdf2text.php';
 require_once dirname(__FILE__) . '/cfg.php';
 
 header('content-type: text/html; charset=utf-8');

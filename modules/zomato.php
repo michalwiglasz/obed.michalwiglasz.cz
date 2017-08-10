@@ -48,7 +48,7 @@ class Zomato extends LunchMenuSource
 				$what = $dish->dish->name;
 				$price = $dish->dish->price;
 				$quantity = NULL;
-				$result->dishes[] = new Dish($what, $price, $quantity);
+				$result->dishes[] = new Dish($what, $price);
 			}
 		}
 

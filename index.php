@@ -4,7 +4,6 @@ ini_set('display_errors', 'off');
 require_once dirname(__FILE__) . '/lib.php';
 require_once dirname(__FILE__) . '/cfg.php';
 
-
 $menus = collect_menus($sources, $cache_default_interval);
 
 if (isset($_GET['json'])) {
@@ -15,8 +14,9 @@ if (isset($_GET['json'])) {
 header('content-type: text/html; charset=utf-8');
 print_html_head($root);
 ?>
+
 <body>
-<div id="body">
+	<div id="body">
 <?php
 
 /* ---------------------------------------------------------------------------*/
@@ -47,6 +47,5 @@ if (get_today_timestamp() < $menza_close || get_today_timestamp() > $menza_open)
 print_footer();
 
 ?>
-</div>
+	</div>
 </body>
-</html>

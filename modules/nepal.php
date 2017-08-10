@@ -40,14 +40,7 @@ class Nepal extends LunchMenuSource
 					else $price = implode('', $tds[1]->find('text'));
 
 					$what = trim(preg_replace('(\\([0-9,]+\\)\\s*$)', '', $what));
-					$quantity = NULL;
-
-					if (preg_match('((.+?)([0-9]+g)$)u', $what, $m)) {
-						$what = trim($m[1]);
-						$quantity = $m[2];
-					}
-
-					$result->dishes[] = new Dish($what, $price, $quantity, $group);
+					$result->dishes[] = new Dish($what, $price, NULL, $group);
 				}
 
 			} else {

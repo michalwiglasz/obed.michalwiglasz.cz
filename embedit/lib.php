@@ -28,28 +28,13 @@ function get_today_timestamp() {
 }
 
 
-function get_czech_day($daynum) {
-	static $days = array(
-		'neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle'
-	);
-	return $days[$daynum];
-}
-
-
 function print_infobox() {
 	//echo '<p class="infobox">Zdá se, že Zomato nás zablokovalo na firewallu... 😞</p>';
 }
 
-
-function escape_text($str)
-{
-	return htmlspecialchars(strip_tags(trim($str)));
-}
-
-
 function print_html_head($root, $description='Denní menu restaurací v okolí') {
 	echo '<!DOCTYPE html><!--
-	  ▄▄▄▄· ▄▄▄ .·▄▄▄▄     • ▌ ▄ ·. ▪   ▄▄·  ▄ .▄ ▄▄▄· ▄▄▌  ▄▄▌ ▐ ▄▌▪   ▄▄ • ▄▄▌   ▄▄▄· .▄▄ · ·▄▄▄▄•    ▄▄· ·▄▄▄▄•
+      ▄▄▄▄· ▄▄▄ .·▄▄▄▄     • ▌ ▄ ·. ▪   ▄▄·  ▄ .▄ ▄▄▄· ▄▄▌  ▄▄▌ ▐ ▄▌▪   ▄▄ • ▄▄▌   ▄▄▄· .▄▄ · ·▄▄▄▄•    ▄▄· ·▄▄▄▄•
 ▪     ▐█ ▀█▪▀▄.▀·██▪ ██    ·██ ▐███▪██ ▐█ ▌▪██▪▐█▐█ ▀█ ██•  ██· █▌▐███ ▐█ ▀ ▪██•  ▐█ ▀█ ▐█ ▀. ▪▀·.█▌   ▐█ ▌▪▪▀·.█▌
  ▄█▀▄ ▐█▀▀█▄▐▀▀▪▄▐█· ▐█▌   ▐█ ▌▐▌▐█·▐█·██ ▄▄██▀▐█▄█▀▀█ ██▪  ██▪▐█▐▐▌▐█·▄█ ▀█▄██▪  ▄█▀▀█ ▄▀▀▀█▄▄█▀▀▀•   ██ ▄▄▄█▀▀▀•
 ▐█▌.▐▌██▄▪▐█▐█▄▄▌██. ██    ██ ██▌▐█▌▐█▌▐███▌██▌▐▀▐█ ▪▐▌▐█▌▐▌▐█▌██▐█▌▐█▌▐█▄▪▐█▐█▌▐▌▐█ ▪▐▌▐█▄▪▐██▌▪▄█▀   ▐███▌█▌▪▄█▀
@@ -60,14 +45,14 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 
 <meta http-equiv="refresh" content="3600">
 <meta property="og:title" content="Jíííídlooooo">
-<meta property="og:description" content="' . escape_text($description) . '">
+<meta property="og:description" content="' . htmlspecialchars($description) . '">
 <meta property="og:url" content="' . $root . '">
 <meta property="og:image" content="/GxMLDqy.gif">
 
 <meta name="twitter:card" value="summary_large_image">
 <meta name="twitter:domain" value="obed.michalwiglasz.cz">
 <meta name="twitter:title" value="Jíííídlooooo">
-<meta name="twitter:description" value="' . escape_text($description) . '">
+<meta name="twitter:description" value="' . htmlspecialchars($description) . '">
 <meta name="twitter:url" value="' . $root . '">
 <meta name="twitter:image" value="/GxMLDqy.gif">
 
@@ -78,6 +63,9 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 	';
 }
 
+function print_footer() {
+	echo '<hr><p class="footer">Základy této stránky vytvořil <a href="http://www.fit.vutbr.cz/~igrochol/">David Grochol</a> během jednoho nudného víkendu (a rozhodně ne během své pracovní doby). <a href="https://michalwiglasz.cz">Michal Wiglasz</a> ji upravil, aby vypadala trochu k světu a nenačítala se půl dne, a propůjčil hosting a doménu. Máme i <a href="?json">výstup v JSONu</a> pro strojové zpracování a <a href="https://github.com/michalwiglasz/obed.michalwiglasz.cz">GitHub</a>, kam můžete psát připomínky a posílat patche.</p>';
+}
 
 function dump($obj) {
 	echo "<pre><code>";
@@ -205,62 +193,94 @@ function cache_get_html($key, $url, $expires=540, $fulluri = true) {
 	]);
 }
 
-function print_header($title, $link, $emoji, $retrieved, $note=NULL)
+function process_zomato($zomato, $cache_default_interval, $cache_html_interval, $filters=[])
 {
-	echo "\t\t";
-	if ($emoji) echo '<h1 class="emoji ' . $emoji . '">';
-	else echo '<h1>';
-	echo '<a href="'.escape_text($link) . '">' . escape_text($title) . '</a></h1>' . "\n";
-	echo "\t\t" . '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $retrieved);
-	echo ' &mdash; <a href="'.escape_text($link) . '">web</a>';
-	if ($note) echo ' &mdash; ' . escape_text($note);
-	echo '</p>' . "\n";
+	foreach ($zomato as $title => $vals) {
+		if (count($vals) == 3) {
+			list($scrape, $link, $emoji) = $vals;
+			$zomato_id = NULL;
+		} else {
+			list($scrape, $link, $emoji, $zomato_id) = $vals;
+		}
+
+		if (cache_html_start($title, $cache_default_interval)) {
+			continue; // cache hit
+		}
+
+		if ($zomato_id) {
+			$cached = zomato_api_download($title, "https://developers.zomato.com/api/v2.1/dailymenu?res_id=$zomato_id", $cache_html_interval);
+		} else {
+			$cached = cache_get_html($title, $scrape, $cache_html_interval);
+		}
+		print_header($title, $link, $emoji, $cached['stored']);
+
+		do {
+			if ($cached['html']) {
+				$menu = $cached['html']->find("#menu-preview div.tmi-group", 0);
+				if ($menu) {
+					echo filter_output($filters, $menu);
+					break;
+				}
+
+			} elseif ($cached['contents']) {
+				if (count($cached['contents']->daily_menus)) {
+					foreach ($cached['contents']->daily_menus[0]->daily_menu->dishes as $dish) {
+						$what = $dish->dish->name;
+						$price = $dish->dish->price;
+						$quantity = NULL;
+						print_item($what, $price, $quantity);
+					}
+				} else {
+					echo "Nemají menu na Zomatu.";
+				}
+				break;
+			}
+
+			echo "Nepovedlo se načíst menu ze Zomata.";
+
+		} while (FALSE);
+
+		cache_html_end($title);
+	}
 }
 
-function print_footer() {
-	echo "\n\t\t<hr>";
-	echo "\n\t\t" . '<p class="footer">Základy této stránky vytvořil <a href="http://www.fit.vutbr.cz/~igrochol/">David Grochol</a> během jednoho nudného víkendu (a rozhodně ne během své pracovní doby). <a href="https://michalwiglasz.cz">Michal Wiglasz</a> ji upravil, aby vypadala trochu k světu a nenačítala se půl dne, a propůjčil hosting a doménu. Máme i <a href="?json">výstup v JSONu</a> pro strojové zpracování a <a href="https://github.com/michalwiglasz/obed.michalwiglasz.cz">GitHub</a>, kam můžete psát připomínky a posílat patche.</p>' . "\n";
+function print_header($title, $link, $emoji, $retrieved, $note=NULL)
+{
+	if ($emoji) echo '<h1 class="emoji ' . $emoji . '">';
+	else echo '<h1>';
+	echo '<a href="'.htmlspecialchars($link) . '">' . htmlspecialchars($title) . '</a></h1>';
+	echo '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $retrieved);
+	echo ' &mdash; <a href="'.htmlspecialchars($link) . '">web</a></h1>';
+	if ($note) echo ' &mdash; ' . htmlspecialchars($note);
+	echo '</p>';
 }
 
 function print_subheader($title)
 {
-	echo "\t\t<h2>" . escape_text($title) . "</h2>\n";
+	echo '<h2>' . $title . '</h2>';
 }
 
-function print_dishes_prologue()
+function print_what($what, $quantity = NULL)
 {
-	echo "\t\t<ul>\n";
+	echo '<div class="tmi-text-group col-l-14"><div class="row"><div class="tmi-name">';
+	if ($quantity) echo '<span class="tmi-qty">' . htmlspecialchars(strip_tags($quantity)) . ' </span>';
+	echo htmlspecialchars(strip_tags($what));
+	echo "\n" . '</div></div></div>';
 }
 
-function print_dishes_epilogue()
+function print_price($price)
 {
-	echo "\t\t</ul>\n";
+	echo '<div class="tmi-price ta-right col-l-2 bold"><div class="row">' . "\n";
+	echo htmlspecialchars(strip_tags($price));
+	echo '</div></div>';
 }
 
-function print_dish($dish)
+function print_item($what, $price = NULL, $quantity = NULL)
 {
-	echo "\t\t\t<li>\n";
-	if ($dish->number) {
-		echo "\t\t\t\t" . '<span class="number">' . escape_text($dish->number) . '.</span>' . "\n";
-	}
-	if ($dish->quantity) {
-		echo "\t\t\t\t" . '<span class="quantity">' . escape_text($dish->quantity) . '</span>' . "\n";
-	}
-	if ($dish->name) {
-		echo "\t\t\t\t" . '<span class="name">' . escape_text($dish->name) . '</span>' . "\n";
-	}
-	if ($dish->price) {
-		echo "\t\t\t\t" . '<span class="hellip">&hellip;</span>' . "\n";
-		echo "\t\t\t\t" . '<span class="price">' . escape_text($dish->price) . '</span>' . "\n";
-	}
-	echo "\t\t\t</li>\n";
-}
-
-function print_error($what)
-{
-	print_dishes_prologue();
-	print_dish($what);
-	print_dishes_epilogue();
+	echo '<li>';
+	if ($what) print_what($what, $quantity);
+	if ($price) print_price($price);
+	echo '</div>';
 }
 
 function group_dishes($menu)
@@ -338,7 +358,7 @@ function print_html($root, $menus)
 	foreach ($menus as $restaurant) {
 		if ($restaurant->error) {
 			print_header($restaurant->title, $restaurant->link, $restaurant->icon, time());
-			print_error('Nepodařilo se načíst menu.');
+			print_item('Nepodařilo se načíst menu.');
 
 		} else {
 			print_header($restaurant->title, $restaurant->link, $restaurant->icon, $restaurant->timestamp);
@@ -346,14 +366,12 @@ function print_html($root, $menus)
 				$grouped = group_dishes($restaurant->dishes);
 				foreach ($grouped as $name => $items) {
 					if ($name) print_subheader($name);
-					print_dishes_prologue();
 					foreach ($items as $dish) {
-						print_dish($dish);
+						print_item($dish->name, $dish->price, $dish->quantity);
 					}
-					print_dishes_epilogue();
 				}
 			} else {
-				print_error('Dnes nic.');
+				print_item('Dnes nemají nic.');
 			}
 		}
 	}
