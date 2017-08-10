@@ -29,13 +29,26 @@ class Molino extends LunchMenuSource
 			throw new ScrapingFailedException("Table not found");
 		}
 
-		$group = $header[0]->plaintext;
+		$today_re = '(' . get_czech_day(date('w', $todayDate)) . '\s+' . date('j', $todayDate). '\.\s*' . date('n', $todayDate) . ')ui';
+
+		$withinToday = FALSE;
 		foreach ($table[0]->find('tr') as $tr) {
 			$tds = $tr->find('td');
-			$what = implode('', $tds[0]->find('text'));
-			$quantity = empty($tds[1])? '' : implode('', $tds[1]->find('text'));
-			$price = empty($tds[2])? '' : implode('', $tds[2]->find('text'));
-			$result->dishes[] = new Dish($what, $price, $quantity, $group);
+			$what = trim(preg_replace('~\x{00a0}~siu',' ', $tds[0]->plaintext));
+			if (!$what) {
+				continue;
+			} elseif ($withinToday) {
+				if (count($tds) == 1) {
+					break;
+				}
+				$quantity = empty($tds[1])? '' : $tds[1]->plaintext;
+				$price = empty($tds[2])? '' : $tds[2]->plaintext;
+				$result->dishes[] = new Dish($what, $price, $quantity);
+			} elseif (count($tds) == 1) {
+				if (preg_match($today_re, $what)) {
+					$withinToday = TRUE;
+				}
+			}
 		}
 
 		return $result;
