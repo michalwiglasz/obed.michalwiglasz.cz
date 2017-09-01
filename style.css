@@ -15,13 +15,23 @@
 */
 
 #body {
+    margin: 0;
     padding: 0 15px;
+    width: 100%;
+}
+
+html {
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    width: calc(100% - 30px);
 }
 
 .infobox {
@@ -57,7 +67,7 @@ hr {
 }
 
 h1 {
-    font-size: 166%;
+    font-size: 150%;
     font-weight: normal;
     margin-bottom: 3px;
     margin-top: 1em;
@@ -66,6 +76,7 @@ h1 {
 
 h1:first-child {
     margin-top: -4px;
+    margin-bottom: 7px;
 }
 
 h1.emoji a {
@@ -99,7 +110,7 @@ h1#panel {
     left: 0;
     width: 100%;
     margin: 0;
-    padding: 3px 0 3px 23px;
+    padding: 3px 0 3px 15px;
     background: white;
 }
 
