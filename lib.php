@@ -71,6 +71,13 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 <meta name="twitter:url" value="' . $root . '">
 <meta name="twitter:image" value="/GxMLDqy.gif">
 
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/8c02b2c92d.js"></script>
+<script src="/script.js"></script>
+
 <title>Jíííídlooooo</title>
 <link rel="shortcut icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">

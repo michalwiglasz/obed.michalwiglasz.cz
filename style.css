@@ -34,7 +34,6 @@ body {
 }
 
 a {
-    color: blue;
     color: #e4002b;
     text-decoration: none;
 }
@@ -60,8 +59,13 @@ hr {
 h1 {
     font-size: 166%;
     font-weight: normal;
-    margin-bottom: 0.1em;
+    margin-bottom: 3px;
     margin-top: 1em;
+    white-space: nowrap;
+}
+
+h1:first-child {
+    margin-top: -4px;
 }
 
 h1.emoji a {
@@ -89,11 +93,84 @@ h1.emoji.lacorrida a {background-image: url(em-lacorrida.png)}
 h1.emoji.semilasso a {background-image: url(em-semilasso.jpg)}
 h1.emoji.nabersi a {background-image: url(em-nabersi.png)}
 
+h1#panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 3px 0 3px 23px;
+    background: white;
+}
+
+#panel-bottom {
+    display: block;
+    content: "";
+    height: 15px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    margin: 3px 0 0 0;
+    background: linear-gradient(to bottom, rgba(225, 225, 225, 1) 0%, rgba(255,255,255,0) 100%);
+}
+
+#panel-picker {
+    text-align: center;
+    background: none;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    font-size: 166%;
+    font-weight: normal;
+    color: #e4002b;
+    background: white;
+    cursor: pointer;
+}
+
+#panel-picker-menu {
+    position: fixed;
+    right: 0;
+    background: white;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: -5px 5px 5px 0px rgba(240,240,240,1);
+}
+
+#panel-picker-menu li {
+    padding: 7px 15px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#panel-picker-menu li:hover {
+    color: #e4002b;
+}
+
 .retrieved {
     font-size: 60%;
     margin-top: 0;
     color: #999;
+    xvisibility: hidden;
 }
+
+@media only screen and (min-width: 768px) {
+    h1:first-child {
+        margin-top: 1em;
+    }
+
+    h1#panel {
+        display: none !important;
+    }
+
+    .retrieved {
+        visibility: visible;
+    }
+}
+
+
 
 h2 {
     margin: 0.3em 0 0 0;

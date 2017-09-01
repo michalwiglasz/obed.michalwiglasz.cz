@@ -26,9 +26,6 @@ a {
 	margin-bottom: 1em;
 }
 </style>
-<script>
-<?php readfile(dirname(__FILE__) . '/../script.js') ?>
-</script>
 
 <body>
 <div id="body">
