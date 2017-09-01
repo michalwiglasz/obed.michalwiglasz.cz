@@ -20,6 +20,14 @@ a {
 	color: #69a120;
 }
 
+#panel-picker {
+    color: #69a120;
+}
+
+#panel-picker-menu li:hover {
+    color: #69a120;
+}
+
 #body {
 	margin-bottom: 1em;
 }
