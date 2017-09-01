@@ -15,6 +15,77 @@ a {
 #body {
 	margin-bottom: 1em;
 }
+
+.tmi-daily, .tmi-group-name {
+    padding: 0 4px;
+    margin: 0 -4px;
+    text-indent: -20px;
+    padding-left: 24px;
+}
+
+.tmi-daily.highlight1, .row.highlight1 {
+    background-color: khaki;
+}
+
+.tmi-daily.highlight2, .row.highlight2 {
+    background-color: pink  ;
+}
+
+
+
+.tmi-text-group, .tmi-name, .tmi-price, .row {
+    display: inline;
+}
+
+.tmi-qty {
+    color: #999;
+    display: inline;
+}
+
+.tmi-price:before {
+    content: "…";
+}
+
+.tmi-price:empty:before {
+    display: none;
+    content: "";
+}
+
+.tmi-price {
+    font-weight: bold;
+}
+
+table#m5, table#m5 * {
+    display: block;
+}
+
+table#m5 td, table#m5 th, table#m5 small {
+    font-size: 100%;
+    display: inline;
+}
+
+table#m5 .slcen1 {
+    font-weight: bold;
+}
+
+table#m5 .slcen1:before {
+    content: "… ";
+}
+
+table#m5 .slcen2:before {
+    content: "/ ";
+}
+
+
+table#m5 small, table#m5 .slcen2 {
+    color: #999;
+    display: inline;
+}
+
+table#m5 .slcen3 {
+    display: none;
+}
+
 </style>
 
 <body>
