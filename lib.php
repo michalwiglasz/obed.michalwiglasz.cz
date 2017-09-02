@@ -4,6 +4,7 @@ date_default_timezone_set('Europe/Prague');
 
 require_once __DIR__ . '/string.php';
 require_once __DIR__ . '/simple_html_dom.php';
+require_once __DIR__ . '/pdf2text.php';
 
 define('CACHE_DIR', __DIR__ . '/cache');
 
@@ -153,16 +154,7 @@ function cache_download($key, $url, $expires=540) {
 	$key = 'download-' . $key;
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
-/*
-	$opts = array(
-		'http'=>array(
-		'method'=>"GET",
-		'header'=> get_http_headers(),
-		)
-	);
-	$context = stream_context_create($opts);
-	$data = file_get_contents($url, null, $context);
-*/
+
 	$ch=curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -176,7 +168,7 @@ function cache_download($key, $url, $expires=540) {
 	]);
 }
 
-function cache_get_html($key, $url, $expires=540, $fulluri = true) {
+function cache_get_html($key, $url, $expires=540) {
 	$key = 'get-html-' . $key;
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
@@ -188,39 +180,23 @@ function cache_get_html($key, $url, $expires=540, $fulluri = true) {
 	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36');
 	$response = curl_exec($ch);
 	curl_close($ch);
-/*
-	$sniServer = parse_url($url, PHP_URL_HOST);
-	$opts = array(
-		'http' => array(
-			'method' => "GET",
-			'header'=> get_http_headers(),
-			'timeout' => 2,
-			//'proxy' => 'tcp://155.4.66.102:45554',
-			'request_fulluri' => $fulluri,
-		),
-		'ssl' => array(
-			'SNI_enabled' => true,
-			'SNI_server_name' => $sniServer,
-		)
-	);
-	$context = stream_context_create($opts);
-	$data = file_get_html($url, null, $context);
-*/
+
 	$html = str_get_html($response);
 	return cache_store($key, [
 		'html' => $html,
 	]);
 }
 
-function print_header($title, $link, $emoji, $retrieved, $note=NULL)
+function print_header($restaurant)
 {
 	echo "\t\t";
-	if ($emoji) echo '<h1 class="emoji ' . $emoji . '">';
+	if ($restaurant->icon) echo '<h1 class="emoji ' . $restaurant->icon . '">';
 	else echo '<h1>';
-	echo '<a href="'.escape_text($link) . '">' . escape_text($title) . '</a></h1>' . "\n";
-	echo "\t\t" . '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $retrieved);
-	echo ' &mdash; <a href="'.escape_text($link) . '">web</a>';
-	if ($note) echo ' &mdash; ' . escape_text($note);
+	echo escape_text($restaurant->title) . "</h1>\n";
+	echo "\t\t" . '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $restaurant->error? time() : $restaurant->timestamp);
+	echo ' &mdash; <a href="'.escape_text($restaurant->link) . '">web</a>';
+	if ($restaurant->sourceLink) echo ' &mdash; <a href="'.escape_text($restaurant->sourceLink) . '">zdroj</a>';
+	if ($restaurant->note) echo ' &mdash; ' . escape_text($restaurant->note);
 	echo '</p>' . "\n";
 }
 
@@ -266,7 +242,7 @@ function print_dish($dish)
 function print_error($what)
 {
 	print_dishes_prologue();
-	print_dish($what);
+	echo "\t\t\t\t" . '<span class="error">' . escape_text($what) . '</span>' . "\n";
 	print_dishes_epilogue();
 }
 
@@ -312,6 +288,8 @@ function collect_menus($sources, $cache_default_interval)
 		$menus[webalize($module->title)] = (object)[
 			'title' => $module->title,
 			'link' => $module->link,
+			'sourceLink' => $module->sourceLink,
+			'note' => $module->note,
 			'icon' => $module->icon,
 			'error' => $error,
 			'timestamp' => $dishes->timestamp,
@@ -343,12 +321,12 @@ function print_json($root, $menus)
 function print_html($root, $menus)
 {
 	foreach ($menus as $restaurant) {
+		print_header($restaurant);
+
 		if ($restaurant->error) {
-			print_header($restaurant->title, $restaurant->link, $restaurant->icon, time());
 			print_error('Nepodařilo se načíst menu.');
 
 		} else {
-			print_header($restaurant->title, $restaurant->link, $restaurant->icon, $restaurant->timestamp);
 			if (count($restaurant->dishes)) {
 				$grouped = group_dishes($restaurant->dishes);
 				foreach ($grouped as $name => $items) {
@@ -360,7 +338,7 @@ function print_html($root, $menus)
 					print_dishes_epilogue();
 				}
 			} else {
-				print_error('Dnes nic.');
+				print_error('Vypadá to, že dnes nic.');
 			}
 		}
 	}

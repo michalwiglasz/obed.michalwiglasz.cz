@@ -8,12 +8,7 @@ class ZelenaKocka extends LunchMenuSource
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
-		$cached = cache_get_html($this->title, $this->link, $cacheSourceExpires);
-
-		if (!$cached['html']) {
-			throw new ScrapingFailedException("No html returned");
-		}
-
+		$cached = $this->downloadHtml($cacheSourceExpires);
 		$result = new LunchMenuResult($cached['stored']);
 		$group = NULL;
 

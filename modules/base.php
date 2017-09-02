@@ -4,9 +4,33 @@ abstract class LunchMenuSource
 {
 	public $title;
 	public $link;
+	public $sourceLink;
 	public $icon;
+	public $note;
 
 	abstract public function getTodaysMenu($todayDate, $cacheSourceExpires);
+
+	protected function downloadHtml($cacheSourceExpires, $url = null)
+	{
+		if (!$url) {
+			$url = $this->sourceLink? $this->sourceLink : $this->link;
+		}
+		$cached = cache_get_html($this->title, $url, $cacheSourceExpires);
+		if (!$cached['html']) {
+			throw new ScrapingFailedException("No html returned");
+		}
+		return $cached;
+	}
+
+	protected function downloadRaw($cacheSourceExpires)
+	{
+		$url = $this->sourceLink? $this->sourceLink : $this->link;
+		$cached = cache_download($this->title, $url, $cacheSourceExpires);
+		if (!$cached['contents']) {
+			throw new ScrapingFailedException("File empty");
+		}
+		return $cached;
+	}
 }
 
 

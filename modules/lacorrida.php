@@ -6,13 +6,9 @@ class LaCorrida extends LunchMenuSource {
 	public $link = 'http://www.lacorrida.cz/zabovresky/';
 	public $icon = 'lacorrida';
 
-	public function getTodaysMenu($todayDate, $cacheSourceExpires) {
-
-		$cached = cache_get_html($this->title, $this->link, $cacheSourceExpires, false);
-
-		if (!$cached['html']) {
-			throw new ScrapingFailedException("No html returned");
-		}
+	public function getTodaysMenu($todayDate, $cacheSourceExpires)
+	{
+		$cached = $this->downloadHtml($cacheSourceExpires);
 
 		$result = new LunchMenuResult($cached['stored']);
 		$group = null;

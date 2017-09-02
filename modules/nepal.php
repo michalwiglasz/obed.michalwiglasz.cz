@@ -8,15 +8,11 @@ class Nepal extends LunchMenuSource
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
-		$cached = cache_get_html($this->title, $this->link, $cacheSourceExpires);
-
-		if (!$cached['html']) {
-			throw new ScrapingFailedException("No html returned");
-		}
+		$cached = $this->downloadHtml($cacheSourceExpires);
+		$result = new LunchMenuResult($cached['stored']);
 
 		$table = $cached['html']->find(".the_content_wrapper table", 0);
 		$today = mb_strtolower(date('l', $todayDate));
-		$result = new LunchMenuResult($cached['stored']);
 		$group = NULL;
 
 		$withinToday = FALSE;
