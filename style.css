@@ -67,6 +67,7 @@ hr {
 }
 
 h1 {
+    color: #e4002b;
     font-size: 150%;
     font-weight: normal;
     margin-bottom: 3px;
@@ -79,30 +80,32 @@ h1:first-child {
     margin-bottom: 7px;
 }
 
-h1.emoji a {
+h1.emoji:after {
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
+    display: inline;
+    content: "";
 }
 
-h1.emoji a {
+h1.emoji:after {
     padding-right: 1.7em;
 }
 
-h1.emoji.ambulance a {background-image: url(em-ambulance.png)}
-h1.emoji.japanese a {background-image: url(em-japanese.png)}
-h1.emoji.camel a {background-image: url(em-camel.png)}
-h1.emoji.velorex a {background-image: url(em-velorex.png)}
-h1.emoji.nepal a {background-image: url(em-nepal.png)}
-h1.emoji.italy a {background-image: url(em-italy.png)}
-h1.emoji.monkey a {background-image: url(em-monkey.png); padding-right: 5.1em /*padding-right: 4.3em*/}
-h1.emoji.sono a {background-image: url(em-speaker.png)}
-h1.emoji.pizza a {background-image: url(em-pizza.png)}
-h1.emoji.selepka a {background-image: url(em-selepka2.png)}
-h1.emoji.kocka a {background-image: url(em-cat.png)}
-h1.emoji.lacorrida a {background-image: url(em-lacorrida.png)}
-h1.emoji.semilasso a {background-image: url(em-semilasso.jpg)}
-h1.emoji.nabersi a {background-image: url(em-nabersi.png)}
+h1.emoji.ambulance:after {background-image: url(em-ambulance.png)}
+h1.emoji.japanese:after {background-image: url(em-japanese.png)}
+h1.emoji.camel:after {background-image: url(em-camel.png)}
+h1.emoji.velorex:after {background-image: url(em-velorex.png)}
+h1.emoji.nepal:after {background-image: url(em-nepal.png)}
+h1.emoji.italy:after {background-image: url(em-italy.png)}
+h1.emoji.monkey:after {background-image: url(em-monkey.png); padding-right: 5.1em /*padding-right: 4.3em*/}
+h1.emoji.sono:after {background-image: url(em-speaker.png)}
+h1.emoji.pizza:after {background-image: url(em-pizza.png)}
+h1.emoji.selepka:after {background-image: url(em-selepka2.png)}
+h1.emoji.kocka:after {background-image: url(em-cat.png)}
+h1.emoji.lacorrida:after {background-image: url(em-lacorrida.png)}
+h1.emoji.semilasso:after {background-image: url(em-semilasso.jpg)}
+h1.emoji.nabersi:after {background-image: url(em-nabersi.png)}
 
 h1#panel {
     position: fixed;

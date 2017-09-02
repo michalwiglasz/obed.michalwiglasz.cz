@@ -2,11 +2,20 @@ $(function() {
     var headings = $('h1');
     var headingHeight = headings.outerHeight();
     var bulgarianConstant = 4;
+    var current = null;
 
     var panel = $('<h1>').attr('id', 'panel').css({
         height: headingHeight,
         display: "none",
     });
+
+    panel.click(function() {
+        if (current) {
+            $('html, body').animate({
+                scrollTop: current.offset().top
+            }, "fast");
+        }
+    })
 
     var span = $('<span>');
     panel.append(span);
@@ -27,6 +36,7 @@ $(function() {
     });
     headings.each(function(index) {
         var me = $(this);
+
         var item = $('<li>').text(me.text());
         item.data('target', me);
         item.click(function() {
@@ -65,9 +75,8 @@ $(function() {
     */
 
 
-    var updateFunc = function() {
+    var scrollHandler = function() {
         var windowTop = $(window).scrollTop();
-        var current = null;
         headings.each(function(index) {
             var me = $(this);
             var h1top = me.offset().top;
@@ -97,6 +106,6 @@ $(function() {
         }
     };
 
-    updateFunc();
-    $(window).on('scroll', updateFunc);
+    scrollHandler();
+    $(window).on('scroll', scrollHandler);
 });

@@ -16,7 +16,7 @@ print_html_head($root);
 ?>
 
 <style>
-a {
+h1, a {
 	color: #69a120;
 }
 
