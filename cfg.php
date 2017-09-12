@@ -24,7 +24,7 @@ $sources = [
 	new Source(new Zomato(16505880, 'Yvy Restaurant', 'http://www.yvy.cz/', 'yvy')),
 	new Source(new Nepal),
 	new Source(new Molino),
-	new Source(new Zomato(18318157, 'Music Café Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
+	new Source(new Zomato(18318157, 'Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
 	new Source(new Kralovska),
 ];
 
