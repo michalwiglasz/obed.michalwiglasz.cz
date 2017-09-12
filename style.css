@@ -106,6 +106,7 @@ h1.emoji.kocka:after {background-image: url(em-cat.png)}
 h1.emoji.lacorrida:after {background-image: url(em-lacorrida.png)}
 h1.emoji.semilasso:after {background-image: url(em-semilasso.jpg)}
 h1.emoji.nabersi:after {background-image: url(em-nabersi.png)}
+h1.emoji.kralovska:after {background-image: url(em-kralovska.png)}
 
 h1#panel {
     position: fixed;
