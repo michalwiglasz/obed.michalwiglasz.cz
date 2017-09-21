@@ -72,6 +72,16 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 <meta name="twitter:url" value="' . $root . '">
 <meta name="twitter:image" value="/GxMLDqy.gif">
 
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31464798-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag("js", new Date());
+
+  gtag("config", "UA-31464798-2");
+</script>
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
