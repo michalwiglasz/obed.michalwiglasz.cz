@@ -236,3 +236,12 @@ li .price {
 .help {
     font-size: 60%;
 }
+
+
+li .price-zamestnanec {
+}
+
+li .price-externi-stravnik {
+    opacity: 0.3;
+    font-weight: normal;
+}
