@@ -71,7 +71,11 @@ class Dish
 	public function __construct($name, $price=NULL, $quantity=NULL, $group=NULL, $number=NULL)
 	{
 		$this->name = trim($name);
-		$this->price = trim($price);
+		if (is_array($price)) {
+			$this->price = $price;
+		} else {
+			$this->price = trim($price);
+		}
 		$this->quantity = trim($quantity);
 		$this->group = trim($group);
 		$this->number = trim($number);

@@ -29,10 +29,6 @@ $sources = [
 ];
 
 
-$menza_filters = [
-	'(&nbsp;)' => ' ',
-	'(<td class="levy">[HP]\\s+)' => '<td class="levy">',
-	'((<td class="levyjid[^"]+"[^>]+>)P\s)ui' => '$1Polévka ',
-	'(<small style=\'font-size: 8pt;\'>[^>]+</small>)' => '',
-	'(<td class="levy"><small> </span></td>)' => '',
-];
+if (get_today_timestamp() < $menza_close || get_today_timestamp() > $menza_open) {
+	$sources[] = new Source(new Menza, 60);
+}

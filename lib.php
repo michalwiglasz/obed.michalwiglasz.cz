@@ -242,7 +242,18 @@ function print_dish($dish)
 	if ($dish->name) {
 		echo "\t\t\t\t" . '<span class="name">' . escape_text($dish->name) . '</span>' . "\n";
 	}
-	if ($dish->price) {
+	if (is_array($dish->price)) {
+		echo "\t\t\t\t" . '<span class="hellip">&hellip;</span>' . "\n";
+		$first = true;
+		foreach ($dish->price as $key => $price) {
+			$webalized_key = escape_text(webalize($key));
+			if (!$first) {
+				echo "\t\t\t\t" . '<span class="slash">/</span>' . "\n";
+			}
+			$first = false;
+			echo "\t\t\t\t" . '<span class="price price-' . $webalized_key . '" title="' . escape_text($key) . '">' . escape_text($price) . '</span>' . "\n";
+		}
+	} elseif ($dish->price) {
 		echo "\t\t\t\t" . '<span class="hellip">&hellip;</span>' . "\n";
 		echo "\t\t\t\t" . '<span class="price">' . escape_text($dish->price) . '</span>' . "\n";
 	}
