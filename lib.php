@@ -77,12 +77,12 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/8c02b2c92d.js"></script>
-<script src="../script.js"></script>
+<script src="/script.js"></script>
 
 <title>Jíííídlooooo</title>
 <link rel="shortcut icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="/style.css" rel="stylesheet" type="text/css">
 	';
 }
 
