@@ -12,10 +12,11 @@ if (isset($_GET['force'])) {
 }
 
 $sources = [
-	new Source(new Zomato(16507390, 'Sono', 'http://www.sonocentrum.cz/the-restaurant/denni-menu/', 'sono')),
-	new Source(new Zomato(16507460, 'Viva', 'http://www.pizzerie-viva.cz/', 'pizza')),
 	new Source(new LaCorrida),
-	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
+	new Source(new Zomato(16507460, 'Viva', 'http://www.pizzerie-viva.cz/', 'pizza')),
 	new Source(new NaberSi),
+	new Source(new Zomato(16506537, 'Everest', 'http://everestbrno.cz/index.html', 'everest')),
+	new Source(new Zomato(16507390, 'Sono', 'http://www.sonocentrum.cz/the-restaurant/denni-menu/', 'sono')),
+	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
 	new Source(new ZelenaKocka),
 ];
