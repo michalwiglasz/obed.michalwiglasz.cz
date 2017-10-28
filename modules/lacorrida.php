@@ -10,25 +10,36 @@ class LaCorrida extends LunchMenuSource {
 	{
 		$cached = $this->downloadHtml($cacheSourceExpires);
 
-		$result = new LunchMenuResult($cached['stored']);
-		$group = null;
-
-		$today = date('N', $todayDate);
-
-		$div = $cached['html']->find("div.menu-table", 0);
-
-		if (!$div) {
-			throw new ScrapingFailedException("div.menu-table was not found");
+		if (!$cached['html']) {
+			throw new ScrapingFailedException("No html returned");
 		}
+		try {
+			$result = new LunchMenuResult($cached['stored']);
+			$group = null;
 
-		foreach ($div->find("div#tabs-{$today} div.col-sm-6") as $i => $item) {
-			if ($i == 0) {
-				// Soup
-				$result->dishes[] = new Dish(html_entity_decode($item->find('.menu-con p', 0)->plaintext));
-			} else {
-				// Dish
-				$result->dishes[] = new Dish(html_entity_decode($item->find('.menu-con p', 0)->plaintext), html_entity_decode($item->find('.menu-con h4 span', 0)->plaintext));
+			$today = date('N', $todayDate);
+
+			$div = $cached['html']->find("div.menu-table", 0);
+
+			if (!$div) {
+				throw new ScrapingFailedException("div.menu-table was not found");
 			}
+
+			foreach ($div->find("div#tabs-{$today} div.menu-item") as $i => $item) {
+
+				$dishName = !!$item->find('.menu-con > p', 1)->plaintext ? $item->find('.menu-con > p', 1)->plaintext : $item->find('.menu-con p', 0)->plaintext;
+
+				if ($i == 0) {
+					// Soup
+					$result->dishes[] = new Dish(html_entity_decode($dishName));
+				} else {
+					// Dish
+					$result->dishes[] = new Dish(html_entity_decode($dishName), html_entity_decode($item->find('.menu-con h4 span', 0)->plaintext));
+				}
+			}
+		} catch (Exception $e) {
+			dump($e);
+			die;
 		}
 
 		return $result;
