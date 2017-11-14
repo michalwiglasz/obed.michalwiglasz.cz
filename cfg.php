@@ -24,14 +24,11 @@ $sources = [
 	new Source(new Zomato(16505880, 'Yvy Restaurant', 'http://www.yvy.cz/', 'yvy')),
 	new Source(new Nepal),
 	new Source(new Molino),
-	new Source(new Zomato(18318157, 'Music Café Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
+	new Source(new Zomato(18318157, 'Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
+	new Source(new Kralovska),
 ];
 
 
-$menza_filters = [
-	'(&nbsp;)' => ' ',
-	'(<td class="levy">[HP]\\s+)' => '<td class="levy">',
-	'((<td class="levyjid[^"]+"[^>]+>)P\s)ui' => '$1Polévka ',
-	'(<small style=\'font-size: 8pt;\'>[^>]+</small>)' => '',
-	'(<td class="levy"><small> </span></td>)' => '',
-];
+if (get_today_timestamp() < $menza_close || get_today_timestamp() > $menza_open) {
+	$sources[] = new Source(new Menza, 60);
+}

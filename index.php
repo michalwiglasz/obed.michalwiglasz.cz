@@ -29,21 +29,6 @@ print_html($root, $menus);
 
 /* ---------------------------------------------------------------------------*/
 
-if (get_today_timestamp() < $menza_close || get_today_timestamp() > $menza_open) {
-	print_header('Menza', 'http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5', 'ambulance', time());
-
-	$data = file_get_html('http://www.kam.vutbr.cz/default.aspx?p=menu&provoz=5');
-	$output = $data->getElementById("m5");
-	$output = trim(filter_output($menza_filters, $output));
-	if ($output) {
-		echo $output;
-	} else {
-		echo "Buď mají zavřeno, anebo to co dycky.";
-	}
-}
-
-/* ---------------------------------------------------------------------------*/
-
 print_footer();
 
 ?>

@@ -10,6 +10,9 @@ class Zomato extends LunchMenuSource
 		$this->title = $title;
 		$this->link = $link;
 		$this->icon = $icon;
+
+		$restaurant = $this->apiDownload($this->title . '-info', "https://developers.zomato.com/api/v2.1/restaurant?res_id=$this->id", 86400 * 7);
+		$this->sourceLink = $restaurant['contents']->url;
 	}
 
 	private function apiDownload($key, $url, $expires) {
@@ -35,7 +38,7 @@ class Zomato extends LunchMenuSource
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
-		$cached = $this->apiDownload($this->title, "https://developers.zomato.com/api/v2.1/dailymenu?res_id=$this->id", $cacheSourceExpires);
+		$cached = $this->apiDownload($this->title . '-menu', "https://developers.zomato.com/api/v2.1/dailymenu?res_id=$this->id", $cacheSourceExpires);
 
 		if (!$cached['contents']) {
 			throw new ScrapingFailedException("No data returned from api");

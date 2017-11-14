@@ -39,6 +39,7 @@ $(function() {
 
         var item = $('<li>').text(me.text());
         item.data('target', me);
+        item.attr('class', me.attr('class'));
         item.click(function() {
             pickerMenu.hide();
             $('html, body').animate({

@@ -72,17 +72,27 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 <meta name="twitter:url" value="' . $root . '">
 <meta name="twitter:image" value="/GxMLDqy.gif">
 
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31464798-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag("js", new Date());
+
+  gtag("config", "UA-31464798-2");
+</script>
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/8c02b2c92d.js"></script>
-<script src="/script.js"></script>
+<script src="/script.js?' . filemtime(__DIR__ . '/script.js') . '"></script>
 
 <title>Jíííídlooooo</title>
 <link rel="shortcut icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="/style.css?' . filemtime(__DIR__ . '/style.css') . '" rel="stylesheet" type="text/css">
 	';
 }
 
@@ -232,7 +242,18 @@ function print_dish($dish)
 	if ($dish->name) {
 		echo "\t\t\t\t" . '<span class="name">' . escape_text($dish->name) . '</span>' . "\n";
 	}
-	if ($dish->price) {
+	if (is_array($dish->price)) {
+		echo "\t\t\t\t" . '<span class="hellip">&hellip;</span>' . "\n";
+		$first = true;
+		foreach ($dish->price as $key => $price) {
+			$webalized_key = escape_text(webalize($key));
+			if (!$first) {
+				echo "\t\t\t\t" . '<span class="slash">/</span>' . "\n";
+			}
+			$first = false;
+			echo "\t\t\t\t" . '<span class="price price-' . $webalized_key . '" title="' . escape_text($key) . '">' . escape_text($price) . '</span>' . "\n";
+		}
+	} elseif ($dish->price) {
 		echo "\t\t\t\t" . '<span class="hellip">&hellip;</span>' . "\n";
 		echo "\t\t\t\t" . '<span class="price">' . escape_text($dish->price) . '</span>' . "\n";
 	}
