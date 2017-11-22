@@ -113,6 +113,8 @@ h1.emoji:after {
 .emoji.semilasso:after {background-image: url(em-semilasso.jpg)}
 .emoji.nabersi:after {background-image: url(em-nabersi.png)}
 .emoji.kralovska:after {background-image: url(em-kralovska.png)}
+.emoji.everest:after {background-image: url(em-everest.png)}
+.emoji.seven:after {background-image: url(em-seven.png)}
 
 h1#panel {
     position: fixed;
