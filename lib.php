@@ -203,7 +203,7 @@ function print_header($restaurant)
 	if ($restaurant->icon) {
 		$id = 'r-' . md5(spl_object_hash($restaurant));
 		echo "<h1 id=\"$id\" class=\"emoji $restaurant->icon\">";
-		echo "<style>h1#$id.emoji.$restaurant->icon:after { background-image: url('em-$restaurant->icon.png'); }</style>";
+		echo "<style>h1#$id.emoji.$restaurant->icon:after { background-image: url('/em-$restaurant->icon.png'); }</style>";
 	}
 	else echo '<h1>';
 	echo escape_text($restaurant->title) . "</h1>\n";
