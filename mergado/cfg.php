@@ -20,4 +20,7 @@ $sources = [
 	new Source(new Seven),
 	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
 	new Source(new ZelenaKocka),
+	new Source(new Zomato(18397993, 'Zdravý život', 'https://www.zzbrno.cz/menu.htm', 'health')),
+	new Source(new Zomato(16507106, 'Oaza', null, 'palm')),
+	new Source(new MyKitchen),
 ];

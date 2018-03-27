@@ -98,23 +98,7 @@ h1.emoji:after {
     padding-right: 1.7em;
 }
 
-.emoji.ambulance:after {background-image: url(em-ambulance.png)}
-.emoji.japanese:after {background-image: url(em-japanese.png)}
-.emoji.camel:after {background-image: url(em-camel.png)}
-.emoji.velorex:after {background-image: url(em-velorex.png)}
-.emoji.nepal:after {background-image: url(em-nepal.png)}
-.emoji.italy:after {background-image: url(em-italy.png)}
-.emoji.monkey:after {background-image: url(em-monkey.png); padding-right: 5.1em !important /*padding-right: 4.3em*/}
-.emoji.sono:after {background-image: url(em-speaker.png)}
-.emoji.pizza:after {background-image: url(em-pizza.png)}
-.emoji.selepka:after {background-image: url(em-selepka2.png)}
-.emoji.kocka:after {background-image: url(em-cat.png)}
-.emoji.lacorrida:after {background-image: url(em-lacorrida.png)}
-.emoji.semilasso:after {background-image: url(em-semilasso.jpg)}
-.emoji.nabersi:after {background-image: url(em-nabersi.png)}
-.emoji.kralovska:after {background-image: url(em-kralovska.png)}
-.emoji.everest:after {background-image: url(em-everest.png)}
-.emoji.seven:after {background-image: url(em-seven.png)}
+.emoji.monkey:after {padding-right: 5.1em !important /*padding-right: 4.3em*/}
 
 h1#panel {
     position: fixed;

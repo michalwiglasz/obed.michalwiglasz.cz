@@ -200,11 +200,15 @@ function cache_get_html($key, $url, $expires=540) {
 function print_header($restaurant)
 {
 	echo "\t\t";
-	if ($restaurant->icon) echo '<h1 class="emoji ' . $restaurant->icon . '">';
+	if ($restaurant->icon) {
+		$id = 'r-' . md5(spl_object_hash($restaurant));
+		echo "<h1 id=\"$id\" class=\"emoji $restaurant->icon\">";
+		echo "<style>h1#$id.emoji.$restaurant->icon:after { background-image: url('em-$restaurant->icon.png'); }</style>";
+	}
 	else echo '<h1>';
 	echo escape_text($restaurant->title) . "</h1>\n";
 	echo "\t\t" . '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $restaurant->error? time() : $restaurant->timestamp);
-	echo ' &mdash; <a href="'.escape_text($restaurant->link) . '">web</a>';
+	if ($restaurant->link) echo ' &mdash; <a href="'.escape_text($restaurant->link) . '">web</a>';
 	if ($restaurant->sourceLink) echo ' &mdash; <a href="'.escape_text($restaurant->sourceLink) . '">zdroj</a>';
 	if ($restaurant->note) echo ' &mdash; ' . escape_text($restaurant->note);
 	echo '</p>' . "\n";
