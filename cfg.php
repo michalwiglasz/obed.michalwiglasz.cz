@@ -26,6 +26,7 @@ $sources = [
 	new Source(new Molino),
 	new Source(new Zomato(18318157, 'Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
 	new Source(new Kralovska),
+	new Source(new KlubCestovatelu),
 ];
 
 
