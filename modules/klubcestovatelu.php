@@ -12,9 +12,9 @@ class KlubCestovatelu extends LunchMenuSource
 		$result = new LunchMenuResult($cached['stored']);
 
 		$today = date('N', $todayDate) - 1;  // 0 = monday, 6 = sunday
-		$menu = $cached['html']->find("div.article-content div ol", $today);
+		$menu = $cached['html']->find("div.article-content ol", $today);
 		if (!$menu) {
-			throw new ScrapingFailedException("div.article-content div ol not found");
+			throw new ScrapingFailedException("div.article-content ol not found");
 		}
 
 		$pricearr = array();
