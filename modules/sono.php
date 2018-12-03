@@ -4,7 +4,7 @@ class Sono extends LunchMenuSource {
 
 	public $title = 'Sono';
 	public $link = 'http://www.hotel-brno-sono.cz/restaurace/';
-	public $icon = 'sono';
+	public $icon = 'sono-logo';
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires) {
 		$cached = $this->downloadHtml($cacheSourceExpires);

@@ -3,7 +3,7 @@
 class MyKitchen extends LunchMenuSource {
 
 	public $title = 'MyKitchen';
-	public $link = 'http://www.my-kitchen.cz/denni-menu/';
+	public $link = 'https://www.my-kitchen.cz/kategorie-produktu/denni-menu/';
 	public $icon = 'mykitchen';
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires) {
