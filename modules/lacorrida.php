@@ -38,8 +38,7 @@ class LaCorrida extends LunchMenuSource {
 				}
 			}
 		} catch (Exception $e) {
-			dump($e);
-			die;
+			throw new ScrapingFailedException($e);
 		}
 
 		return $result;

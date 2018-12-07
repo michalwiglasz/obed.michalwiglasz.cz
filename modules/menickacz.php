@@ -1,10 +1,12 @@
 <?php
 
-class Seven extends LunchMenuSource {
+class MenickaCz extends LunchMenuSource {
 
-	public $title = 'Seven bistro';
-	public $link = 'https://www.menicka.cz/4838-seven-food.html';
-	public $icon = 'seven';
+	public function __construct($title, $link, $icon) {
+		$this->title = $title;
+		$this->link = $link;
+		$this->icon = $icon;
+	}
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires) {
 
@@ -38,8 +40,7 @@ class Seven extends LunchMenuSource {
 			}
 
 		} catch (Exception $e) {
-			dump($e);
-			die;
+			throw new ScrapingFailedException($e);
 		}
 
 		return $result;
