@@ -53,5 +53,7 @@ class Nepal extends LunchMenuSource
 				}
 			}
 		}
+
+		return $result;
 	}
 }
