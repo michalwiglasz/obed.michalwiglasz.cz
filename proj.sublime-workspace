@@ -9,11 +9,11 @@
 			],
 			[
 				"pregma",
-				"preg_match	(index.php)"
+				"preg_match\t(index.php)"
 			],
 			[
 				"preg_",
-				"preg_replace	(index.php)"
+				"preg_replace\t(index.php)"
 			],
 			[
 				"hash",
@@ -69,7 +69,7 @@
 			],
 			[
 				"Po",
-				"Population	(main.py)"
+				"Population\t(main.py)"
 			],
 			[
 				"y_pre",
@@ -77,11 +77,11 @@
 			],
 			[
 				"begitemize",
-				"begin{itemize}\\item	latex-document"
+				"begin{itemize}\\item\tlatex-document"
 			],
 			[
 				"em",
-				"emph{text}	latex-document"
+				"emph{text}\tlatex-document"
 			],
 			[
 				"psnr",
@@ -97,11 +97,11 @@
 			],
 			[
 				"parse",
-				"parse_args	(main.py)"
+				"parse_args\t(main.py)"
 			],
 			[
 				"ea_eva",
-				"ea_evaluate_chr	(ea.h)"
+				"ea_evaluate_chr\t(ea.h)"
 			],
 			[
 				"input",
@@ -137,11 +137,11 @@
 			],
 			[
 				"inputdat",
-				"input_data_t	(main.c)"
+				"input_data_t\t(main.c)"
 			],
 			[
 				"ga_po",
-				"ga_pop_t	(algo.h)"
+				"ga_pop_t\t(algo.h)"
 			],
 			[
 				"predg",
@@ -149,7 +149,7 @@
 			],
 			[
 				"FIT",
-				"FITNESS_FMT	(text.c)"
+				"FITNESS_FMT\t(text.c)"
 			],
 			[
 				"MPITH",
@@ -165,11 +165,11 @@
 			],
 			[
 				"ga_eva",
-				"ga_evaluate_chr	(ga.c)"
+				"ga_evaluate_chr\t(ga.c)"
 			],
 			[
 				"bestch",
-				"best_chr_index	(ga.c)"
+				"best_chr_index\t(ga.c)"
 			],
 			[
 				"probl",
@@ -177,7 +177,7 @@
 			],
 			[
 				"ga_ev",
-				"ga_evaluate_chr	(ga.c)"
+				"ga_evaluate_chr\t(ga.c)"
 			],
 			[
 				"fit",
@@ -193,11 +193,11 @@
 			],
 			[
 				"arc_get",
-				"arc_get_original_fitness	(archive.h)"
+				"arc_get_original_fitness\t(archive.h)"
 			],
 			[
 				"store",
-				"stored	(baldwin.c)"
+				"stored\t(baldwin.c)"
 			],
 			[
 				"MPIS",
@@ -209,7 +209,7 @@
 			],
 			[
 				"pred_ini",
-				"pred_initial_size	(main.c)"
+				"pred_initial_size\t(main.c)"
 			],
 			[
 				"len",
@@ -217,15 +217,15 @@
 			],
 			[
 				"MPI_UN",
-				"MPI_UNSIGNED_CHAR	(cgp_core.c)"
+				"MPI_UNSIGNED_CHAR\t(cgp_core.c)"
 			],
 			[
 				"MSG_",
-				"MSG_PREDICTOR	(main.c)"
+				"MSG_PREDICTOR\t(main.c)"
 			],
 			[
 				"ID_",
-				"ID_PRED	(main.c)"
+				"ID_PRED\t(main.c)"
 			],
 			[
 				"pred_ge",
@@ -285,7 +285,7 @@
 			],
 			[
 				"newcom",
-				"newcommand{cmd}{def}	latex-document"
+				"newcommand{cmd}{def}\tlatex-document"
 			],
 			[
 				"phen",
@@ -297,7 +297,7 @@
 			],
 			[
 				"bald",
-				"baldwinGetNewlength	(baldwin.h)"
+				"baldwinGetNewlength\t(baldwin.h)"
 			],
 			[
 				"phe",
@@ -305,7 +305,7 @@
 			],
 			[
 				"used",
-				"usedChromosomeLength	(predictors.h)"
+				"usedChromosomeLength\t(predictors.h)"
 			],
 			[
 				"bwLas",
@@ -329,15 +329,15 @@
 			],
 			[
 				"BWDE",
-				"BW_DECR_COEF	(baldwin.h)"
+				"BW_DECR_COEF\t(baldwin.h)"
 			],
 			[
 				"BWZE",
-				"BW_ZERO_COEF	(baldwin.h)"
+				"BW_ZERO_COEF\t(baldwin.h)"
 			],
 			[
 				"BWIN",
-				"BW_INAC_COEF	(baldwin.h)"
+				"BW_INAC_COEF\t(baldwin.h)"
 			],
 			[
 				"predini",
@@ -385,11 +385,11 @@
 			],
 			[
 				"fitnepre",
-				"fitness_pred_eval_counter	(fitness.h)"
+				"fitness_pred_eval_counter\t(fitness.h)"
 			],
 			[
 				"fitnecgpe",
-				"fitness_cgp_eval_counter	(fitness.h)"
+				"fitness_cgp_eval_counter\t(fitness.h)"
 			],
 			[
 				"work",
@@ -405,7 +405,7 @@
 			],
 			[
 				"cgp_ran",
-				"cgp_randomize_genome	(cgp_core.c)"
+				"cgp_randomize_genome\t(cgp_core.c)"
 			],
 			[
 				"gachr",
@@ -421,7 +421,7 @@
 			],
 			[
 				"arc_re",
-				"arc_refresh_interval	(config.h)"
+				"arc_refresh_interval\t(config.h)"
 			],
 			[
 				"OPTAR",
@@ -429,11 +429,11 @@
 			],
 			[
 				"algo",
-				"algorithm	(algo.c)"
+				"algorithm\t(algo.c)"
 			],
 			[
 				"HIS",
-				"HISTORY_EXPRESSION_BSIZE	(history.h)"
+				"HISTORY_EXPRESSION_BSIZE\t(history.h)"
 			],
 			[
 				"exp",
@@ -453,15 +453,15 @@
 			],
 			[
 				"cgp_ge",
-				"cgp_genome_t	(cgp.c)"
+				"cgp_genome_t\t(cgp.c)"
 			],
 			[
 				"inpu",
-				"inputs	(cgp_core.c)"
+				"inputs\t(cgp_core.c)"
 			],
 			[
 				"outpu",
-				"outputs	(cgp_core.c)"
+				"outputs\t(cgp_core.c)"
 			],
 			[
 				"cgpgen",
@@ -469,19 +469,19 @@
 			],
 			[
 				"gad",
-				"ga_default_selector_func	(ga.c)"
+				"ga_default_selector_func\t(ga.c)"
 			],
 			[
 				"f_0",
-				"f_c03	(cgp.h)"
+				"f_c03\t(cgp.h)"
 			],
 			[
 				"beginenume",
-				"begin{enumerate}[mini template]\\item	class-beamer"
+				"begin{enumerate}[mini template]\\item\tclass-beamer"
 			],
 			[
 				"enla",
-				"enlargethispage{size}	latex-document"
+				"enlargethispage{size}\tlatex-document"
 			],
 			[
 				"fir",
@@ -509,7 +509,7 @@
 			],
 			[
 				"include",
-				"include{file}	latex-document"
+				"include{file}\tlatex-document"
 			],
 			[
 				"incre",
@@ -519,6 +519,68 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "mergado/cfg.php",
+			"settings":
+			{
+				"buffer_size": 912,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "modules/base.php",
+			"settings":
+			{
+				"buffer_size": 2530,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib.php",
+			"settings":
+			{
+				"buffer_size": 10882,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "besteto/cfg.php",
+			"settings":
+			{
+				"buffer_size": 98,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "besteto/index.php",
+			"settings":
+			{
+				"buffer_size": 960,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "style.css",
+			"settings":
+			{
+				"buffer_size": 3507,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "modules/mykitchen.php",
+			"settings":
+			{
+				"buffer_size": 1766,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -1109,9 +1171,10 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Work/obed.michalwiglasz.cz",
-		"/C/Work/obed.michalwiglasz.cz/embedit",
-		"/C/Work/obed.michalwiglasz.cz/mergado"
+		"/D/Dropbox/Work/obed.michalwiglasz.cz",
+		"/D/Dropbox/Work/obed.michalwiglasz.cz/besteto",
+		"/D/Dropbox/Work/obed.michalwiglasz.cz/mergado",
+		"/D/Dropbox/Work/obed.michalwiglasz.cz/modules"
 	],
 	"file_history":
 	[
@@ -1246,7 +1309,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -1388,6 +1451,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"69a120",
+			"prices",
+			"withSoup",
+			"item",
+			"soaps",
+			"dishName",
+			"->id",
+			"attr",
+			"current",
+			"todayBlock",
+			"image",
+			"print_subheader",
+			"print_dishes_prologue",
+			"seven",
 			");\n",
 			"$$html",
 			"$cached['stored']",
@@ -1501,21 +1578,7 @@
 			"EST: ",
 			"BEST: ",
 			"with",
-			"l",
-			"ps point",
-			"lp",
-			"0.7",
-			"labels",
-			"eval_from_csv",
-			": ",
-			"New",
-			"inputs",
-			"gamma",
-			"check_sse4_1",
-			"return",
-			"_may_i_use_cpu_feature",
-			"__Xfit",
-			"kernel"
+			"l"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1572,7 +1635,7 @@
 			"db_sessionmaker",
 			"FeedAuditClient",
 			"\\FeedAuditModule",
-			"	",
+			"\t",
 			"",
 			"JOIN",
 			"this->heigh",
@@ -1611,8 +1674,213 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "mergado/cfg.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								906,
+								906
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "modules/base.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2530,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1080.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6110,
+								6110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2808.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "besteto/cfg.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "besteto/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 960,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								409
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1647,
+								1647
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1032.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "modules/mykitchen.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1476,
+								1476
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1622,7 +1890,7 @@
 	},
 	"input":
 	{
-		"height": 31.0
+		"height": 35.0
 	},
 	"layout":
 	{
