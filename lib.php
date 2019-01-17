@@ -49,6 +49,9 @@ function escape_text($str)
 
 
 function print_html_head($root, $description='Denní menu restaurací v okolí') {
+
+	$vue = php_sapi_name() == 'cli-server'? 'vue.js' : 'vue.min.js';
+
 	echo '<!DOCTYPE html><!--
 	  ▄▄▄▄· ▄▄▄ .·▄▄▄▄     • ▌ ▄ ·. ▪   ▄▄·  ▄ .▄ ▄▄▄· ▄▄▌  ▄▄▌ ▐ ▄▌▪   ▄▄ • ▄▄▌   ▄▄▄· .▄▄ · ·▄▄▄▄•    ▄▄· ·▄▄▄▄•
 ▪     ▐█ ▀█▪▀▄.▀·██▪ ██    ·██ ▐███▪██ ▐█ ▌▪██▪▐█▐█ ▀█ ██•  ██· █▌▐███ ▐█ ▀ ▪██•  ▐█ ▀█ ▐█ ▀. ▪▀·.█▌   ▐█ ▌▪▪▀·.█▌
@@ -82,12 +85,9 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
   gtag("config", "UA-31464798-2");
 </script>
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/8c02b2c92d.js"></script>
-<script src="/script.js?' . filemtime(__DIR__ . '/script.js') . '"></script>
+<script src="/' . $vue . '?' . filemtime(__DIR__ . '/' . $vue) . '"></script>
+<script src="/script.js?' . filemtime(__DIR__ . '/script.js') . '" defer></script>
 
 <title>Jíííídlooooo</title>
 <link rel="shortcut icon" href="/favicon.ico">
@@ -201,11 +201,10 @@ function print_header($restaurant)
 {
 	echo "\t\t";
 	if ($restaurant->icon) {
-		$id = 'r-' . md5(spl_object_hash($restaurant));
-		echo "<style>h1#$id.emoji.$restaurant->icon:after { background-image: url('/em-$restaurant->icon.png'); }</style>";
-		echo "<h1 id=\"$id\" class=\"emoji $restaurant->icon\">";
+		echo "<h1 id=\"$restaurant->htmlId\" class=\"emoji $restaurant->icon\">";
+	} else {
+		echo "<h1 id=\"$restaurant->htmlId\">";
 	}
-	else echo '<h1>';
 	echo escape_text($restaurant->title) . "</h1>\n";
 	echo "\t\t" . '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $restaurant->error? time() : $restaurant->timestamp);
 	if ($restaurant->link) echo ' &mdash; <a href="'.escape_text($restaurant->link) . '">web</a>';
@@ -311,6 +310,7 @@ function collect_menus($sources, $cache_default_interval)
 		}
 
 		$menus[webalize($module->title)] = (object)[
+			'htmlId' => 'r-' . md5($module->title),
 			'title' => $module->title,
 			'link' => $module->link,
 			'sourceLink' => $module->sourceLink,
@@ -345,6 +345,36 @@ function print_json($root, $menus)
 
 function print_html($root, $menus)
 {
+	/* print script and css list */
+	$vueData = [];
+	$css = [];
+	foreach ($menus as $restaurant) {
+		$vueData[] = [
+			'htmlId' => $restaurant->htmlId,
+			'title' => $restaurant->title,
+		];
+		if ($restaurant->icon) {
+			$css[] = "h1#$restaurant->htmlId.emoji.$restaurant->icon:after { background-image: url('/em-$restaurant->icon.png'); }";
+		}
+	}
+	echo "<script>\n";
+	echo "var restaurants = " . json_encode($vueData, JSON_PRETTY_PRINT) . ";\n";
+	echo "</script>\n";
+	echo "<style>\n    " . implode("\n    ", $css) . "\n</style>\n";
+
+	echo '
+		<div id="navigation">
+			<a id="panel-picker" @click="navigationOpen = !navigationOpen" :aria-expanded="navigationOpen ? \'true\' : \'false\'">
+				<i class="fa fa-bars"></i>
+			</a>
+			<ul id="panel-picker-menu" v-if="navigationOpen">
+				<li v-for="restaurant in restaurants">
+					<a :href="\'#\' + restaurant.htmlId" @click="navigationOpen = false">{{restaurant.title}}</a>
+				</li>
+			</ul>
+		</div>
+	';
+
 	foreach ($menus as $restaurant) {
 		print_header($restaurant);
 

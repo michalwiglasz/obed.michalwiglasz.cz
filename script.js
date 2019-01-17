@@ -1,3 +1,14 @@
+
+new Vue({
+    el: '#navigation',
+    data: {
+        restaurants: window.restaurants,
+        navigationOpen: false,
+    }
+});
+
+
+/*
 $(function() {
     var headings = $('h1');
     var headingHeight = headings.outerHeight();
@@ -62,20 +73,6 @@ $(function() {
         }
     });
 
-    /*
-    var line = $('<div>').css({
-        height: "1px",
-        width: "100%",
-        background: "black",
-        zIndex: 10,
-        content: " ",
-        position: "absolute",
-        left: 0,
-    });
-    document.body.appendChild(line[0]);
-    */
-
-
     var scrollHandler = function() {
         var windowTop = $(window).scrollTop();
         headings.each(function(index) {
@@ -110,3 +107,4 @@ $(function() {
     scrollHandler();
     $(window).on('scroll', scrollHandler);
 });
+*/
