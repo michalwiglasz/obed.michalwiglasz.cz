@@ -11,15 +11,11 @@ class KlubCestovatelu extends LunchMenuSource
 		$cached = $this->downloadHtml($cacheSourceExpires);
 		$result = new LunchMenuResult($cached['stored']);
 
-		$today = date('N', $todayDate) - 1;  // 0 = monday, 6 = sunday
-		$menu = $cached['html']->find("div.article-content ol", $today);
-		if (!$menu) {
-			throw new ScrapingFailedException("div.article-content ol not found");
-		}
+		$regexp = '(' . get_czech_day(date('w', $todayDate)) . '\s+' . date('j', $todayDate) . '\.)ui';
 
 		$pricearr = array();
-		$prices = $cached['html']->find("div.article-content p", 3);
-		if ($prices) {
+		$prices = $cached['html']->find("div.article-content ol li", 0);
+		if ($prices && !$prices->prev_sibling() && !$prices->next_sibling()) {
 			$prices = explode('/', $prices->plaintext);
 			foreach ($prices as $price) {
 				$price = explode('.', $price);
@@ -27,14 +23,24 @@ class KlubCestovatelu extends LunchMenuSource
 			}
 		}
 
-		$soup = $menu->prev_sibling();
-		if ($soup && trim(str_replace("\xc2\xa0", ' ', html_entity_decode($soup->plaintext))) != NULL) {
-			$result->dishes[] = new Dish(html_entity_decode($soup->plaintext));
-		}
+		$days = $cached['html']->find("div.article-content p strong span");
+		foreach ($days as $day) {
+			if (!preg_match($regexp, $day->plaintext)) continue;
 
-		$num = 1;
-		foreach ($menu->find('li') as $dish) {
-			$result->dishes[] = new Dish(html_entity_decode($dish->plaintext), isset($pricearr[$num-1]) ? $pricearr[$num-1] : NULL, NULL, NULL, $num++);
+			$today = $day->find_ancestor_tag('p');
+			$soup = $today->next_sibling();
+			$menu = $soup->next_sibling();
+
+			if ($soup && $soup->tag == 'p' && trim(str_replace("\xc2\xa0", ' ', html_entity_decode($soup->plaintext))) != NULL) {
+				$result->dishes[] = new Dish(html_entity_decode($soup->plaintext));
+			}
+
+			if ($menu && $menu->tag == 'ol') {
+				$num = 1;
+				foreach ($menu->find('li') as $dish) {
+					$result->dishes[] = new Dish(html_entity_decode($dish->plaintext), isset($pricearr[$num-1]) ? $pricearr[$num-1] : NULL, NULL, NULL, $num++);
+				}
+			}
 		}
 
 		return $result;
