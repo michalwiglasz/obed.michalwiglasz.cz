@@ -19,7 +19,7 @@ $menza_open = strtotime('2018-09-17 00:00:01');
 $sources = [
 	new Source(new Zomato(16506890, 'Camel', 'http://www.restaurace-camel.com/', 'camel')),
 	new Source(new Zomato(16505998, 'U 3 opic', 'http://www.u3opic.cz/', 'monkey')),
-	new Source(new Zomato(16506806, 'Pad Thai', 'http://padthairestaurace.cz/', 'japanese')),
+	new Source(new Zomato(16506806, 'Pad Thai', 'http://padthairestaurace.cz/', 'thailand')),
 	new Source(new Nepal),
 	new Source(new Bistro53),
 	new Source(new Velorex), //Zomato(16506807, 'Velorex', 'http://www.restauracevelorex.cz/', 'velorex')),

@@ -5,7 +5,7 @@ class Bistro53 extends LunchMenuSource
 	public $title = 'Bistro 53';
 	public $link = 'https://goo.gl/maps/Z9WC3GeaRJjUDk136';
 	public $sourceLink = 'https://goo.gl/maps/o4ggsLYfQwhRimAo8';
-	public $icon = 'chopsticks';
+	public $icon = 'bowl';
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
