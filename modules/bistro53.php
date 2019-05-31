@@ -9,7 +9,7 @@ class Bistro53 extends LunchMenuSource
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
-		$result = new LunchMenuResult(DateTime::createFromFormat(DateTime::ATOM, "2019-05-31T19:30:00+0100")->getTimestamp());
+		$result = new LunchMenuResult(DateTime::createFromFormat(DateTime::ATOM, "2019-05-31T19:30:00+0200")->getTimestamp());
 
 		$result->dishes[] = new Dish("Tofu se zeleninou (s přílohou)", "99 Kč", NULL, NULL);
 		$result->dishes[] = new Dish("Bún bò Nam Bộ chay (tofu, zelenina, bylinky, zálivka)", "115 Kč", NULL, NULL);
