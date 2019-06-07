@@ -216,8 +216,9 @@ function print_header($restaurant)
 	echo "\t\t" . '<p class="retrieved">Aktualizováno ' . date('j. n. Y H:i:s', $restaurant->error? time() : $restaurant->timestamp);
 	if ($restaurant->link) echo ' &mdash; <a href="'.escape_text($restaurant->link) . '">web</a>';
 	if ($restaurant->sourceLink) echo ' &mdash; <a href="'.escape_text($restaurant->sourceLink) . '">zdroj</a>';
-	if ($restaurant->note) echo ' &mdash; ' . escape_text($restaurant->note);
 	echo '</p>' . "\n";
+
+	if ($restaurant->note) echo '<p class="note">' . escape_text($restaurant->note) . "</p>";
 }
 
 function print_footer() {

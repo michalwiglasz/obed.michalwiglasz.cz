@@ -57,7 +57,7 @@ hr {
     padding: 0;
     height: 1px;
     border: 0;
-    background: #ddd;
+    background: #a0a0a0;
 }
 
 .footer {
@@ -159,8 +159,13 @@ h1#panel {
 .retrieved {
     font-size: 60%;
     margin-top: 0;
-    color: #999;
-    xvisibility: hidden;
+    color: #a0a0a0;
+}
+
+.note {
+    font-weight: bold;
+    font-size: 80%;
+    margin: 0.2rem 0 0.5rem 0;
 }
 
 h2 {
@@ -178,8 +183,8 @@ li {
     margin: 0;
     padding: 0;
 
-    padding-bottom: 3px;
-    margin-bottom: 3px;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.2rem;
     border-bottom: 1px solid #eee;
 }
 
@@ -188,7 +193,7 @@ li .number {
 }
 
 li .quantity {
-    color: #999;
+    color: #a0a0a0;
 }
 
 li .name {
@@ -228,6 +233,6 @@ li .price-zamestnanec {
 }
 
 li .price-externi-stravnik {
-    opacity: 0.3;
+    color: #a0a0a0;
     font-weight: normal;
 }
