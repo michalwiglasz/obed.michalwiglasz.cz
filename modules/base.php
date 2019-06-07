@@ -80,8 +80,16 @@ class Dish
 		$this->group = trim($group);
 		$this->number = trim($number);
 
+		// try to extract number from name
+		if (is_null($number)) {
+			if (preg_match('(^(?:menu\s+(?:č\.\s+)?)?([0-9]+)[.:]\s*(.+))ui', $this->name, $m)) {
+				$this->number = trim($m[1]);
+				$this->name = trim($m[2]);
+			}
+		}
+
+		// try to extract quantity from name
 		if (is_null($quantity)) {
-			// try to extract quantity from name
 			if (preg_match('(^([0-9]+\.)?\s*([0-9,.]+)\s*([gl])\s+(.+?)$)ui', $this->name, $m)) {
 				// found at the beginning
 				$this->name = trim("$m[1] $m[4]");
@@ -97,14 +105,6 @@ class Dish
 			// try to fix spacing
 			if (preg_match('(^([0-9,.]+)\s*([gl])$)ui', $this->quantity, $m)) {
 				$this->quantity = trim("$m[1] $m[2]");
-			}
-		}
-
-		// try to extract number from name
-		if (is_null($number)) {
-			if (preg_match('(^(?:menu\s+(?:č\.\s+)?)?([0-9]+)[.:]\s*(.+))ui', $this->name, $m)) {
-				$this->number = trim($m[1]);
-				$this->name = trim($m[2]);
 			}
 		}
 	}
