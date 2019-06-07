@@ -29,10 +29,16 @@ function get_today_timestamp() {
 }
 
 
-function get_czech_day($daynum) {
+function get_all_czech_days() {
 	static $days = array(
 		'neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle'
 	);
+	return $days;
+}
+
+
+function get_czech_day($daynum) {
+	$days = get_all_czech_days();
 	return $days[$daynum];
 }
 

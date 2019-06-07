@@ -12,43 +12,61 @@ class CharliesMill extends LunchMenuSource
 		$result = new LunchMenuResult($cached['stored']);
 
 		$today = get_czech_day(date('w', $todayDate));
-		$table = $cached['html']->find("div.pricing-box", 0);
-		if (!$table) {
-			throw new ScrapingFailedException("div.pricing-box not found");
+
+		$content = $cached['html']->find("div.entry-content", 0);
+		if (!$content) {
+			throw new ScrapingFailedException("div.entry-content not found");
 		}
 
-		$withinToday = FALSE;
-		foreach ($table->find('div.row') as $row) {
-			$l = $row->find('div.text-content', 0)->plaintext;
-			$r = $row->find('div.text-content', 1)->plaintext;
-			if (!$l) continue;
+		$tables = $content->find("table.menu-one-day");
+		if (!$tables) {
+			throw new ScrapingFailedException("table.menu-one-day not found");
+		}
 
-			if (!$r) {
-				if ($withinToday) break;
-				$s = mb_strtolower($l, 'utf-8');
-				if (strpos($s, $today) !== FALSE)
-					$withinToday = TRUE;
+		foreach ($tables as $table) {
+			$title = $table->find("th.table-title", 0)->plaintext;
+			$title_lc = mb_strtolower($title);
 
-			} else if ($withinToday) {
-				$s = mb_strtolower($r, 'utf-8');
-				if (strpos($s, "cena") !== FALSE) {
-					$kind = trim($l).": ";
-				} else {
-					$what = trim(html_entity_decode($l));
-					$price = trim(html_entity_decode($r));
-					$quantity = NULL;
+			if (strpos($title_lc, $today) !== FALSE) {
+				// todays menu
+				$this->processTable($result, null, $table);
 
-					if (preg_match('(^([0-9]+\.)?\s*([0-9,.]+)\s*([gl])\s+(.+?)$)ui', $what, $m)) {
-						$what = trim("$m[1] $m[4]");
-						$quantity = trim("$m[2] $m[3]");
+			} else {
+				$isOtherDay = false;
+				foreach(get_all_czech_days() as $day) {
+					if (strpos($title_lc, $day) !== FALSE) {
+						$isOtherDay = true;
+						break;
 					}
+				}
 
-					$what = $kind.$what; $kind = NULL;
-					$result->dishes[] = new Dish($what, $price, $quantity);
+				if (!$isOtherDay) {
+					$this->processTable($result, $title, $table);
 				}
 			}
 		}
 
 		return $result;
+	}
+
+	protected function processTable(&$result, $group, $table)
+	{
+		foreach ($table->find('tr') as $tr) {
+			if (!$tr->find('td')) {
+				continue;
+			}
+
+			$what = $tr->find('td', 0)->plaintext;
+			$price = $tr->find('td', 1)->plaintext;
+
+			if (preg_match('/^([0-9,.]+)\s*([gl])\s+(.+)$/i', $what, $m)) {
+				$what = $m[3];
+				$quantity = "$m[1] $m[2]";
+			} else {
+				$quantity = null;
+			}
+
+			$result->dishes[] = new Dish($what, $price, $quantity, $group);
+		}
 	}
 }
