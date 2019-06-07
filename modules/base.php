@@ -102,7 +102,7 @@ class Dish
 
 		// try to extract number from name
 		if (is_null($number)) {
-			if (preg_match('(^(?:menu\s+)?([0-9]+)[.:]\s*(.+))ui', $this->name, $m)) {
+			if (preg_match('(^(?:menu\s+(?:č\.\s+)?)?([0-9]+)[.:]\s*(.+))ui', $this->name, $m)) {
 				$this->number = trim($m[1]);
 				$this->name = trim($m[2]);
 			}
