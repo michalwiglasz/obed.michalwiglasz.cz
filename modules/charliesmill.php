@@ -59,14 +59,7 @@ class CharliesMill extends LunchMenuSource
 			$what = $tr->find('td', 0)->plaintext;
 			$price = $tr->find('td', 1)->plaintext;
 
-			if (preg_match('/^([0-9,.]+)\s*([gl])\s+(.+)$/i', $what, $m)) {
-				$what = $m[3];
-				$quantity = "$m[1] $m[2]";
-			} else {
-				$quantity = null;
-			}
-
-			$result->dishes[] = new Dish($what, $price, $quantity, $group);
+			$result->dishes[] = new Dish($what, $price, NULL, $group);
 		}
 	}
 }
