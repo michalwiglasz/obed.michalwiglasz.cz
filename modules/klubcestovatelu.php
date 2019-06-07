@@ -30,6 +30,9 @@ class KlubCestovatelu extends LunchMenuSource
 			$today = $day->find_ancestor_tag('p');
 			$soup = $today->next_sibling();
 			$menu = $soup->next_sibling();
+			while ($menu->tag != "ol" && $menu) {
+				$menu = $menu->next_sibling();
+			}
 
 			if ($soup && $soup->tag == 'p' && trim(str_replace("\xc2\xa0", ' ', html_entity_decode($soup->plaintext))) != NULL) {
 				$result->dishes[] = new Dish(html_entity_decode($soup->plaintext));
@@ -38,7 +41,9 @@ class KlubCestovatelu extends LunchMenuSource
 			if ($menu && $menu->tag == 'ol') {
 				$num = 1;
 				foreach ($menu->find('li') as $dish) {
-					$result->dishes[] = new Dish(html_entity_decode($dish->plaintext), isset($pricearr[$num-1]) ? $pricearr[$num-1] : NULL, NULL, NULL, $num++);
+					$what = html_entity_decode($dish->plaintext);
+					$price = isset($pricearr[$num-1]) ? $pricearr[$num-1] : NULL;
+					$result->dishes[] = new Dish($what, $price, NULL, NULL, $num++);
 				}
 			}
 		}
