@@ -2,10 +2,15 @@
 
 class MenickaCz extends LunchMenuSource {
 
-	public function __construct($title, $link, $icon) {
+	private $id;
+
+	public function __construct($id, $title, $link, $icon) {
+		$this->id = $id;
 		$this->title = $title;
 		$this->link = $link;
 		$this->icon = $icon;
+
+		$this->sourceLink = "https://www.menicka.cz/$this->id.html";
 	}
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires) {

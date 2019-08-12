@@ -14,13 +14,13 @@ if (isset($_GET['force'])) {
 $sources = [
 	new Source(new LaCorrida),
 	new Source(new Sono),
-	new Source(new MenickaCz('Seven bistro', 'https://www.menicka.cz/4838-seven-food.html', 'seven')),
+	new Source(new MenickaCz(4838, 'Seven bistro', 'https://www.facebook.com/7FoodTrio/', 'seven')),
 	new Source(new Zomato(16506537, 'Everest', 'http://everestbrno.cz/index.html', 'everest')),
 	new Source(new Zomato(18578705, 'Siwa', 'http://www.siwaorient.cz/', 'siwa')),
 	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
 	new Source(new ZelenaKocka),
 	new Source(new NaberSi),
 	new Source(new UMlsnychKocek),
-	new Source(new MenickaCz('Restaurace U Putchy', 'https://www.menicka.cz/5350-restaurace-u-putchy-.html', 'putcha')),
+	new Source(new MenickaCz(5350, 'Restaurace U Putchy', 'https://putcha.webnode.cz/', 'putcha')),
 	new Source(new Zomato(16507460, 'Viva', 'http://www.pizzerie-viva.cz/', 'pizza')),
 ];
