@@ -16,34 +16,24 @@ class MenickaCz extends LunchMenuSource {
 			throw new ScrapingFailedException("No html returned");
 		}
 
-		try {
-			$result = new LunchMenuResult($cached['stored']);
+		$todayBlock = $cached['html']->find("div.obsah div.menicka", 0);
+		if (!$todayBlock) {
+			throw new ScrapingFailedException("div.obsah div.menicka was not found");
+		}
 
-			$todayBlock = $cached['html']->find("div.obsah div.menicka", 0);
+		$result = new LunchMenuResult($cached['stored']);
 
-			if (!$todayBlock) {
-				throw new ScrapingFailedException("ul.fmenu li.item was not found");
-			}
+		foreach ($todayBlock->find("ul li") as $dish) {
+			$nameTag = $dish->find("div.polozka", 0);
+			$priceTag = $dish->find("div.cena", 0);
+			if (!$nameTag) continue;
 
-			$dishes = [];
-			foreach ($todayBlock->find("div.nabidka_1") as $i => $item) {
-				$dishes[$i] = iconv('CP1250', 'utf-8', trim($item->plaintext));
-			}
+			$name = iconv('windows-1250', 'utf-8', trim($nameTag->plaintext));
+			$price = ($priceTag) ? iconv('windows-1250', 'utf-8', trim($priceTag->plaintext)) : NULL;
 
-			$prices = [];
-			foreach ($todayBlock->find("div.cena") as $i => $item) {
-				$prices[$i + 1] = iconv('CP1250', 'utf-8', trim($item->plaintext));
-			}
-
-			foreach ($dishes as $i => $dish) {
-				$result->dishes[] = new Dish($dish, isset($prices[$i]) ? $prices[$i] : 0);
-			}
-
-		} catch (Exception $e) {
-			throw new ScrapingFailedException($e);
+			$result->dishes[] = new Dish($name, $price);
 		}
 
 		return $result;
-
 	}
 }
