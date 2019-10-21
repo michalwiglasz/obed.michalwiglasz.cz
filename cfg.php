@@ -1,6 +1,6 @@
 <?php
 
-$root = "https://obed.michalwiglasz.cz/fit";
+$root = "https://obed.michalwiglasz.cz/";
 $cache_default_interval = 60 * 60; // 1 hour
 $cache_menza_interval = 60;  // 1 minute
 $cache_html_interval = $cache_default_interval - 10;
@@ -17,22 +17,9 @@ $menza_open = strtotime('2018-09-17 00:00:01');
 
 
 $sources = [
-	new Source(new Zomato(16506890, 'Camel', 'http://www.restaurace-camel.com/', 'camel')),
-	new Source(new Zomato(16505998, 'U 3 opic', 'http://www.u3opic.cz/', 'monkey')),
-	new Source(new Zomato(16506806, 'Pad Thai', 'http://padthairestaurace.cz/', 'thailand')),
-	new Source(new Nepal),
-	new Source(new Bistro53),
-	new Source(new Velorex), //Zomato(16506807, 'Velorex', 'http://www.restauracevelorex.cz/', 'velorex')),
-	new Source(new Zomato(16505880, 'Yvy Restaurant', 'http://www.yvy.cz/', 'yvy')),
-	new Source(new CharliesMill),
-	new Source(new Zomato(18318157, 'Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
-	//new Source(new Kralovska),
-	new Source(new KlubCestovatelu),
-	new Source(new MenickaCz(5335, 'Správné místo', 'http://spravnemisto.cz/', 'spravnemisto')),
-	new Source(new MenickaCz(3874, 'U Mušketýra', 'https://www.musketyrbrno.cz/', 'musketyr')),
+	new Source(new Zomato(16506128, ' Onyx', 'https://www.facebook.com/pages/Restaurace-Onyx/161675097220650', 'onyx')),
+	new Source(new Zomato(16511903, ' Styl Pub', 'https://www.facebook.com/pages/category/Restaurant/STYL-PUB-643338649032733/', 'styl')),
+	new Source(new Zomato(16506253, 'Svitavská rychta', 'http://www.svitavskarychta.cz/', '')),
+	new Source(new MenickaCz(4884, 'Steak House K1', 'http://www.steakhousek1.cz/www/restaurace-akce.php', 'k1')),
+	new Source(new MenickaCz(5363, 'Goa', 'http://www.restaurant-goa.cz/', 'goa')),
 ];
-
-
-if (get_today_timestamp() < $menza_close || get_today_timestamp() > $menza_open) {
-	$sources[] = new Source(new Menza, 60);
-}

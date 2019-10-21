@@ -188,7 +188,6 @@ function cache_get_html($key, $url, $expires=540) {
 	$key = 'get-html-' . $key;
 	$cached = cache_retrieve($key, $expires);
 	if ($cached) return $cached;
-
 	$ch=curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -223,7 +222,7 @@ function print_header($restaurant)
 
 function print_footer() {
 	echo "\n\t\t<hr>";
-	echo "\n\t\t" . '<p class="footer">Základy této stránky kdysi dávno vytvořil <a href="http://www.fit.vutbr.cz/~igrochol/">David Grochol</a>. <a href="https://michalwiglasz.cz">Michal Wiglasz</a> ji upravil, aby vypadala trochu k světu a nenačítala se půl dne, a propůjčil hosting a doménu. Máme i <a href="?json">výstup v JSONu</a> pro strojové zpracování a <a href="https://github.com/michalwiglasz/obed.michalwiglasz.cz">GitHub</a>, kam můžete psát připomínky a posílat patche.</p>' . "\n";
+	echo "\n\t\t" . '<p class="footer">Zdroj na <a href="https://github.com/davidgrochol/obed.michalwiglasz.cz">GitHub</a>' .  "\n";
 }
 
 function print_subheader($title)

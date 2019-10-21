@@ -522,9 +522,11 @@ class simple_html_dom_node
                 $ret = array();
                 foreach ($head as $k=>$v)
                 {
+                    
                     $n = ($k===-1) ? $this->dom->root : $this->dom->nodes[$k];
                     //PaperG - Pass this optional parameter on to the seek function.
                     $n->seek($selectors[$c][$l], $ret, $lowercase);
+                    echo $lowercase;
                 }
                 $head = $ret;
             }
@@ -540,9 +542,10 @@ class simple_html_dom_node
         ksort($found_keys);
 
         $found = array();
-        foreach ($found_keys as $k=>$v)
+        
+        foreach ($found_keys as $k=>$v){
             $found[] = $this->dom->nodes[$k];
-
+        }
         // return nth-element or array
         if (is_null($idx)) return $found;
         else if ($idx<0) $idx = count($found) + $idx;
@@ -680,16 +683,15 @@ class simple_html_dom_node
 // Notice the \[ starting the attbute?  and the @? following?  This implies that an attribute can begin with an @ sign that is not captured.
 // This implies that an html attribute specifier may start with an @ sign that is NOT captured by the expression.
 // farther study is required to determine of this should be documented or removed.
-//        $pattern = "/([\w-:\*]*)(?:\#([\w-]+)|\.([\w-]+))?(?:\[@?(!?[\w-]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
-        $pattern = "/([\w-:\*]*)(?:\#([\w-]+)|\.([\w-]+))?(?:\[@?(!?[\w-:]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
+        //$pattern = "/([\w\-:\*]*)(?:\#([\w\-]+)|\.([\w\-]+))?(?:\[@?(!?[\w\-]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
+        $pattern = "/([\w\-:\*]*)(?:\#([\w\-]+)|\.([\w\-]+))?(?:\[@?(!?[\w\-:]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
         preg_match_all($pattern, trim($selector_string).' ', $matches, PREG_SET_ORDER);
         if (is_object($debugObject)) {$debugObject->debugLog(2, "Matches Array: ", $matches);}
 
         $selectors = array();
         $result = array();
-        //print_r($matches);
-
         foreach ($matches as $m) {
+            
             $m[0] = trim($m[0]);
             if ($m[0]==='' || $m[0]==='/' || $m[0]==='//') continue;
             // for browser generated xpath

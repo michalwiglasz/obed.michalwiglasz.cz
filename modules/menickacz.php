@@ -27,7 +27,6 @@ class MenickaCz extends LunchMenuSource {
 		}
 
 		$result = new LunchMenuResult($cached['stored']);
-
 		foreach ($todayBlock->find("ul li") as $dish) {
 			$nameTag = $dish->find("div.polozka", 0);
 			$priceTag = $dish->find("div.cena", 0);
