@@ -15,6 +15,10 @@ class Nepal extends LunchMenuSource
 		$today = mb_strtolower(date('l', $todayDate));
 		$group = NULL;
 
+		if (!$table) {
+			throw new ScrapingFailedException(".the_content_wrapper table not found");
+		}
+
 		$withinToday = FALSE;
 		foreach ($table->find('tr') as $tr) {
 			$span = $tr->find('span', 0);
