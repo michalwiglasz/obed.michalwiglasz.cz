@@ -28,7 +28,7 @@ $sources = [
 	new Source(new Zomato(18318157, 'Semilasso', 'http://restaurace-semilasso.cz/', 'semilasso')),
 	//new Source(new Kralovska),
 	new Source(new KlubCestovatelu),
-	new Source(new MenickaCz(5335, 'Správné místo', 'http://spravnemisto.cz/', 'spravnemisto')),
+	new Source(new Zomato(18563357, 'Správné místo', 'http://spravnemisto.cz/', 'spravnemisto')),
 	new Source(new MenickaCz(3874, 'U Mušketýra', 'https://www.musketyrbrno.cz/', 'musketyr')),
 	new Source(new Zomato(18398018, 'U Hřebíčků', 'https://www.facebook.com/uhrebicku/', 'uhrebicku')),
 	new Source(new MenickaCz(4919, 'Borgeska', 'https://www.restauraceborgeska.cz/', 'borgeska')),
