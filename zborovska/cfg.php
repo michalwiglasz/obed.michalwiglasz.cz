@@ -12,9 +12,11 @@ if (isset($_GET['force'])) {
 }
 
 $sources = [
+	new Source(new Viva),
 	new Source(new LaCorrida),
+	new Source(new MenickaCz(2663, 'Korzár', 'http://www.korzar.com/cz/', 'korzar')),
+	new Source(new MenickaCz(6023, 'Flames', 'https://www.flames-grill.cz/', 'flames')),
 	new Source(new MenickaCz(2749, 'Rubín', 'http://restauracerubin.cz/', 'rubin')),
-	new Source(new MenickaCz(2663, 'Korzár', 'http://www.korzar.com/cz/', 'musketyr')),
-	new Source(new MenickaCz(3185, 'Zelená kočka', 'https://www.zelenakocka.cz/', 'kocka')),
 	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
+	new Source(new MenickaCz(3185, 'Zelená kočka', 'https://www.zelenakocka.cz/', 'kocka')),
 ];
