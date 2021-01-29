@@ -1,36 +1,12 @@
 <?php
 
-ini_set('display_errors', 'off');
-require_once dirname(__FILE__) . '/lib.php';
-require_once dirname(__FILE__) . '/cfg.php';
-
-$menus = collect_menus($sources, $cache_default_interval);
-
-if (isset($_GET['json'])) {
-	print_json($root, $menus);
-	die;
+if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+	$_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
 }
 
-header('content-type: text/html; charset=utf-8');
-print_html_head($root);
-?>
+if ($_SERVER['REMOTE_ADDR'] == '89.177.97.105') {
+	header("Location: /zborovska");
+	exit(0);
+}
 
-<body>
-	<div id="body">
-<?php
-
-/* ---------------------------------------------------------------------------*/
-
-print_infobox();
-
-/* ---------------------------------------------------------------------------*/
-
-print_html($root, $menus);
-
-/* ---------------------------------------------------------------------------*/
-
-print_footer();
-
-?>
-	</div>
-</body>
+header("Location: /fit");
