@@ -1,6 +1,6 @@
 <?php
 
-$root = "https://obed.michalwiglasz.cz/embedit";
+$root = "https://obed.obed.eu/zborovska";
 $cache_default_interval = 60 * 60; // 1 hour
 $cache_menza_interval = 60;  // 1 minute
 $cache_html_interval = $cache_default_interval - 10;
