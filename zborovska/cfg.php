@@ -18,7 +18,6 @@ $sources = [
 	new Source(new MenickaCz(6023, 'Flames', 'https://www.flames-grill.cz/', 'flames')),
 	new Source(new MenickaCz(2749, 'Rubín', 'http://restauracerubin.cz/', 'rubin')),
 	new Source(new MenickaCz(6388, 'U Mlsných koček', 'https://umlsnychkocek.metro.bar/', 'umlsnychkocek')),
-	new Source(new MenickaCz(5350, 'Restaurace U Putchy', 'https://putcha.webnode.cz/', 'putcha')),
 	new Source(new Zomato(16506040, 'Šelepka', 'http://www.selepova.cz/denni-menu/', 'selepka')),
 	new Source(new MenickaCz(3882, 'Naber si', 'http://nabersi.cz/', 'nabersi')),
 	new Source(new MenickaCz(3185, 'Zelená kočka', 'https://www.zelenakocka.cz/', 'kocka')),
