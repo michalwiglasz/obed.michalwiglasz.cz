@@ -29,6 +29,7 @@ $sources = [
 	new Source(new MenickaCz(3874, 'U Mušketýra', 'https://www.musketyrbrno.cz/', 'musketyr')),
 	new Source(new Zomato(18398018, 'U Hřebíčků', 'https://www.facebook.com/uhrebicku/', 'uhrebicku')),
 	new Source(new MenickaCz(4919, 'Borgeska', 'https://www.restauraceborgeska.cz/', 'borgeska')),
+	new Source(new BioBistroSpirala),
 ];
 
 
