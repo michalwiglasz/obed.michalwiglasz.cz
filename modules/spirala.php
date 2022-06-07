@@ -20,8 +20,7 @@ class BioBistroSpirala extends LunchMenuSource
 			$content = $cached['html']->find("div.content", 0);
 			$source_day = $content->find("h2", 0);
 
-			$regexp = '(' . get_czech_day(date('w', $todayDate)) . ')i';
-			if (!preg_match($regexp, $source_day->plaintext)) {
+			if (!mb_eregi(get_czech_day(date('w', $todayDate)), $source_day->plaintext)) {
 				return $result;
 			}
 
