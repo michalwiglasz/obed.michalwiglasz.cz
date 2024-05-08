@@ -5,13 +5,13 @@ class BioBistroSpirala extends LunchMenuSource
 	public $title = 'Bio Bistro Spirála';
 	public $link = 'http://bio-restaurace.cz/';
 	public $sourceLink = 'http://bio-restaurace.cz/?p=menu';
-	public $icon = 'spirala';
+	public $icon = 'spirala.svg';
 
 	public function getTodaysMenu($todayDate, $cacheSourceExpires)
 	{
+		$cached = $this->downloadHtml($cacheSourceExpires);
 		$result = new LunchMenuResult($cached['stored']);
 
-		$cached = $this->downloadHtml($cacheSourceExpires);
 		if (!$cached['html']) {
 			throw new ScrapingFailedException("No html returned");
 		}
