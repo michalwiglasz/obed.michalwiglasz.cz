@@ -23,7 +23,7 @@ $sources = [
 	new Source(new MenickaCz(8483, 'Pad Thai', 'http://www.padthairestaurace.cz', 'thailand')),
 	new Source(new Nepal),
 	new Source(new MenickaCz(6718, 'Krakonoš', 'https://restauracekrakonos.cz', 'krakonos')),
-	new Source(new MenickaCz(2767, 'Yvy Restaurant', 'http://www.yvy.cz/', 'yvy')),
+	new Source(new MenickaCz(2767, 'Yvy Restaurant', 'http://www.yvy.cz/', 'yvy.svg')),
 	new Source(new MenickaCz(5335, 'Správné místo', 'http://spravnemisto.cz/', 'spravnemisto')),
 	new Source(new MenickaCz(3874, 'U Mušketýra', 'https://www.musketyrbrno.cz/', 'musketyr')),
 	new Source(new MenickaCz(4919, 'Borgeska', 'https://www.restauraceborgeska.cz/', 'borgeska')),
