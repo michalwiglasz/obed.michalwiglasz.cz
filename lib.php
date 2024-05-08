@@ -66,27 +66,6 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
 
 <meta http-equiv="refresh" content="3600">
-<meta property="og:title" content="Jíííídlooooo">
-<meta property="og:description" content="' . escape_text($description) . '">
-<meta property="og:url" content="' . $root . '">
-<meta property="og:image" content="/GxMLDqy.gif">
-
-<meta name="twitter:card" value="summary_large_image">
-<meta name="twitter:domain" value="obed.michalwiglasz.cz">
-<meta name="twitter:title" value="Jíííídlooooo">
-<meta name="twitter:description" value="' . escape_text($description) . '">
-<meta name="twitter:url" value="' . $root . '">
-<meta name="twitter:image" value="/GxMLDqy.gif">
-
-<!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31464798-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments)};
-  gtag("js", new Date());
-
-  gtag("config", "UA-31464798-2");
-</script>
 
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -96,7 +75,16 @@ function print_html_head($root, $description='Denní menu restaurací v okolí')
 <script src="/script.js?' . filemtime(__DIR__ . '/script.js') . '"></script>
 
 <title>Jíííídlooooo</title>
-<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="shortcut icon" href="/favicon/favicon.svg">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="/style.css?' . filemtime(__DIR__ . '/style.css') . '" rel="stylesheet" type="text/css">
 	';
