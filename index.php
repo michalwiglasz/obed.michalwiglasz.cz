@@ -1,5 +1,8 @@
 <?php
 
+header("Location: /doma");
+die;
+
 ini_set('display_errors', 'off');
 require_once dirname(__FILE__) . '/lib.php';
 require_once dirname(__FILE__) . '/cfg.php';
