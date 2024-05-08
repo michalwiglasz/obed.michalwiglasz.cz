@@ -209,8 +209,9 @@ function print_header($restaurant)
 	if ($restaurant->icon) {
 		$id = 'r-' . md5(spl_object_hash($restaurant));
 		$icon = strpos($restaurant->icon, '.') === FALSE? $restaurant->icon . '.png' : $restaurant->icon;
-		echo "<style>h1#$id.emoji.$restaurant->icon:after { background-image: url('/logos/$icon'); }</style>";
-		echo "<h1 id=\"$id\" class=\"emoji $restaurant->icon\">";
+		$iconClass = webalize($restaurant->icon);
+		echo "<style>h1#$id.emoji.$iconClass:before, #panel-picker-menu li.emoji.$iconClass:before { background-image: url('/logos/$icon'); }</style>";
+		echo "<h1 id=\"$id\" class=\"emoji $iconClass\">";
 	}
 	else echo '<h1>';
 	echo escape_text($restaurant->title) . "</h1>\n";
@@ -272,10 +273,13 @@ function print_dish($dish)
 	echo "\t\t\t</li>\n";
 }
 
-function print_error($what)
+function print_error($what, $details = null)
 {
 	print_dishes_prologue();
 	echo "\t\t\t\t" . '<span class="error">' . escape_text($what) . '</span>' . "\n";
+	if ($details) {
+		echo "\t\t\t\t" . '<span class="error-details">' . escape_text($details) . '</span>' . "\n";
+	}
 	print_dishes_epilogue();
 }
 
@@ -357,7 +361,7 @@ function print_html($root, $menus)
 		print_header($restaurant);
 
 		if ($restaurant->error) {
-			print_error('Nepodařilo se načíst menu.');
+			print_error('Nepodařilo se načíst menu.', $restaurant->error);
 
 		} else {
 			if (count($restaurant->dishes)) {

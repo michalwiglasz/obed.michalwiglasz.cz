@@ -80,25 +80,27 @@ h1:first-child {
     margin-bottom: 7px;
 }
 
-h1.emoji:after {
-    background-position: center right;
+h1.emoji:before {
+    background-position: center left;
     background-repeat: no-repeat;
     background-size: contain;
     display: inline;
     content: "";
-    padding-right: 1.7em;
+    padding-right: 1.5em;
+    margin-right: 0.4em;
 }
 
-#panel-picker-menu li.emoji:after {
-    background-position: center right;
+#panel-picker-menu li.emoji:before {
+    background-position: center left;
     background-repeat: no-repeat;
     background-size: contain;
     display: inline;
     content: "";
-    padding-right: 1.7em;
+    padding-right: 1.5em;
+    margin-right: 0.4em;
 }
 
-.emoji.monkey:after {padding-right: 5.1em !important /*padding-right: 4.3em*/}
+.emoji.monkey:before {padding-right: 5.1em !important /*padding-right: 4.3em*/}
 
 h1#panel {
     position: fixed;
@@ -235,4 +237,9 @@ li .price-zamestnanec {
 li .price-externi-stravnik {
     color: #a0a0a0;
     font-weight: normal;
+}
+
+.error-details {
+    font-size: 60%;
+    color: #a0a0a0;
 }
