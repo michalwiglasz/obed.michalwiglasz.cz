@@ -3,3 +3,4 @@ fonts/*
 deployment.ini
 deployment.log
 vendor
+.DS_Store
