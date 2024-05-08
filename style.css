@@ -66,18 +66,25 @@ hr {
     max-width: 900px;
 }
 
+.scroll-anchor {
+    scroll-margin-top: -1.5rem;
+}
+
 h1 {
     color: #e4002b;
-    font-size: 150%;
+    font-size: 1.5rem;
     font-weight: normal;
     margin-bottom: 3px;
     margin-top: 1em;
     white-space: nowrap;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 0.2em 0;
 }
 
-h1:first-child {
-    margin-top: -4px;
-    margin-bottom: 7px;
+h1:first-of-type {
+    margin-top: 0;
 }
 
 h1.emoji:before {
@@ -146,6 +153,9 @@ h1#panel {
     margin: 0;
     padding: 0;
     box-shadow: -5px 5px 5px 0px rgba(240,240,240,1);
+
+    max-height: calc(100vh - 8rem);
+    overflow-y: scroll;
 }
 
 #panel-picker-menu li {

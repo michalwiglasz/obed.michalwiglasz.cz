@@ -199,6 +199,7 @@ function print_header($restaurant)
 		$icon = strpos($restaurant->icon, '.') === FALSE? $restaurant->icon . '.png' : $restaurant->icon;
 		$iconClass = webalize($restaurant->icon);
 		echo "<style>h1#$id.emoji.$iconClass:before, #panel-picker-menu li.emoji.$iconClass:before { background-image: url('/logos/$icon'); }</style>";
+		echo "<div id=\"d-$id\" class=\"scroll-anchor\"></div>";
 		echo "<h1 id=\"$id\" class=\"emoji $iconClass\">";
 	}
 	else echo '<h1>';
